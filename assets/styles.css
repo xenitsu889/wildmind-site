@@ -69,6 +69,14 @@
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
   --max: 1240px;
+  /* Responsive breakpoints (used in assets/responsive.css) */
+  --bp-ultrawide: 1600px;
+  --bp-desktop-min: 901px;
+  --bp-tablet-lg: 1100px;
+  --bp-tablet: 768px;
+  --bp-mobile-lg: 640px;
+  --bp-mobile: 480px;
+  --bp-mobile-sm: 390px;
   --radius-sm: 6px;
   --radius: 10px;
   --radius-lg: 16px;

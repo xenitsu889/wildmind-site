@@ -11,6 +11,12 @@
     document.documentElement.setAttribute('data-theme', 'dark');
   }
 
+  try {
+    if (window.matchMedia('(hover: none)').matches) {
+      document.documentElement.setAttribute('data-input', 'touch');
+    }
+  } catch (e) {}
+
   document.addEventListener('DOMContentLoaded', function () {
     var toggle = document.querySelector('.theme-toggle');
     if (toggle) {

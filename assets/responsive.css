@@ -1,0 +1,434 @@
+/* ============================================================
+   WILDMIND — RESPONSIVE LAYER (desktop-frozen)
+   All rules here are scoped to sub-desktop viewports or ultrawide
+   padding only. Desktop layout at 901px+ is unchanged by design.
+   ============================================================ */
+
+/* ── 1. Ultrawide (composition containment, no width stretch) ── */
+@media (min-width: 1600px) {
+  .container {
+    padding-inline: clamp(32px, 5vw, 96px);
+  }
+
+  body::before {
+    mask-image: radial-gradient(ellipse at 50% 12%, black 6%, transparent 72%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 12%, black 6%, transparent 72%);
+  }
+}
+
+/* ── 2. Tablet landscape (901px – 1100px) ── */
+@media (max-width: 1100px) and (min-width: 901px) {
+  .cap-featured-content {
+    padding: 36px 32px;
+  }
+
+  .cap-featured-visual {
+    padding: 28px 20px;
+  }
+
+  .cap-grid {
+    gap: 12px;
+  }
+
+  .cap-item--wide {
+    grid-column: span 6;
+  }
+
+  .cap-item:not(.cap-item--wide):not(.cap-item--accent) {
+    grid-column: span 6;
+  }
+
+  .stack-layout {
+    gap: 56px;
+  }
+
+  .process-layout {
+    gap: 56px;
+  }
+
+  .project-gallery {
+    gap: 16px;
+  }
+
+  .project-tile {
+    min-height: 300px;
+  }
+
+  .project-tile--featured {
+    min-height: clamp(340px, 38vw, 460px);
+  }
+}
+
+/* ── 3. Tablet portrait & below: fluid spacing tokens ── */
+@media (max-width: 900px) {
+  :root {
+    --section-pad-y: clamp(64px, 11vw, 80px);
+    --container-pad-x: clamp(18px, 4.5vw, 24px);
+    --stack-gap: clamp(32px, 6vw, 48px);
+  }
+
+  section {
+    padding: var(--section-pad-y) 0;
+  }
+
+  .container {
+    padding-inline: var(--container-pad-x);
+  }
+
+  nav.site-nav {
+    padding-top: max(14px, env(safe-area-inset-top, 0px));
+    padding-left: var(--container-pad-x);
+    padding-right: var(--container-pad-x);
+  }
+
+  .theme-toggle,
+  .menu-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* ── 4. Work / project gallery (consolidated mobile editorial) ── */
+@media (max-width: 900px) and (min-width: 768px) {
+  .project-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .project-tile,
+  .project-tile--featured {
+    min-height: 0;
+  }
+
+  .project-tile--featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(200px, 34vw) auto;
+    min-height: 0;
+  }
+
+  .project-tile-copy,
+  .project-tile--featured .project-tile-copy {
+    padding: 22px 24px 26px;
+  }
+}
+
+@media (max-width: 767px) {
+  #work .project-gallery {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 4px;
+  }
+
+  .project-tile,
+  .project-tile--featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(200px, 42vw) auto;
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .project-tile--featured {
+    grid-column: auto;
+  }
+
+  .project-tile-visual {
+    min-height: 0;
+  }
+
+  .project-tile-copy,
+  .project-tile--featured .project-tile-copy {
+    padding: 22px 22px 26px;
+  }
+
+  .project-tile h3 {
+    font-size: clamp(22px, 5.5vw, 28px);
+  }
+
+  .project-tile p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* Hidden editorial blocks: keep borderless language if ever shown */
+  .work-editorial .secondary-card,
+  .work-editorial .secondary-card--heritage {
+    grid-template-columns: 1fr;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .work-editorial .secondary-visual {
+    height: 190px;
+    min-height: 190px;
+    border-radius: 14px;
+    border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+    margin-bottom: 22px;
+  }
+
+  .work-editorial .secondary-content {
+    padding: 0;
+  }
+}
+
+/* ── 5. Large mobile (≤640px) ── */
+@media (max-width: 640px) {
+  :root {
+    --section-pad-y: clamp(56px, 14vw, 72px);
+    --container-pad-x: clamp(16px, 4vw, 20px);
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 9.5vw, 44px);
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 4.2vw, 17px);
+  }
+
+  .section-head h2,
+  .services-intro h2,
+  .work-intro-row h2 {
+    font-size: clamp(28px, 7.5vw, 34px);
+  }
+
+  .work-intro-row p,
+  .services-intro p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .cap-item {
+    min-height: 0;
+    padding: 28px 22px;
+  }
+
+  .cap-featured-content {
+    padding: 28px 22px;
+  }
+
+  .cap-featured-visual {
+    min-height: 240px;
+  }
+
+  .stack-layout {
+    gap: var(--stack-gap);
+  }
+
+  .stack-layer {
+    padding: 22px 20px;
+  }
+
+  .stack-tech-rest {
+    gap: 8px 10px;
+    line-height: 1.5;
+  }
+
+  .process-step {
+    padding: 24px 0;
+  }
+
+  .why-principle {
+    padding: 22px 0;
+    gap: 16px;
+  }
+
+  .why-p-num {
+    font-size: 11px;
+    min-width: 28px;
+  }
+
+  .marquee-track--bleed {
+    padding: 18px 0 22px;
+    min-height: 88px;
+  }
+
+  .client-logo-item {
+    width: 148px;
+    height: 60px;
+  }
+
+  .client-logo-item img {
+    max-width: 148px;
+    max-height: 48px;
+  }
+
+  .project-tile,
+  .project-tile--featured {
+    grid-template-rows: minmax(190px, 48vw) auto;
+  }
+}
+
+/* ── 6. Standard mobile (≤480px) ── */
+@media (max-width: 480px) {
+  :root {
+    --section-pad-y: 56px;
+    --container-pad-x: 16px;
+  }
+
+  .hero {
+    padding-top: max(108px, calc(100px + env(safe-area-inset-top, 0px)));
+  }
+
+  .hero-sub,
+  .cap-item p,
+  .why-principle p,
+  .process-step p,
+  .stack-anchor-sub {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .cap-featured-tags {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .cta-contact-item {
+    min-height: 48px;
+    padding: 12px 0;
+  }
+
+  .footer-conversation {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .btn,
+  .nav-cta {
+    min-height: 44px;
+  }
+
+  #work .project-gallery {
+    gap: 18px;
+  }
+}
+
+/* ── 7. Small mobile (≤390px) ── */
+@media (max-width: 390px) {
+  :root {
+    --section-pad-y: 52px;
+    --container-pad-x: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 9vw, 38px);
+    letter-spacing: -0.03em;
+  }
+
+  .hero-stats {
+    gap: 20px 0;
+  }
+
+  .cap-featured-tags {
+    grid-template-columns: 1fr;
+  }
+
+  .cap-featured-tags span {
+    border-right: none !important;
+  }
+
+  .project-tile,
+  .project-tile--featured {
+    grid-template-rows: 180px auto;
+    border-radius: 16px;
+  }
+
+  .project-tile-copy,
+  .project-tile--featured .project-tile-copy {
+    padding: 18px 18px 22px;
+  }
+
+  .marquee-group {
+    gap: 56px;
+    padding-right: 56px;
+  }
+
+  .client-logo-item {
+    width: 132px;
+    height: 54px;
+  }
+
+  .client-logo-item img {
+    max-width: 132px;
+    max-height: 44px;
+  }
+}
+
+/* ── 8. Touch / coarse pointer (hover alternatives) ── */
+@media (hover: none) {
+  .cap-grid:has(.cap-item:hover) .cap-item:not(:hover),
+  .process-steps:has(.process-step:hover) .process-step:not(:hover),
+  .why-proof:has(.why-principle:hover) .why-principle:not(:hover) {
+    opacity: 1;
+  }
+
+  .project-tile:hover,
+  .cap-item:hover,
+  .work-featured:hover,
+  .secondary-card:hover,
+  .stack-layer:hover {
+    transform: none;
+  }
+
+  .project-tile:active {
+    border-color: var(--border-strong);
+    opacity: 0.96;
+  }
+
+  .cap-item:active {
+    border-color: var(--border-strong);
+  }
+
+  .btn-primary:active,
+  .nav-cta:active {
+    transform: scale(0.98);
+  }
+}
+
+html[data-input="touch"] .project-tile:focus-visible,
+html[data-input="touch"] .cap-item:focus-visible,
+html[data-input="touch"] .btn:focus-visible,
+html[data-input="touch"] .theme-toggle:focus-visible,
+html[data-input="touch"] .menu-toggle:focus-visible,
+html[data-input="touch"] .case-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ── 9. Landscape phones & safe areas ── */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  .hero {
+    padding-top: 96px;
+    padding-bottom: 32px;
+  }
+
+  .hero-proof {
+    margin-top: 32px;
+  }
+
+  .hero-stats {
+    padding: 16px 0;
+  }
+}
+
+@supports (padding: max(0px)) {
+  @media (max-width: 900px) {
+    nav.site-nav {
+      padding-left: max(var(--container-pad-x), env(safe-area-inset-left));
+      padding-right: max(var(--container-pad-x), env(safe-area-inset-right));
+    }
+  }
+}
