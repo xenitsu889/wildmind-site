@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" width="220" height="80">
+  <!-- House/building mark -->
+  <g transform="translate(0,4)">
+    <!-- Roof triangle -->
+    <polygon points="34,8 56,28 12,28" fill="#1a3a6b"/>
+    <!-- Building body -->
+    <rect x="16" y="28" width="36" height="30" fill="#1a3a6b"/>
+    <!-- Door -->
+    <rect x="28" y="42" width="12" height="16" fill="white"/>
+    <!-- Windows -->
+    <rect x="19" y="32" width="8" height="7" fill="white"/>
+    <rect x="41" y="32" width="8" height="7" fill="white"/>
+    <!-- "AR" initials on roof area -->
+    <text x="34" y="25" font-family="Arial" font-size="9" font-weight="bold" fill="white" text-anchor="middle">AR</text>
+  </g>
+  <!-- Wordmark -->
+  <text x="68" y="30" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#1a3a6b" letter-spacing="-0.3">Aditya</text>
+  <text x="68" y="50" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#1a3a6b" letter-spacing="0.5">CHEMICALS</text>
+</svg>

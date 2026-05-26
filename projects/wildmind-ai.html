@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Wildmind AI — Case Study. A full-stack generative AI SaaS platform serving 500+ concurrent users with image, video, music, and multi-modal generation pipelines." />
+<meta name="theme-color" content="#ffffff" />
+<title>Wildmind AI — Case Study · Wildmind Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body data-page="work" data-base="../">
+
+<div id="nav-slot"></div>
+
+<div class="container">
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="../index.html#work">Work</a>
+    <span class="sep">/</span>
+    <span class="current">Wildmind AI</span>
+  </nav>
+
+  <!-- Hero -->
+  <section class="project-hero">
+    <div class="project-hero-inner">
+      <div class="project-hero-content reveal">
+        <div class="project-hero-meta">
+          <span class="case-tag">Flagship Product</span>
+          <span class="case-status"><span class="status-dot"></span>Live in production</span>
+        </div>
+        <h1>Wildmind AI</h1>
+        <p class="project-hero-desc">
+          A full-stack generative AI SaaS platform combining image, video, music, ad, song, and product generation in a unified creative studio — with an intelligent assistant, integrated payments, and a credits-based economy.
+        </p>
+        <div class="project-hero-actions">
+          <a href="../contact.html" class="btn btn-primary">Start a similar project <span class="arrow">→</span></a>
+          <a href="../index.html#work" class="btn btn-secondary">Back to work</a>
+        </div>
+      </div>
+      <div class="project-hero-visual reveal">
+        <img src="../assets/logos/wildmind-icon.svg" alt="Wildmind AI" class="project-hero-logo" />
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Metrics bar -->
+<div class="container">
+  <div class="project-metrics reveal">
+    <div class="project-metric">
+      <div class="m-num">500<span class="accent">+</span></div>
+      <div class="m-lbl">Concurrent users</div>
+    </div>
+    <div class="project-metric">
+      <div class="m-num">6</div>
+      <div class="m-lbl">GenAI pipelines</div>
+    </div>
+    <div class="project-metric">
+      <div class="m-num">40<span class="accent">%</span></div>
+      <div class="m-lbl">Latency reduction</div>
+    </div>
+    <div class="project-metric">
+      <div class="m-num">10K<span class="accent">+</span></div>
+      <div class="m-lbl">Media assets managed</div>
+    </div>
+  </div>
+</div>
+
+<!-- Problem -->
+<section class="project-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="project-section-label">01 — Problem</div>
+      <h2>The generative AI landscape was fragmented.</h2>
+      <p class="project-section-body">
+        Creators and businesses needed to work across multiple disconnected tools — one for images, another for video, another for music — with no unified workflow, no shared asset library, and no intelligent orchestration layer. Every provider had a different API, different pricing model, and different quality profile. Building on top of them required constant re-integration.
+      </p>
+      <p class="project-section-body">
+        The challenge was to build a single platform that abstracted all of this complexity — giving users a seamless creative studio while giving the business full control over provider routing, cost management, and quality optimization.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Solution -->
+<section class="project-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="project-section-label">02 — Solution</div>
+      <h2>A unified AI studio with intelligent orchestration.</h2>
+      <p class="project-section-body">
+        We designed and built Wildmind AI from the ground up — a multi-tenant SaaS platform with a unified generation studio, an intelligent assistant that orchestrates multi-step creative workflows, a credits-based economy with Razorpay integration, and a provider abstraction layer that routes requests to the optimal AI model based on task type, cost, and latency.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="project-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="project-section-label">03 — Features</div>
+      <h2>What we built.</h2>
+    </div>
+    <div class="feature-grid reveal">
+      <div class="feature-item">
+        <div class="f-num">/01</div>
+        <h4>Multi-modal Generation Studio</h4>
+        <p>Unified interface for image, video, music, ad creative, song, and product generation — all from a single workspace with shared asset management.</p>
+      </div>
+      <div class="feature-item">
+        <div class="f-num">/02</div>
+        <h4>Intelligent AI Assistant</h4>
+        <p>A conversational assistant that understands creative intent, gathers requirements, proposes workflows, and executes multi-step generation pipelines on behalf of the user.</p>
+      </div>
+      <div class="feature-item">
+        <div class="f-num">/03</div>
+        <h4>Provider Orchestration Layer</h4>
+        <p>Abstraction layer routing requests across Fal AI, Runway ML, MinMax, BFL Flux, and OpenAI — with automatic fallback, cost optimization, and latency monitoring.</p>
+      </div>
+      <div class="feature-item">
+        <div class="f-num">/04</div>
+        <h4>Credits Economy &amp; Billing</h4>
+        <p>Flexible credit system with Razorpay integration, subscription tiers, usage tracking, and real-time balance management across all generation types.</p>
+      </div>
+      <div class="feature-item">
+        <div class="f-num">/05</div>
+        <h4>Async Queue Architecture</h4>
+        <p>Bull-based job queues handling 2,000+ daily AI requests with priority lanes, retry logic, and real-time status updates via WebSockets.</p>
+      </div>
+      <div class="feature-item">
+        <div class="f-num">/06</div>
+        <h4>Media Asset Pipeline</h4>
+        <p>Automated S3 pipeline managing 10,000+ media assets with CDN delivery, thumbnail generation, and organized per-user asset libraries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section class="project-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="project-section-label">04 — Architecture</div>
+      <h2>Built for scale from day one.</h2>
+      <p class="project-section-body">
+        Microservices architecture with a NestJS API gateway, async job queues, Redis caching, and PostgreSQL with Prisma ORM. The frontend is a Next.js App Router application with Redux Toolkit for state management and real-time updates via WebSockets.
+      </p>
+    </div>
+    <div class="arch-grid reveal">
+      <div class="arch-item">
+        <h4>Frontend</h4>
+        <div class="arch-tags">
+          <span class="arch-tag">Next.js 14</span>
+          <span class="arch-tag">TypeScript</span>
+          <span class="arch-tag">Redux Toolkit</span>
+          <span class="arch-tag">Tailwind CSS</span>
+          <span class="arch-tag">WebSockets</span>
+        </div>
+      </div>
+      <div class="arch-item">
+        <h4>Backend</h4>
+        <div class="arch-tags">
+          <span class="arch-tag">NestJS</span>
+          <span class="arch-tag">Node.js</span>
+          <span class="arch-tag">PostgreSQL</span>
+          <span class="arch-tag">Prisma</span>
+          <span class="arch-tag">Redis</span>
+          <span class="arch-tag">Bull Queues</span>
+        </div>
+      </div>
+      <div class="arch-item">
+        <h4>AI Providers</h4>
+        <div class="arch-tags">
+          <span class="arch-tag">Fal AI</span>
+          <span class="arch-tag">Runway ML</span>
+          <span class="arch-tag">MinMax</span>
+          <span class="arch-tag">BFL Flux</span>
+          <span class="arch-tag">OpenAI</span>
+          <span class="arch-tag">Claude</span>
+        </div>
+      </div>
+      <div class="arch-item">
+        <h4>Infrastructure</h4>
+        <div class="arch-tags">
+          <span class="arch-tag">AWS S3</span>
+          <span class="arch-tag">AWS Lambda</span>
+          <span class="arch-tag">Docker</span>
+          <span class="arch-tag">PM2</span>
+          <span class="arch-tag">Razorpay</span>
+          <span class="arch-tag">Vercel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="project-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="project-section-label">05 — Results</div>
+      <h2>Engineering that ships and scales.</h2>
+    </div>
+    <div class="results-grid reveal">
+      <div class="result-item">
+        <div class="r-num">500<span class="accent">+</span></div>
+        <h4>Concurrent users</h4>
+        <p>Platform handles 500+ simultaneous users with sub-second response times on the UI layer and async processing for generation tasks.</p>
+      </div>
+      <div class="result-item">
+        <div class="r-num">40<span class="accent">%</span></div>
+        <h4>Latency reduction</h4>
+        <p>Provider routing and Redis caching reduced average generation response latency by 40% compared to direct single-provider integration.</p>
+      </div>
+      <div class="result-item">
+        <div class="r-num">60<span class="accent">%</span></div>
+        <h4>Faster provider onboarding</h4>
+        <p>Unified adapter pattern reduced time to integrate a new AI provider from weeks to days — a 60% reduction in onboarding effort.</p>
+      </div>
+      <div class="result-item">
+        <div class="r-num">2K<span class="accent">+</span></div>
+        <h4>Daily AI requests</h4>
+        <p>Queue-based microservices process 2,000+ daily generation requests with 99.9% completion rate and automatic retry on transient failures.</p>
+      </div>
+    </div>
+
+    <!-- Project nav -->
+    <div class="project-nav">
+      <div></div>
+      <a href="aditya-chemicals.html" class="project-nav-item next">
+        <span class="nav-dir">Next project →</span>
+        <span class="nav-title">Aditya Chemicals</span>
+        <span class="nav-sub">Digital Operations Platform</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+
+<script src="../assets/partials.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>
