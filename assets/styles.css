@@ -707,6 +707,23 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   border-radius: 4px;
 }
 
+/* Wildmind AI asset is white-on-black; invert on light theme (same as nav .brand-logo) */
+.trust-strip .client-logo-item img[src*="wildmind_ai"] {
+  filter: grayscale(1) brightness(1.05) invert(1);
+}
+
+.trust-strip .client-logo-item:hover img[src*="wildmind_ai"] {
+  filter: grayscale(0) brightness(1) invert(1);
+}
+
+[data-theme="dark"] .trust-strip .client-logo-item img[src*="wildmind_ai"] {
+  filter: grayscale(1) brightness(1.05);
+}
+
+[data-theme="dark"] .trust-strip .client-logo-item:hover img[src*="wildmind_ai"] {
+  filter: grayscale(0) brightness(1);
+}
+
 .client-name {
   font-size: 15px;
   font-weight: 600;
