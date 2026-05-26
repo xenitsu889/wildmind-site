@@ -603,7 +603,7 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   color: var(--text-faint);
   font-size: 11px;
   letter-spacing: 0.12em;
-  margin-bottom: 36px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   font-weight: 500;
   font-family: var(--font-mono);
@@ -618,26 +618,35 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   flex-wrap: wrap;
 }
 
-/* ── Mobile: marquee track ── */
+/* ── Marquee track ── */
 .marquee-track {
-  display: none;
+  display: block;
   overflow: hidden;
   width: 100%;
-  /* CSS mask for buttery edge fade — no background color bleed */
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 10%,
-    black 90%,
+    black 6%,
+    black 94%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 10%,
-    black 90%,
+    black 6%,
+    black 94%,
     transparent 100%
   );
+}
+
+.marquee-track--bleed {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 28px;
+  padding: 28px 0 32px;
+  min-height: 120px;
 }
 .marquee-logos {
   display: flex;
@@ -650,10 +659,10 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
 }
 .marquee-group {
   display: flex;
-  gap: 80px;
+  gap: 100px;
   align-items: center;
   flex-shrink: 0;
-  padding-right: 80px;
+  padding-right: 100px;
 }
 .marquee-track:hover .marquee-logos { animation-play-state: paused; }
 @keyframes logoScroll {
@@ -665,37 +674,35 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
 .client-logo-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  opacity: 0.5;
-  filter: grayscale(100%);
-  transition: opacity 0.35s ease, filter 0.35s ease;
+  width: 200px;
+  height: 80px;
   cursor: default;
+  transition: transform 0.35s ease;
 }
+
 .client-logo-item:hover {
-  opacity: 1;
-  filter: grayscale(20%);
+  transform: translateY(-1px);
 }
+
 .client-logo-item img {
   display: block;
-  max-width: none;
-  object-fit: contain;
-  height: 36px;
+  max-width: 200px;
+  max-height: 64px;
   width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.62;
+  filter: grayscale(1) brightness(1.05);
+  transition: opacity 0.35s ease, filter 0.35s ease;
 }
 
-/* Wildmind logo needs invert on light theme to be visible when grayscale */
-.trust-strip .client-logo-item img[src*="wildmind_solutions.png"] {
-  filter: invert(1);
+.client-logo-item:hover img {
   opacity: 1;
-}
-.trust-strip .client-logo-item:hover img[src*="wildmind_solutions.png"] {
-  filter: invert(1);
-}
-[data-theme="dark"] .trust-strip .client-logo-item img[src*="wildmind_solutions.png"] {
-  filter: none;
+  filter: grayscale(0) brightness(1);
 }
 
-/* Aditya Chemicals — jpg logo, keep grayscale handled by parent */
 .trust-strip .client-logo-item img[src*="aditya-chemicals"] {
   border-radius: 4px;
 }
@@ -2953,11 +2960,15 @@ footer.site-footer::before {
   .hero-stat:first-child { padding-left: 0; }
   .industry-grid { grid-template-columns: 1fr; }
   .solution-list { grid-template-columns: 1fr; }
-  /* Mobile: hide static grid, show marquee */
   .trust-logo-grid { display: none; }
-  .marquee-track { display: block; }
-  .marquee-group { gap: 56px; padding-right: 56px; }
-  .client-logo-item img { height: 30px; width: auto; }
+  .marquee-track--bleed {
+    margin-top: 20px;
+    padding: 20px 0 24px;
+    min-height: 96px;
+  }
+  .marquee-group { gap: 72px; padding-right: 72px; }
+  .client-logo-item { width: 160px; height: 64px; }
+  .client-logo-item img { max-width: 160px; max-height: 52px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   .footer-brand { grid-column: span 2; }
   .values-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -3054,36 +3065,38 @@ body::before {
 }
 
 .trust-strip {
-  padding: 36px 0 74px;
+  padding: 40px 0 64px;
   border-bottom: none;
   background: linear-gradient(to bottom, transparent 0%, var(--bg) 42%, transparent 100%);
 }
 
-.trust-inner {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.32fr) 1fr;
-  gap: 54px;
+.trust-header {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 28px 0;
+  padding: 32px 0 4px;
 }
 
 .trust-copy {
-  border-left: 1px solid var(--border);
-  padding-left: 18px;
+  border-left: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 32rem;
 }
 
 .trust-label {
-  text-align: left;
-  margin-bottom: 8px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .trust-copy p {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-mute);
-  line-height: 1.55;
-  max-width: 250px;
+  line-height: 1.6;
+  max-width: 28rem;
+  margin: 0 auto;
 }
 
 .trust-logo-grid {
@@ -3333,16 +3346,20 @@ footer.site-footer {
   }
 
   .trust-strip {
-    padding: 24px 0 58px;
+    padding: 24px 0 48px;
   }
 
-  .trust-inner {
-    grid-template-columns: 1fr;
-    gap: 26px;
+  .trust-header {
+    padding: 24px 0 0;
+  }
+
+  .trust-copy {
+    max-width: 100%;
   }
 
   .trust-copy p {
     max-width: 100%;
+    font-size: 13px;
   }
 
   .cap-grid {
@@ -3427,37 +3444,13 @@ footer.site-footer {
   overflow: hidden;
 }
 
-.trust-inner {
-  grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+.trust-strip .marquee-logos {
+  animation-duration: 58s;
 }
 
-.trust-inner .marquee-track {
-  display: block;
-  min-width: 0;
-}
-
-.trust-inner .marquee-logos {
-  animation-duration: 34s;
-}
-
-.trust-inner .marquee-group {
-  gap: clamp(40px, 5vw, 78px);
-  padding-right: clamp(40px, 5vw, 78px);
-}
-
-.trust-inner .client-logo-item {
-  width: 128px;
-  height: 54px;
-  justify-content: center;
-  opacity: 0.58;
-}
-
-.trust-inner .client-logo-item img {
-  max-width: 128px;
-  max-height: 42px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+.trust-strip .marquee-group {
+  gap: clamp(56px, 6vw, 110px);
+  padding-right: clamp(56px, 6vw, 110px);
 }
 
 .cap-grid {
@@ -3542,32 +3535,7 @@ footer.site-footer {
   max-width: 130px;
 }
 
-.trust-strip .client-logo-item img[src*="wildmind_solutions.png"],
-.trust-inner .client-logo-item img[src*="wildmind_solutions.png"] {
-  filter: invert(1);
-  opacity: 1;
-}
-
-[data-theme="dark"] .trust-strip .client-logo-item img[src*="wildmind_solutions.png"],
-[data-theme="dark"] .trust-inner .client-logo-item img[src*="wildmind_solutions.png"] {
-  filter: none;
-}
-
 @media (max-width: 900px) {
-  .trust-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .trust-inner .client-logo-item {
-    width: 112px;
-    height: 46px;
-  }
-
-  .trust-inner .client-logo-item img {
-    max-width: 112px;
-    max-height: 34px;
-  }
-
   .cap-grid {
     grid-template-columns: 1fr;
   }
@@ -3676,18 +3644,16 @@ footer.site-footer {
   transform: translateY(-2px);
 }
 
-.trust-inner .marquee-logos {
-  animation-duration: 58s;
+.trust-strip .marquee-logos {
   animation-timing-function: linear;
 }
 
-.trust-inner .client-logo-item {
-  transition: opacity var(--motion-med) var(--ease-system), filter var(--motion-med) var(--ease-system), transform var(--motion-med) var(--ease-system);
+.trust-strip .client-logo-item {
+  transition: transform var(--motion-med) var(--ease-system);
 }
 
-.trust-inner .client-logo-item:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
+.trust-strip .client-logo-item img {
+  transition: opacity var(--motion-med) var(--ease-system), filter var(--motion-med) var(--ease-system);
 }
 
 .cap-featured,
