@@ -26,7 +26,45 @@
       + '            <polyline points="6 9 12 15 18 9"/>'
       + '          </svg>'
       + '        </button>'
-      + '        <div class="nav-dropdown-menu mega-menu mega-menu--services mega-menu--v2" data-services-mega-menu></div>'
+      + '        <div class="nav-dropdown-menu mega-menu mega-menu--services">'
+      + '          <div class="mega-menu__body mega-menu__body--services">'
+      + '            <div class="mega-menu__rows">'
+      + '              <a href="/services/generative-ai.html" class="mega-menu__row">'
+      + '                <svg class="mega-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M5 19l.8 2.4L8 22l-2.2.6L5 25l-.8-2.4L2 22l2.2-.6L5 19z" transform="scale(0.7) translate(4 4)"/></svg>'
+      + '                <span class="mega-menu__row-text"><span class="mega-menu__row-title">Generative AI</span><span class="mega-menu__row-desc">Multi-modal AI platforms at production scale</span></span>'
+      + '              </a>'
+      + '              <a href="/services/ai-agents.html" class="mega-menu__row">'
+      + '                <svg class="mega-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M8 6h8M7 8l3 8M17 8l-3 8"/></svg>'
+      + '                <span class="mega-menu__row-text"><span class="mega-menu__row-title">AI Agents</span><span class="mega-menu__row-desc">Autonomous assistants with real tool-use</span></span>'
+      + '              </a>'
+      + '              <a href="/services/enterprise-platforms.html" class="mega-menu__row">'
+      + '                <svg class="mega-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>'
+      + '                <span class="mega-menu__row-text"><span class="mega-menu__row-title">Enterprise Platforms</span><span class="mega-menu__row-desc">Replace spreadsheets with real operations software</span></span>'
+      + '              </a>'
+      + '              <a href="/services/saas-development.html" class="mega-menu__row">'
+      + '                <svg class="mega-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>'
+      + '                <span class="mega-menu__row-text"><span class="mega-menu__row-title">SaaS Development</span><span class="mega-menu__row-desc">Multi-tenant products built to scale from day one</span></span>'
+      + '              </a>'
+      + '              <a href="/services/web-mobile.html" class="mega-menu__row">'
+      + '                <svg class="mega-menu__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="14" height="16" rx="2"/><rect x="16" y="8" width="6" height="10" rx="1"/></svg>'
+      + '                <span class="mega-menu__row-text"><span class="mega-menu__row-title">Web &amp; Mobile</span><span class="mega-menu__row-desc">Next.js, React Native, and Flutter applications</span></span>'
+      + '              </a>'
+      + '            </div>'
+      + '            <div class="mega-menu__featured">'
+      + '              <span class="mega-menu__featured-label">LIVE IN PRODUCTION</span>'
+      + '              <a href="/projects/wildmind-ai.html" class="mega-menu__featured-card">'
+      + '                <h4>Wildmind AI</h4>'
+      + '                <p>Multi-model GenAI platform</p>'
+      + '                <div class="mega-menu__featured-stat">500+ concurrent users</div>'
+      + '                <span class="mega-menu__featured-link">View case study →</span>'
+      + '              </a>'
+      + '            </div>'
+      + '          </div>'
+      + '          <div class="mega-menu__footer">'
+      + '            <a href="/services.html" class="mega-menu__footer-all">View All Services →</a>'
+      + '            <a href="/contact.html" class="mega-menu__footer-cta">Start a project →</a>'
+      + '          </div>'
+      + '        </div>'
       + '      </div>'
       + '      <div class="nav-dropdown nav-dropdown--industries">'
       + '        <button class="nav-dropdown-trigger" type="button">Industries'
@@ -100,7 +138,15 @@
       + '        </button>'
       + '      </div>'
       + '      <nav class="mobile-drawer-nav">'
-      + '        <div class="mobile-nav-group" data-mobile-services-menu></div>'
+      + '        <div class="mobile-nav-group">'
+      + '          <span class="mobile-nav-label">Services</span>'
+      + '          <a href="/services/generative-ai.html">Generative AI</a>'
+      + '          <a href="/services/ai-agents.html">AI Agents</a>'
+      + '          <a href="/services/enterprise-platforms.html">Enterprise Platforms</a>'
+      + '          <a href="/services/saas-development.html">SaaS Development</a>'
+      + '          <a href="/services/web-mobile.html">Web &amp; Mobile</a>'
+      + '          <a href="/services.html" class="mobile-nav-view-all">View All Services →</a>'
+      + '        </div>'
       + '        <div class="mobile-nav-group">'
       + '          <span class="mobile-nav-label">Industries</span>'
       + '          <a href="/industries/real-estate.html">Real Estate</a>'
@@ -197,25 +243,11 @@
       + '</footer>';
   }
 
-  function injectMegaMenuScripts() {
-    if (window.__megaMenuScriptsLoaded) return;
-    window.__megaMenuScriptsLoaded = true;
-    var dataScript = document.createElement('script');
-    dataScript.src = '/assets/js/services-mega-menu-data.js';
-    dataScript.onload = function () {
-      var menuScript = document.createElement('script');
-      menuScript.src = '/assets/js/services-mega-menu.js';
-      document.body.appendChild(menuScript);
-    };
-    document.body.appendChild(dataScript);
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
     var page = document.body.getAttribute('data-page') || '';
     var navSlot = document.getElementById('nav-slot');
     var footerSlot = document.getElementById('footer-slot');
     if (navSlot) navSlot.outerHTML = navMarkup(page);
     if (footerSlot) footerSlot.outerHTML = footerMarkup();
-    injectMegaMenuScripts();
   });
 })();
