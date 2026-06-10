@@ -91,17 +91,77 @@
       <h2>Digital infrastructure for <span class="serif-italic">real operations.</span></h2>
       <p>Modular platforms that centralise fragmented processes — built for the people who actually use them, not IT departments alone.</p>
     </div>
-    <div class="compare-table-wrap reveal">
-      <table class="compare-table">
-        <thead><tr><th>Before Wildmind</th><th>After Wildmind</th></tr></thead>
-        <tbody>
-          <tr><td><span class="icon-bad">✗</span>Spreadsheets across departments</td><td><span class="icon-good">✓</span>Unified real-time dashboard</td></tr>
-          <tr><td><span class="icon-bad">✗</span>Manual order entry by phone</td><td><span class="icon-good">✓</span>Self-service portal with tracking</td></tr>
-          <tr><td><span class="icon-bad">✗</span>No inventory visibility</td><td><span class="icon-good">✓</span>Live stock levels with alerts</td></tr>
-          <tr><td><span class="icon-bad">✗</span>Reports take days to compile</td><td><span class="icon-good">✓</span>Automated daily reporting</td></tr>
-          <tr><td><span class="icon-bad">✗</span>Paper-based dispatch</td><td><span class="icon-good">✓</span>Digital dispatch with proof of delivery</td></tr>
-        </tbody>
-      </table>
+    <div class="dashboard-mockup reveal">
+      <div class="dashboard-header">
+        <div class="dashboard-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="dashboard-nav">
+          <span class="nav-item active">Orders</span>
+          <span class="nav-item">Inventory</span>
+          <span class="nav-item">Dispatch</span>
+          <span class="nav-item">Reports</span>
+        </div>
+        <div class="dashboard-user">Aditya Chemicals ▾</div>
+      </div>
+      <div class="dashboard-body">
+        <div class="kpi-row">
+          <div class="kpi-card">
+            <div class="kpi-value">₹24.7L</div>
+            <div class="kpi-label">Orders today</div>
+            <div class="kpi-delta up">↑ 12% vs yesterday</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">143</div>
+            <div class="kpi-label">Active orders</div>
+            <div class="kpi-delta up">↑ 8 new</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">7</div>
+            <div class="kpi-label">Pending dispatch</div>
+            <div class="kpi-delta warn">⚠ 2 overdue</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">94%</div>
+            <div class="kpi-label">On-time delivery</div>
+            <div class="kpi-delta up">↑ 3% this week</div>
+          </div>
+        </div>
+        <div class="dash-table-scroll">
+          <div class="dash-table">
+            <div class="dash-table-header">
+              <span>Order ID</span>
+              <span>Customer</span>
+              <span>Product</span>
+              <span>Status</span>
+              <span>Value</span>
+            </div>
+            <div class="dash-row">
+              <span class="order-id">#4821</span>
+              <span>Gulf Chemicals LLC</span>
+              <span>Sulfuric Acid 98%</span>
+              <span><span class="status-badge dispatched">Dispatched</span></span>
+              <span>₹3.2L</span>
+            </div>
+            <div class="dash-row">
+              <span class="order-id">#4820</span>
+              <span>Ahmedabad Textiles</span>
+              <span>Caustic Soda Flakes</span>
+              <span><span class="status-badge processing">Processing</span></span>
+              <span>₹1.8L</span>
+            </div>
+            <div class="dash-row highlight-row">
+              <span class="order-id">#4819</span>
+              <span>Dubai Plastics Co.</span>
+              <span>Hydrochloric Acid</span>
+              <span><span class="status-badge overdue">Overdue</span></span>
+              <span>₹5.1L</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

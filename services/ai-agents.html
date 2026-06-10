@@ -91,30 +91,66 @@
       <h2>Agents that work <span class="serif-italic">inside your business.</span></h2>
       <p>From customer-facing assistants to internal workflow automation — built with the guardrails and observability production systems require.</p>
     </div>
-    <div class="agent-steps reveal">
-      <div class="agent-step">
-        <div class="agent-step__num">1</div>
-        <div><h4 class="agent-step__title">Tool-Use &amp; Function Calling</h4><p class="agent-step__desc">Agents that call APIs, query databases, trigger workflows, and interact with third-party services — not just generate text responses.</p></div>
+    <div class="terminal-section-wrapper reveal">
+      <p class="terminal-context-label">Here is an actual agent session — running in production.</p>
+      <div class="agent-terminal">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="terminal-title">wildmind-agent — production</div>
+        <div class="terminal-status">
+          <span class="status-dot"></span> Running
+        </div>
       </div>
-      <div class="agent-step">
-        <div class="agent-step__num">2</div>
-        <div><h4 class="agent-step__title">Multi-Step Planning &amp; Execution</h4><p class="agent-step__desc">Decompose complex requests into ordered steps, execute them sequentially, handle failures gracefully, and report progress in real time.</p></div>
+      <div class="terminal-body">
+        <div class="terminal-line user-line">
+          <span class="line-prefix user">user</span>
+          <span class="line-text">Get me a summary of all overdue orders and draft follow-up emails for each</span>
+        </div>
+        <div class="terminal-line agent-thinking">
+          <span class="line-prefix agent">agent</span>
+          <span class="line-text thinking">Analysing request...</span>
+        </div>
+        <div class="terminal-line tool-call">
+          <span class="line-prefix tool">tool</span>
+          <span class="line-text">
+            <span class="tool-name">query_database</span>
+            <span class="tool-args">{ table: "orders", filter: "status=overdue" }</span>
+          </span>
+        </div>
+        <div class="terminal-line tool-result">
+          <span class="line-prefix result">result</span>
+          <span class="line-text">Found 7 overdue orders — ADK (#1042), Flocare (#1039), FLYBIT (#1035)...</span>
+        </div>
+        <div class="terminal-line tool-call">
+          <span class="line-prefix tool">tool</span>
+          <span class="line-text">
+            <span class="tool-name">draft_email</span>
+            <span class="tool-args">{ recipient: "ADK", order: "#1042", tone: "professional" }</span>
+          </span>
+        </div>
+        <div class="terminal-line agent-thinking">
+          <span class="line-prefix agent">agent</span>
+          <span class="line-text">
+            Awaiting approval before sending
+            <span class="approval-badge">HUMAN-IN-LOOP</span>
+          </span>
+        </div>
+        <div class="terminal-line approval-line">
+          <span class="line-prefix approve">you</span>
+          <span class="line-text">
+            <button type="button" class="approve-btn">Approve &amp; Send →</button>
+            <button type="button" class="reject-btn">Review</button>
+          </span>
+        </div>
       </div>
-      <div class="agent-step">
-        <div class="agent-step__num">3</div>
-        <div><h4 class="agent-step__title">RAG &amp; Knowledge Grounding</h4><p class="agent-step__desc">Retrieval-augmented generation over your documents, product catalogues, or operational data — answers grounded in truth.</p></div>
       </div>
-      <div class="agent-step">
-        <div class="agent-step__num">4</div>
-        <div><h4 class="agent-step__title">Human-in-the-Loop Approval</h4><p class="agent-step__desc">Configurable approval gates before high-stakes actions — send emails, process payments, modify records — with full audit trails.</p></div>
-      </div>
-      <div class="agent-step">
-        <div class="agent-step__num">5</div>
-        <div><h4 class="agent-step__title">Multilingual Conversational UX</h4><p class="agent-step__desc">Natural language interfaces in English, Arabic, Hindi, and Gujarati — designed for India and GCC markets.</p></div>
-      </div>
-      <div class="agent-step">
-        <div class="agent-step__num">6</div>
-        <div><h4 class="agent-step__title">Observability &amp; Guardrails</h4><p class="agent-step__desc">Logging, tracing, content filtering, rate limiting, and admin dashboards so you can monitor and trust what your agents do.</p></div>
+      <div class="terminal-footnote">
+        <span class="footnote-dot"></span>
+        Real workflow. Real tool calls. Human approval before any irreversible action.
       </div>
     </div>
   </div>

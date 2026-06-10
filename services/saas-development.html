@@ -91,12 +91,87 @@
       <h2>SaaS infrastructure <span class="serif-italic">done right.</span></h2>
       <p>Every layer of a subscription product — from signup to billing to analytics — built by engineers who've shipped and scaled their own platform.</p>
     </div>
-    <div class="stack-layers reveal">
-      <div class="stack-layer"><span class="stack-layer__label">Frontend</span><div class="stack-layer__chips"><span class="capability-chip">Next.js</span><span class="capability-chip">React</span><span class="capability-chip">TypeScript</span></div></div>
-      <div class="stack-layer"><span class="stack-layer__label">API</span><div class="stack-layer__chips"><span class="capability-chip">NestJS</span><span class="capability-chip">REST</span><span class="capability-chip">Webhooks</span></div></div>
-      <div class="stack-layer"><span class="stack-layer__label">Database</span><div class="stack-layer__chips"><span class="capability-chip">PostgreSQL</span><span class="capability-chip">Redis</span><span class="capability-chip">Multi-tenant</span></div></div>
-      <div class="stack-layer"><span class="stack-layer__label">AI</span><div class="stack-layer__chips"><span class="capability-chip">LLM APIs</span><span class="capability-chip">RAG</span><span class="capability-chip">Embeddings</span></div></div>
-      <div class="stack-layer"><span class="stack-layer__label">Infra</span><div class="stack-layer__chips"><span class="capability-chip">AWS</span><span class="capability-chip">Docker</span><span class="capability-chip">CI/CD</span><span class="capability-chip">Stripe</span></div></div>
+    <div class="stack-cards reveal">
+      <div class="stack-header-row">
+        <span class="stack-header-label">PRODUCTION STACK</span>
+        <span class="stack-live-indicator">
+          <span class="live-dot"></span>
+          2,847 requests today
+        </span>
+      </div>
+      <div class="stack-layer" data-layer="frontend" data-example="Next.js app router, Tailwind, shadcn/ui">
+        <div class="layer-left">
+          <span class="layer-index">01</span>
+          <div class="layer-info">
+            <span class="layer-name">Frontend</span>
+            <span class="layer-desc">What users see and interact with</span>
+          </div>
+        </div>
+        <div class="layer-chips">
+          <span class="chip">Next.js</span>
+          <span class="chip">React</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip chip-muted">Tailwind</span>
+        </div>
+      </div>
+      <div class="stack-layer" data-layer="api" data-example="NestJS modules, JWT auth, rate limiting">
+        <div class="layer-left">
+          <span class="layer-index">02</span>
+          <div class="layer-info">
+            <span class="layer-name">API</span>
+            <span class="layer-desc">Business logic and integrations</span>
+          </div>
+        </div>
+        <div class="layer-chips">
+          <span class="chip">Node.js</span>
+          <span class="chip">GraphQL</span>
+          <span class="chip">REST</span>
+          <span class="chip">WebSockets</span>
+        </div>
+      </div>
+      <div class="stack-layer" data-layer="database" data-example="Row-level security, connection pooling">
+        <div class="layer-left">
+          <span class="layer-index">03</span>
+          <div class="layer-info">
+            <span class="layer-name">Database</span>
+            <span class="layer-desc">Persistent data and caching</span>
+          </div>
+        </div>
+        <div class="layer-chips">
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Redis</span>
+          <span class="chip">Prisma</span>
+        </div>
+      </div>
+      <div class="stack-layer" data-layer="ai" data-example="Streaming responses, token budgeting">
+        <div class="layer-left">
+          <span class="layer-index">04</span>
+          <div class="layer-info">
+            <span class="layer-name">AI</span>
+            <span class="layer-desc">Intelligence and automation layer</span>
+          </div>
+        </div>
+        <div class="layer-chips">
+          <span class="chip">OpenAI</span>
+          <span class="chip">Anthropic</span>
+          <span class="chip">LangChain</span>
+        </div>
+      </div>
+      <div class="stack-layer" data-layer="infra" data-example="Zero-downtime deploys, health checks">
+        <div class="layer-left">
+          <span class="layer-index">05</span>
+          <div class="layer-info">
+            <span class="layer-name">Infra</span>
+            <span class="layer-desc">Deployment, scaling, and reliability</span>
+          </div>
+        </div>
+        <div class="layer-chips">
+          <span class="chip">AWS</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Vercel</span>
+          <span class="chip">Cloudflare</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>

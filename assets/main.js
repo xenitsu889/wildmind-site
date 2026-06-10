@@ -3,11 +3,10 @@
 // ============================================================
 
 (function () {
-  document.documentElement.setAttribute('data-theme', 'dark');
   var saved;
   try { saved = localStorage.getItem('wm-theme'); } catch (e) {}
-  if (saved === 'light') {
-    document.documentElement.removeAttribute('data-theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
   }
 
   try {

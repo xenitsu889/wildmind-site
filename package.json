@@ -4,8 +4,8 @@
   "private": true,
   "description": "Wildmind Solutions marketing site (static HTML)",
   "scripts": {
-    "start": "serve . -l 3000",
-    "dev": "serve . -l 3000"
+    "start": "serve . -l 3001",
+    "dev": "serve . -l 3001"
   },
   "devDependencies": {
     "serve": "^14.2.4"

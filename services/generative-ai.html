@@ -25,6 +25,7 @@
 <link rel="stylesheet" href="/assets/styles.css" />
 <link rel="stylesheet" href="/assets/responsive.css" />
 <link rel="stylesheet" href="/assets/css/ui-improvements.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -88,38 +89,126 @@
       <h2>What we engineer <span class="serif-italic">end to end.</span></h2>
       <p>Every layer of a production generative AI product — from model routing to user billing — built by a team that has shipped one themselves.</p>
     </div>
-    <div class="pipeline-flow reveal">
-      <div class="pipeline-flow__track">
-        <div class="pipeline-flow__node">
-          <div class="pipeline-flow__node-label">Input</div>
-          <div class="pipeline-flow__node-title">User prompt &amp; assets</div>
+    <div class="wf-canvas reveal" id="wfCanvas">
+      <div class="wf-dotgrid"></div>
+      <div class="wf-topbar">
+        <span class="wf-pulse"></span>
+        <span class="wf-topbar-label">REASONING TRACE</span>
+        <div class="wf-stats">
+          <span class="wf-stat"><span class="wf-stat-n">18,742</span> tasks</span>
+          <span class="wf-stat"><span class="wf-stat-n">99.8%</span> success</span>
+          <span class="wf-stat"><span class="wf-stat-n" id="wfMs">312ms</span> avg</span>
         </div>
-        <div class="pipeline-flow__connector"></div>
-        <div class="pipeline-flow__node">
-          <div class="pipeline-flow__node-label">Orchestrator</div>
-          <div class="pipeline-flow__node-title">Workflow routing</div>
-        </div>
-        <div class="pipeline-flow__connector"></div>
-        <div class="pipeline-flow__node">
-          <div class="pipeline-flow__node-label">Provider</div>
-          <div class="pipeline-flow__node-title">Model adapters</div>
-        </div>
-        <div class="pipeline-flow__connector"></div>
-        <div class="pipeline-flow__node">
-          <div class="pipeline-flow__node-label">Output</div>
-          <div class="pipeline-flow__node-title">Generated media</div>
-        </div>
+        <button class="wf-replay" id="wfReplay" type="button">↺ Replay</button>
       </div>
-      <div class="capability-chips">
-        <span class="capability-chip">Multi-modal generation</span>
-        <span class="capability-chip">Provider orchestration</span>
-        <span class="capability-chip">Credits &amp; billing</span>
-        <span class="capability-chip">Async queue infrastructure</span>
-        <span class="capability-chip">Fine-tuned model deployment</span>
-        <span class="capability-chip">500+ concurrent users</span>
+      <svg class="wf-svg" id="wfSvg"></svg>
+      <div class="wf-stage">
+      <div class="wf-node" id="wfInput" style="left:36px;top:245px">
+        <div class="wf-box idle" id="wfbInput">
+          <i class="ti ti-message-circle" aria-hidden="true"></i>
+          <div class="wf-port wf-port-right" id="wfpInputR"></div>
+        </div>
+        <span class="wf-label" id="wflInput">User request</span>
+      </div>
+      <div class="wf-node" id="wfOrch" style="left:148px;top:245px">
+        <div class="wf-box idle" id="wfbOrch">
+          <i class="ti ti-cpu" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpOrchL"></div>
+          <div class="wf-port wf-port-right" id="wfpOrchR"></div>
+          <div class="wf-port wf-port-bottom" id="wfpOrchB"></div>
+          <div class="wf-pill wf-pill-blue" id="wfspOrch">PLAN</div>
+        </div>
+        <span class="wf-label" id="wflOrch">Orchestrator</span>
+        <span class="wf-timing" id="wftOrch">127ms</span>
+      </div>
+      <div class="wf-node" id="wfA1" style="left:292px;top:148px">
+        <div class="wf-box idle" id="wfbA1">
+          <i class="ti ti-search" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpA1L"></div>
+          <div class="wf-port wf-port-bottom" id="wfpA1B"></div>
+          <div class="wf-pill wf-pill-green" id="wfspA1">91%</div>
+        </div>
+        <span class="wf-label" id="wflA1">Agent 01</span>
+        <span class="wf-timing" id="wftA1">1.2s</span>
+      </div>
+      <div class="wf-node" id="wfA2" style="left:292px;top:245px">
+        <div class="wf-box idle" id="wfbA2">
+          <i class="ti ti-search" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpA2L"></div>
+          <div class="wf-port wf-port-bottom" id="wfpA2B"></div>
+          <div class="wf-pill wf-pill-green" id="wfspA2">87%</div>
+        </div>
+        <span class="wf-label" id="wflA2">Agent 02</span>
+        <span class="wf-timing" id="wftA2">1.4s</span>
+      </div>
+      <div class="wf-node" id="wfA3" style="left:292px;top:342px">
+        <div class="wf-box idle" id="wfbA3">
+          <i class="ti ti-refresh-alert" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpA3L"></div>
+          <div class="wf-port wf-port-bottom" id="wfpA3B"></div>
+          <div class="wf-pill wf-pill-amber" id="wfspA3">↻</div>
+        </div>
+        <span class="wf-label" id="wflA3">Agent 03</span>
+        <span class="wf-timing" id="wftA3">2.1s</span>
+      </div>
+      <div class="wf-node" id="wfMem" style="left:416px;top:148px">
+        <div class="wf-box idle" id="wfbMem">
+          <i class="ti ti-database" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpMemL"></div>
+          <div class="wf-port wf-port-right" id="wfpMemR"></div>
+        </div>
+        <span class="wf-label" id="wflMem">Memory</span>
+      </div>
+      <div class="wf-node" id="wfRag" style="left:416px;top:245px">
+        <div class="wf-box idle" id="wfbRag">
+          <i class="ti ti-file-search" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpRagL"></div>
+          <div class="wf-port wf-port-right" id="wfpRagR"></div>
+        </div>
+        <span class="wf-label" id="wflRag">RAG</span>
+      </div>
+      <div class="wf-node" id="wfVal" style="left:416px;top:342px">
+        <div class="wf-box idle" id="wfbVal">
+          <i class="ti ti-shield-check" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpValL"></div>
+          <div class="wf-port wf-port-right" id="wfpValR"></div>
+        </div>
+        <span class="wf-label" id="wflVal">Validate</span>
+      </div>
+      <div class="wf-node" id="wfApprove" style="left:530px;top:245px">
+        <div class="wf-box idle" id="wfbApprove">
+          <i class="ti ti-user-check" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpApproveL"></div>
+          <div class="wf-port wf-port-right" id="wfpApproveR"></div>
+          <div class="wf-pill wf-pill-amber" id="wfspApprove">REVIEW</div>
+        </div>
+        <span class="wf-label" id="wflApprove">Approval</span>
+      </div>
+      <div class="wf-node" id="wfSynth" style="left:644px;top:245px">
+        <div class="wf-box idle" id="wfbSynth">
+          <i class="ti ti-wand" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpSynthL"></div>
+          <div class="wf-port wf-port-right" id="wfpSynthR"></div>
+        </div>
+        <span class="wf-label" id="wflSynth">Synthesis</span>
+        <span class="wf-timing" id="wftSynth">890ms</span>
+      </div>
+      <div class="wf-node" id="wfOut" style="left:758px;top:245px">
+        <div class="wf-box idle" id="wfbOut">
+          <i class="ti ti-circle-check" aria-hidden="true"></i>
+          <div class="wf-port wf-port-left" id="wfpOutL"></div>
+          <div class="wf-pill wf-pill-green" id="wfspOut">5.8s</div>
+        </div>
+        <span class="wf-label" id="wflOut">Output</span>
+      </div>
+      </div>
+      <div class="wf-legend">
+        <span class="wf-leg"><span class="wf-leg-dot" style="background:#3b82f6"></span>active</span>
+        <span class="wf-leg"><span class="wf-leg-dot" style="background:#f59e0b"></span>pending</span>
+        <span class="wf-leg"><span class="wf-leg-dot" style="background:#22c55e"></span>done</span>
       </div>
     </div>
-  </div>
+</div>
 </section>
 
 <section>
@@ -254,5 +343,417 @@
 
 <script src="/assets/partials.js"></script>
 <script src="/assets/main.js"></script>
+<script>
+(function () {
+  var played = false;
+  var timers = [];
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function schedule(fn, delay) {
+    var id = setTimeout(fn, delay);
+    timers.push(id);
+    return id;
+  }
+
+  function clearAllTimers() {
+    timers.forEach(clearTimeout);
+    timers = [];
+  }
+
+  function portPos(boxId, side) {
+    var canvas = document.getElementById('wfCanvas');
+    var box = document.getElementById(boxId);
+    if (!canvas || !box) return { x: 0, y: 0 };
+    var cr = canvas.getBoundingClientRect();
+    var br = box.getBoundingClientRect();
+    var cx = br.left - cr.left;
+    var cy = br.top - cr.top;
+    if (side === 'right') return { x: cx + br.width, y: cy + br.height / 2 };
+    if (side === 'left') return { x: cx, y: cy + br.height / 2 };
+    if (side === 'bottom') return { x: cx + br.width / 2, y: cy + br.height };
+    if (side === 'top') return { x: cx + br.width / 2, y: cy };
+    return { x: cx + br.width / 2, y: cy + br.height / 2 };
+  }
+
+  function drawCurve(svg, from, to, color) {
+    var cpx = from.x + (to.x - from.x) * 0.5;
+    var d = 'M' + from.x + ',' + from.y
+      + ' C' + cpx + ',' + from.y
+      + ' ' + cpx + ',' + to.y
+      + ' ' + to.x + ',' + to.y;
+    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', color || '#252525');
+    path.setAttribute('stroke-width', '1.5');
+    path.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(path);
+  }
+
+  function drawVCurve(svg, from, to, color) {
+    var d = 'M' + from.x + ',' + from.y
+      + ' C' + from.x + ',' + (from.y + 70)
+      + ' ' + to.x + ',' + (to.y - 70)
+      + ' ' + to.x + ',' + to.y;
+    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', d);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', color || '#252525');
+    path.setAttribute('stroke-width', '1.5');
+    path.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(path);
+  }
+
+  function getLineColors() {
+    var canvas = document.getElementById('wfCanvas');
+    if (!canvas) {
+      return {
+        blue: '#1d4ed8',
+        green: '#166534',
+        amber: '#92400e',
+        purple: '#4c1d95',
+        teal: '#134e4a'
+      };
+    }
+    var s = getComputedStyle(canvas);
+    return {
+      blue: s.getPropertyValue('--wf-line-blue').trim() || '#1d4ed8',
+      green: s.getPropertyValue('--wf-line-green').trim() || '#166534',
+      amber: s.getPropertyValue('--wf-line-amber').trim() || '#92400e',
+      purple: s.getPropertyValue('--wf-line-purple').trim() || '#4c1d95',
+      teal: s.getPropertyValue('--wf-line-teal').trim() || '#134e4a'
+    };
+  }
+
+  function redrawLines() {
+    var svg = document.getElementById('wfSvg');
+    var canvas = document.getElementById('wfCanvas');
+    if (!svg || !canvas) return;
+    svg.setAttribute('width', canvas.offsetWidth);
+    svg.setAttribute('height', canvas.offsetHeight);
+    svg.innerHTML = '';
+
+    var colors = getLineColors();
+    var blue = colors.blue;
+    var green = colors.green;
+    var amber = colors.amber;
+    var purple = colors.purple;
+    var teal = colors.teal;
+
+    drawCurve(svg, portPos('wfbInput', 'right'), portPos('wfbOrch', 'left'), blue);
+    drawVCurve(svg, portPos('wfbOrch', 'right'), portPos('wfbA1', 'left'), blue);
+    drawCurve(svg, portPos('wfbOrch', 'right'), portPos('wfbA2', 'left'), blue);
+    drawVCurve(svg, portPos('wfbOrch', 'bottom'), portPos('wfbA3', 'left'), amber);
+    drawCurve(svg, portPos('wfbA1', 'right'), portPos('wfbMem', 'left'), teal);
+    drawCurve(svg, portPos('wfbA2', 'right'), portPos('wfbRag', 'left'), teal);
+    drawCurve(svg, portPos('wfbA3', 'right'), portPos('wfbVal', 'left'), teal);
+    drawVCurve(svg, portPos('wfbMem', 'right'), portPos('wfbApprove', 'left'), purple);
+    drawCurve(svg, portPos('wfbRag', 'right'), portPos('wfbApprove', 'left'), purple);
+    drawVCurve(svg, portPos('wfbVal', 'right'), portPos('wfbApprove', 'left'), purple);
+    drawCurve(svg, portPos('wfbApprove', 'right'), portPos('wfbSynth', 'left'), green);
+    drawCurve(svg, portPos('wfbSynth', 'right'), portPos('wfbOut', 'left'), green);
+  }
+
+  function activateNode(boxId, colorClass, labelId, pillId, timingId, animate) {
+    var box = document.getElementById(boxId);
+    var lbl = document.getElementById(labelId);
+    var pill = pillId ? document.getElementById(pillId) : null;
+    var tim = timingId ? document.getElementById(timingId) : null;
+
+    if (box) {
+      box.classList.remove('idle');
+      ['wf-blue', 'wf-amber', 'wf-green', 'wf-purple', 'wf-teal'].forEach(function (c) {
+        box.classList.remove(c);
+      });
+      box.classList.add(colorClass);
+      if (animate !== false && !reduceMotion) {
+        box.classList.add('activating');
+        schedule(function () {
+          if (box) box.classList.remove('activating');
+        }, 500);
+      }
+    }
+    if (lbl) lbl.classList.add('wf-lit');
+    if (pill) pill.classList.add('wf-show');
+    if (tim) tim.classList.add('wf-show');
+  }
+
+  function setPort(id, state) {
+    var p = document.getElementById(id);
+    if (!p) return;
+    p.classList.remove('wf-port-active', 'wf-port-done');
+    if (state) p.classList.add('wf-port-' + state);
+  }
+
+  function playFinalState() {
+    redrawLines();
+
+    activateNode('wfbInput', 'wf-blue', 'wflInput', null, null, false);
+    setPort('wfpInputR', 'done');
+
+    activateNode('wfbOrch', 'wf-blue', 'wflOrch', 'wfspOrch', 'wftOrch', false);
+    setPort('wfpOrchL', 'done');
+    setPort('wfpOrchR', 'done');
+    setPort('wfpOrchB', 'done');
+
+    activateNode('wfbA1', 'wf-blue', 'wflA1', 'wfspA1', 'wftA1', false);
+    setPort('wfpA1L', 'done');
+    setPort('wfpA1B', 'done');
+
+    activateNode('wfbA2', 'wf-blue', 'wflA2', 'wfspA2', 'wftA2', false);
+    setPort('wfpA2L', 'done');
+    setPort('wfpA2B', 'done');
+
+    var a3Box = document.getElementById('wfbA3');
+    var a3Pill = document.getElementById('wfspA3');
+    activateNode('wfbA3', 'wf-green', 'wflA3', null, 'wftA3', false);
+    if (a3Pill) {
+      a3Pill.textContent = '✓';
+      a3Pill.className = 'wf-pill wf-pill-green wf-show';
+    }
+    setPort('wfpA3L', 'done');
+    setPort('wfpA3B', 'done');
+
+    activateNode('wfbMem', 'wf-purple', 'wflMem', null, null, false);
+    setPort('wfpMemL', 'done');
+    setPort('wfpMemR', 'done');
+
+    activateNode('wfbRag', 'wf-purple', 'wflRag', null, null, false);
+    setPort('wfpRagL', 'done');
+    setPort('wfpRagR', 'done');
+
+    activateNode('wfbVal', 'wf-teal', 'wflVal', null, null, false);
+    setPort('wfpValL', 'done');
+    setPort('wfpValR', 'done');
+
+    var approveBox = document.getElementById('wfbApprove');
+    var approvePill = document.getElementById('wfspApprove');
+    activateNode('wfbApprove', 'wf-green', 'wflApprove', null, null, false);
+    if (approvePill) {
+      approvePill.textContent = '✓';
+      approvePill.className = 'wf-pill wf-pill-green wf-show';
+    }
+    setPort('wfpApproveL', 'done');
+    setPort('wfpApproveR', 'done');
+
+    activateNode('wfbSynth', 'wf-blue', 'wflSynth', null, 'wftSynth', false);
+    setPort('wfpSynthL', 'done');
+    setPort('wfpSynthR', 'done');
+
+    activateNode('wfbOut', 'wf-green', 'wflOut', 'wfspOut', null, false);
+    setPort('wfpOutL', 'done');
+
+    redrawLines();
+  }
+
+  function play() {
+    if (played) return;
+    played = true;
+
+    if (reduceMotion) {
+      schedule(redrawLines, 120);
+      schedule(playFinalState, 120);
+      return;
+    }
+
+    schedule(redrawLines, 120);
+
+    var t = 350;
+
+    schedule(function () {
+      activateNode('wfbInput', 'wf-blue', 'wflInput', null, null);
+      setPort('wfpInputR', 'active');
+    }, t);
+
+    t += 450;
+    schedule(function () {
+      activateNode('wfbOrch', 'wf-blue', 'wflOrch', 'wfspOrch', 'wftOrch');
+      setPort('wfpOrchL', 'done');
+      setPort('wfpOrchR', 'active');
+      setPort('wfpOrchB', 'active');
+      redrawLines();
+    }, t);
+
+    t += 550;
+    schedule(function () {
+      activateNode('wfbA1', 'wf-blue', 'wflA1', 'wfspA1', 'wftA1');
+      setPort('wfpA1L', 'done');
+      setPort('wfpA1B', 'active');
+      redrawLines();
+    }, t);
+    schedule(function () {
+      activateNode('wfbA2', 'wf-blue', 'wflA2', 'wfspA2', 'wftA2');
+      setPort('wfpA2L', 'done');
+      setPort('wfpA2B', 'active');
+    }, t + 120);
+    schedule(function () {
+      activateNode('wfbA3', 'wf-amber', 'wflA3', 'wfspA3', 'wftA3');
+      setPort('wfpA3L', 'done');
+      setPort('wfpA3B', 'active');
+      redrawLines();
+    }, t + 240);
+
+    t += 900;
+    schedule(function () {
+      activateNode('wfbMem', 'wf-purple', 'wflMem', null, null);
+      setPort('wfpMemL', 'done');
+      setPort('wfpMemR', 'active');
+      redrawLines();
+    }, t);
+    schedule(function () {
+      activateNode('wfbRag', 'wf-purple', 'wflRag', null, null);
+      setPort('wfpRagL', 'done');
+      setPort('wfpRagR', 'active');
+    }, t + 120);
+    schedule(function () {
+      activateNode('wfbVal', 'wf-teal', 'wflVal', null, null);
+      setPort('wfpValL', 'done');
+      setPort('wfpValR', 'active');
+      redrawLines();
+    }, t + 240);
+
+    t += 800;
+    schedule(function () {
+      var s = document.getElementById('wfspA3');
+      var b = document.getElementById('wfbA3');
+      if (s) {
+        s.textContent = '✓';
+        s.className = 'wf-pill wf-pill-green wf-show';
+      }
+      if (b) {
+        b.classList.remove('wf-amber');
+        b.classList.add('wf-green');
+      }
+      redrawLines();
+    }, t);
+
+    t += 400;
+    schedule(function () {
+      activateNode('wfbApprove', 'wf-amber', 'wflApprove', 'wfspApprove', null);
+      setPort('wfpApproveL', 'done');
+      redrawLines();
+    }, t);
+
+    t += 1000;
+    schedule(function () {
+      var s = document.getElementById('wfspApprove');
+      var b = document.getElementById('wfbApprove');
+      if (s) {
+        s.textContent = '✓';
+        s.className = 'wf-pill wf-pill-green wf-show';
+      }
+      if (b) {
+        b.classList.remove('wf-amber');
+        b.classList.add('wf-green');
+      }
+      setPort('wfpApproveR', 'active');
+      redrawLines();
+    }, t);
+
+    t += 400;
+    schedule(function () {
+      activateNode('wfbSynth', 'wf-blue', 'wflSynth', null, 'wftSynth');
+      setPort('wfpSynthL', 'done');
+      setPort('wfpSynthR', 'active');
+      redrawLines();
+    }, t);
+
+    t += 950;
+    schedule(function () {
+      activateNode('wfbOut', 'wf-green', 'wflOut', 'wfspOut', null);
+      setPort('wfpOutL', 'done');
+      redrawLines();
+    }, t);
+  }
+
+  function resetAll() {
+    clearAllTimers();
+
+    var boxes = ['wfbInput', 'wfbOrch', 'wfbA1', 'wfbA2', 'wfbA3',
+      'wfbMem', 'wfbRag', 'wfbVal', 'wfbApprove', 'wfbSynth', 'wfbOut'];
+    boxes.forEach(function (id) {
+      var b = document.getElementById(id);
+      if (!b) return;
+      b.className = 'wf-box idle';
+    });
+
+    var labels = ['wflInput', 'wflOrch', 'wflA1', 'wflA2', 'wflA3',
+      'wflMem', 'wflRag', 'wflVal', 'wflApprove', 'wflSynth', 'wflOut'];
+    labels.forEach(function (id) {
+      var l = document.getElementById(id);
+      if (l) l.classList.remove('wf-lit');
+    });
+
+    var pills = ['wfspOrch', 'wfspA1', 'wfspA2', 'wfspA3', 'wfspApprove', 'wfspOut'];
+    pills.forEach(function (id) {
+      var p = document.getElementById(id);
+      if (!p) return;
+      p.classList.remove('wf-show');
+      if (id === 'wfspA3') {
+        p.textContent = '↻';
+        p.className = 'wf-pill wf-pill-amber';
+      }
+      if (id === 'wfspApprove') {
+        p.textContent = 'REVIEW';
+        p.className = 'wf-pill wf-pill-amber';
+      }
+    });
+
+    var timings = ['wftOrch', 'wftA1', 'wftA2', 'wftA3', 'wftSynth'];
+    timings.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.remove('wf-show');
+    });
+
+    document.querySelectorAll('.wf-port').forEach(function (p) {
+      p.classList.remove('wf-port-active', 'wf-port-done');
+    });
+
+    var svg = document.getElementById('wfSvg');
+    if (svg) svg.innerHTML = '';
+
+    played = false;
+    schedule(play, 300);
+  }
+
+  var replayBtn = document.getElementById('wfReplay');
+  if (replayBtn) replayBtn.addEventListener('click', resetAll);
+
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      if (played) redrawLines();
+    }, 100);
+  });
+
+  var themeTimer;
+  if ('MutationObserver' in window) {
+    var themeObs = new MutationObserver(function () {
+      clearTimeout(themeTimer);
+      themeTimer = setTimeout(function () {
+        if (played) redrawLines();
+      }, 50);
+    });
+    themeObs.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !played) play();
+      });
+    }, { threshold: 0.15 });
+    var target = document.getElementById('wfCanvas');
+    if (target) obs.observe(target);
+  } else {
+    schedule(play, 600);
+  }
+})();
+
+</script>
 </body>
 </html>
