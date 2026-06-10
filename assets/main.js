@@ -116,6 +116,24 @@
 
     var nav = document.querySelector('nav.site-nav');
     if (nav) {
+      var syncSiteNavOffset = function () {
+        var height = Math.ceil(nav.getBoundingClientRect().height);
+        var offset = height + 24;
+        document.documentElement.style.setProperty('--site-nav-offset', offset + 'px');
+      };
+
+      syncSiteNavOffset();
+
+      var navResizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(navResizeTimer);
+        navResizeTimer = setTimeout(syncSiteNavOffset, 100);
+      });
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(syncSiteNavOffset);
+      }
+
       var onScroll = function () {
         if (window.scrollY > 12) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
@@ -155,8 +173,10 @@
 
       hero.addEventListener('pointermove', function (event) {
         var rect = hero.getBoundingClientRect();
-        latestX = ((event.clientX - rect.left) / rect.width) * 100;
-        latestY = ((event.clientY - rect.top) / rect.height) * 100;
+        var rawX = ((event.clientX - rect.left) / rect.width) * 100;
+        var rawY = ((event.clientY - rect.top) / rect.height) * 100;
+        latestX = Math.min(92, Math.max(8, 50 + (rawX - 50) * 1.15));
+        latestY = Math.min(92, Math.max(8, 42 + (rawY - 42) * 1.15));
 
         if (frame) return;
         frame = window.requestAnimationFrame(function () {
@@ -178,5 +198,186 @@
     initMobileDrawer();
     initFilterTabs();
     initFaq();
+    initCapWorkflow();
   });
+
+  function initCapWorkflow() {
+    var canvas = document.getElementById('capWfCanvas');
+    if (!canvas) return;
+
+    var played = false;
+    var reduceMotion = false;
+    try {
+      reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {}
+
+    function portPos(boxId, side) {
+      var box = document.getElementById(boxId);
+      if (!box) return { x: 0, y: 0 };
+      var cr = canvas.getBoundingClientRect();
+      var br = box.getBoundingClientRect();
+      var cx = br.left - cr.left;
+      var cy = br.top - cr.top;
+      if (side === 'right') return { x: cx + br.width, y: cy + br.height / 2 };
+      if (side === 'left') return { x: cx, y: cy + br.height / 2 };
+      if (side === 'bottom') return { x: cx + br.width / 2, y: cy + br.height };
+      if (side === 'top') return { x: cx + br.width / 2, y: cy };
+      return { x: cx + br.width / 2, y: cy + br.height / 2 };
+    }
+
+    function getLineColors() {
+      var s = getComputedStyle(canvas);
+      return {
+        blue: s.getPropertyValue('--wf-line-blue').trim() || '#1d4ed8',
+        green: s.getPropertyValue('--wf-line-green').trim() || '#166534',
+        purple: s.getPropertyValue('--wf-line-purple').trim() || '#4c1d95',
+        teal: s.getPropertyValue('--wf-line-teal').trim() || '#134e4a'
+      };
+    }
+
+    function drawCurve(svg, from, to, color) {
+      var cpx = from.x + (to.x - from.x) * 0.5;
+      var d = 'M' + from.x + ',' + from.y
+        + ' C' + cpx + ',' + from.y
+        + ' ' + cpx + ',' + to.y
+        + ' ' + to.x + ',' + to.y;
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', color);
+      path.setAttribute('stroke-width', '1.5');
+      path.setAttribute('stroke-linecap', 'round');
+      svg.appendChild(path);
+    }
+
+    function drawVCurve(svg, from, to, color) {
+      var d = 'M' + from.x + ',' + from.y
+        + ' C' + from.x + ',' + (from.y + 40)
+        + ' ' + to.x + ',' + (to.y - 40)
+        + ' ' + to.x + ',' + to.y;
+      var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', color);
+      path.setAttribute('stroke-width', '1.5');
+      path.setAttribute('stroke-linecap', 'round');
+      svg.appendChild(path);
+    }
+
+    function redrawLines() {
+      var svg = document.getElementById('capWfSvg');
+      if (!svg) return;
+      svg.setAttribute('width', canvas.offsetWidth);
+      svg.setAttribute('height', canvas.offsetHeight);
+      svg.innerHTML = '';
+      var colors = getLineColors();
+      drawCurve(svg, portPos('capWfbInput', 'right'), portPos('capWfbOrch', 'left'), colors.blue);
+      drawCurve(svg, portPos('capWfbOrch', 'right'), portPos('capWfbOut', 'left'), colors.blue);
+      drawVCurve(svg, portPos('capWfbOrch', 'bottom'), portPos('capWfbRoute', 'top'), colors.purple);
+      drawCurve(svg, portPos('capWfbRoute', 'right'), portPos('capWfbOut', 'left'), colors.teal);
+    }
+
+    function activate(boxId, colorClass, labelId) {
+      var box = document.getElementById(boxId);
+      var lbl = document.getElementById(labelId);
+      if (box) {
+        box.classList.remove('idle');
+        ['wf-blue', 'wf-purple', 'wf-green', 'wf-teal'].forEach(function (c) {
+          box.classList.remove(c);
+        });
+        box.classList.add(colorClass);
+        if (!reduceMotion) {
+          box.classList.add('activating');
+          setTimeout(function () {
+            box.classList.remove('activating');
+          }, 500);
+        }
+      }
+      if (lbl) lbl.classList.add('wf-lit');
+    }
+
+    function setPort(id, state) {
+      var p = document.getElementById(id);
+      if (!p) return;
+      p.classList.remove('wf-port-active', 'wf-port-done');
+      if (state) p.classList.add('wf-port-' + state);
+    }
+
+    function play() {
+      if (played) return;
+      played = true;
+
+      if (reduceMotion) {
+        activate('capWfbInput', 'wf-blue', 'capWflInput');
+        activate('capWfbOrch', 'wf-blue', 'capWflOrch');
+        activate('capWfbRoute', 'wf-purple', 'capWflRoute');
+        activate('capWfbOut', 'wf-green', 'capWflOut');
+        redrawLines();
+        return;
+      }
+
+      setTimeout(redrawLines, 80);
+      var t = 300;
+      setTimeout(function () {
+        activate('capWfbInput', 'wf-blue', 'capWflInput');
+        setPort('capWfpInputR', 'active');
+        redrawLines();
+      }, t);
+      t += 350;
+      setTimeout(function () {
+        activate('capWfbOrch', 'wf-blue', 'capWflOrch');
+        setPort('capWfpOrchL', 'done');
+        setPort('capWfpOrchR', 'active');
+        setPort('capWfpOrchB', 'active');
+        redrawLines();
+      }, t);
+      t += 400;
+      setTimeout(function () {
+        activate('capWfbRoute', 'wf-purple', 'capWflRoute');
+        setPort('capWfpRouteT', 'done');
+        setPort('capWfpRouteR', 'active');
+        redrawLines();
+      }, t);
+      t += 400;
+      setTimeout(function () {
+        activate('capWfbOut', 'wf-green', 'capWflOut');
+        setPort('capWfpOutL', 'done');
+        redrawLines();
+      }, t);
+    }
+
+    var featured = canvas.closest('.cap-featured');
+    if ('IntersectionObserver' in window && featured) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !played) play();
+        });
+      }, { threshold: 0.3 });
+      obs.observe(featured);
+    } else {
+      setTimeout(play, 500);
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        if (played) redrawLines();
+      }, 100);
+    });
+
+    if ('MutationObserver' in window) {
+      var themeTimer;
+      var themeObs = new MutationObserver(function () {
+        clearTimeout(themeTimer);
+        themeTimer = setTimeout(function () {
+          if (played) redrawLines();
+        }, 50);
+      });
+      themeObs.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+      });
+    }
+  }
 })();
