@@ -269,7 +269,7 @@
       + '        <h5>Contact</h5>'
       + '        <ul>'
       + '          <li><a href="mailto:connect@wildmindai.com">connect@wildmindai.com</a></li>'
-      + '          <li><a href="tel:+919227428262">+91 92274 28262</a></li>'
+      + '          <li><a href="tel:+919571355543">+91 95713 55543</a></li>'
       + '          <li><span class="footer-text-item">Ahmedabad, Gujarat, India</span></li>'
       + '          <li><span class="footer-text-item">Mon–Sat · 10:00–19:00 IST</span></li>'
       + '        </ul>'
