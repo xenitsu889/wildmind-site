@@ -1,14 +1,14 @@
 """Inject GA4 + GSC verification snippet into all HTML files."""
 from pathlib import Path
 
-SNIPPET = """<!-- SEO: Before deploy, replace REPLACE_WITH_GA4_ID and REPLACE_WITH_GSC_VERIFICATION_CODE in ALL *.html files -->
+SNIPPET = """<!-- SEO: Before deploy, replace G-5MY8YQRD74 and REPLACE_WITH_GSC_VERIFICATION_CODE in ALL *.html files -->
 <!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=REPLACE_WITH_GA4_ID"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5MY8YQRD74"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'REPLACE_WITH_GA4_ID');
+  gtag('config', 'G-5MY8YQRD74');
 </script>
 <!-- Google Search Console verification -->
 <meta name="google-site-verification" content="REPLACE_WITH_GSC_VERIFICATION_CODE" />"""
@@ -19,7 +19,7 @@ skipped = []
 
 for html in sorted(root.rglob("*.html")):
     text = html.read_text(encoding="utf-8")
-    if "REPLACE_WITH_GA4_ID" in text:
+    if "G-5MY8YQRD74" in text:
         skipped.append(str(html.relative_to(root)))
         continue
     lines = text.split("\n")
