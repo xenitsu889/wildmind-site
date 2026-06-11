@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Get in touch with Wildmind Solutions. We respond within one business day. Based in Ahmedabad, working with clients across India and the GCC." />
+<meta name="description" content="Get in touch with Wildmind Solutions. AI engineering company based in Ahmedabad, India serving clients across India and the GCC. Reply within one business day." />
 <meta name="theme-color" content="#ffffff" />
+<!-- SEO: Before deploy, replace REPLACE_WITH_GA4_ID and REPLACE_WITH_GSC_VERIFICATION_CODE in ALL *.html files -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=REPLACE_WITH_GA4_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'REPLACE_WITH_GA4_ID');
+</script>
+<!-- Google Search Console verification -->
+<meta name="google-site-verification" content="REPLACE_WITH_GSC_VERIFICATION_CODE" />
 <link rel="canonical" href="https://wildmindai.com/contact.html" />
 <link rel="icon" type="image/png" href="/assets/logos/wildmind_solutions.png" />
 <link rel="apple-touch-icon" href="/assets/logos/wildmind_solutions.png" />
@@ -25,25 +36,48 @@
 <link rel="stylesheet" href="/assets/styles.css" />
 <link rel="stylesheet" href="/assets/responsive.css" />
 <link rel="stylesheet" href="/assets/css/ui-improvements.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">
-  emailjs.init("REPLACE_WITH_EMAILJS_PUBLIC_KEY");
-</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Wildmind Solutions",
   "url": "https://wildmindai.com",
+  "logo": "https://wildmindai.com/assets/logos/wildmind-icon.svg",
+  "image": "https://wildmindai.com/assets/logos/wildmind_solutions.png",
+  "description": "AI-first product engineering company based in Ahmedabad, India. Building production-grade AI platforms and enterprise software for businesses in India and the GCC.",
+  "telephone": "+91-95713-55543",
   "email": "connect@wildmindai.com",
-  "telephone": "+91-92274-28262",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Ahmedabad",
     "addressRegion": "Gujarat",
+    "postalCode": "380001",
     "addressCountry": "IN"
   },
-  "openingHours": "Mo-Sa 10:00-19:00"
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "23.0225",
+    "longitude": "72.5714"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday","Tuesday","Wednesday",
+      "Thursday","Friday","Saturday"
+    ],
+    "opens": "10:00",
+    "closes": "19:00"
+  },
+  "areaServed": [
+    {"@type": "Country", "name": "India"},
+    {"@type": "Country", "name": "United Arab Emirates"},
+    {"@type": "Country", "name": "Saudi Arabia"},
+    {"@type": "Country", "name": "Bahrain"},
+    {"@type": "Country", "name": "Qatar"}
+  ],
+  "sameAs": [],
+  "priceRange": "$$"
 }
 </script>
 <script type="application/ld+json">
@@ -193,6 +227,8 @@
 <script src="/assets/partials.js"></script>
 <script src="/assets/main.js"></script>
 <script>
+emailjs.init("REPLACE_WITH_EMAILJS_PUBLIC_KEY");
+
 document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
 
