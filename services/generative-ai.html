@@ -220,6 +220,48 @@
         <span class="wf-leg"><span class="wf-leg-dot" style="background:#22c55e"></span>done</span>
       </div>
     </div>
+    <div class="wf-mobile-fallback">
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid #1a1a1a;background:rgba(14,14,14,0.92)">
+        <span class="wf-pulse"></span>
+        <span style="font-size:10px;letter-spacing:.12em;color:#3a3a3a;font-weight:600">REASONING TRACE</span>
+      </div>
+      <div style="padding:16px;display:flex;flex-direction:column;gap:0">
+        <div class="mob-step">
+          <i class="ti ti-message-circle" aria-hidden="true"></i>
+          <span>User Request</span>
+        </div>
+        <div class="mob-arrow">↓</div>
+        <div class="mob-step active-step">
+          <i class="ti ti-cpu" aria-hidden="true"></i>
+          <span>Orchestrator</span>
+        </div>
+        <div class="mob-arrow">↓</div>
+        <div class="mob-step">
+          <i class="ti ti-search" aria-hidden="true"></i>
+          <span>Research Agents (×3)</span>
+        </div>
+        <div class="mob-arrow">↓</div>
+        <div class="mob-step purple-step">
+          <i class="ti ti-database" aria-hidden="true"></i>
+          <span>Memory + RAG + Validation</span>
+        </div>
+        <div class="mob-arrow">↓</div>
+        <div class="mob-step amber-step">
+          <i class="ti ti-user-check" aria-hidden="true"></i>
+          <span>Human Approval</span>
+        </div>
+        <div class="mob-arrow">↓</div>
+        <div class="mob-step">
+          <i class="ti ti-wand" aria-hidden="true"></i>
+          <span>Synthesis</span>
+        </div>
+        <div class="mob-arrow">↓</div>
+        <div class="mob-step green-step">
+          <i class="ti ti-circle-check" aria-hidden="true"></i>
+          <span>Output Delivered</span>
+        </div>
+      </div>
+    </div>
 </div>
 </section>
 

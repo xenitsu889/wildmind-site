@@ -54,6 +54,36 @@
         toggle.focus();
       }
     });
+
+    drawer.querySelectorAll('.mobile-nav-accordion-trigger').forEach(function (trigger) {
+      trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+    });
+  }
+
+  function initMobileNavActive() {
+    var drawer = document.getElementById('mobile-drawer');
+    if (!drawer) return;
+
+    var path = window.location.pathname;
+    if (path.endsWith('/')) path = path.slice(0, -1) || '/';
+    if (path === '/' || path === '') path = '/index.html';
+
+    drawer.querySelectorAll('.mobile-drawer-nav a[href]').forEach(function (link) {
+      var linkPath;
+      try {
+        linkPath = new URL(link.getAttribute('href'), window.location.origin).pathname;
+      } catch (e) {
+        return;
+      }
+      if (linkPath.endsWith('/')) linkPath = linkPath.slice(0, -1) || '/';
+      if (linkPath === path) {
+        link.classList.add('active');
+        var accordion = link.closest('.mobile-nav-accordion');
+        if (accordion) accordion.open = true;
+      }
+    });
   }
 
   function initFilterTabs() {
@@ -196,6 +226,7 @@
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     initMobileDrawer();
+    initMobileNavActive();
     initFilterTabs();
     initFaq();
     initCapWorkflow();
