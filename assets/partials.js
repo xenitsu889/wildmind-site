@@ -11,6 +11,7 @@
 
   function navMarkup(currentPage) {
     return ''
+      + '<div class="site-chrome">'
       + '<nav class="site-nav" id="nav">'
       + '  <div class="nav-inner">'
       + '    <a href="/index.html" class="brand" aria-label="Wildmind Solutions home">'
@@ -159,7 +160,8 @@
       + '      </button>'
       + '    </div>'
       + '  </div>'
-      + '  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">'
+      + '</nav>'
+      + '<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">'
       + '    <div class="mobile-drawer-overlay" tabindex="-1"></div>'
       + '    <div class="mobile-drawer-panel" role="dialog" aria-label="Site navigation">'
       + '      <div class="mobile-drawer-head">'
@@ -205,7 +207,7 @@
       + '      </nav>'
       + '    </div>'
       + '  </div>'
-      + '</nav>';
+      + '</div>';
   }
 
   function footerMarkup() {

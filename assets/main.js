@@ -22,6 +22,11 @@
     var overlay = document.querySelector('.mobile-drawer-overlay');
     if (!drawer || !toggle) return;
 
+    /* backdrop-filter on nav creates a containing block — drawer must not live inside nav */
+    if (drawer.closest('nav.site-nav')) {
+      document.body.appendChild(drawer);
+    }
+
     function openDrawer() {
       drawer.classList.add('is-open');
       drawer.setAttribute('aria-hidden', 'false');
@@ -238,9 +243,47 @@
 
     var played = false;
     var reduceMotion = false;
+    var CAP_WF_DESIGN_W = 380;
+    var CAP_WF_DESIGN_H = 260;
     try {
       reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     } catch (e) {}
+
+    function syncCapWfScale() {
+      var stage = canvas.querySelector('.cap-wf-stage');
+      var providers = canvas.querySelector('.cap-wf-providers');
+      if (!stage) return;
+
+      var availableW = canvas.clientWidth;
+      var availableH = canvas.clientHeight;
+      if (availableW <= 0) return;
+
+      var scale = Math.min(1, availableW / CAP_WF_DESIGN_W);
+      var chipZone = providers ? providers.offsetHeight + 24 : 60;
+      chipZone = Math.max(56, chipZone);
+      canvas.style.setProperty('--cap-wf-chip-zone', chipZone + 'px');
+
+      var scaledH = CAP_WF_DESIGN_H * scale;
+      var drawableH = Math.max(0, availableH - chipZone);
+      var lift = chipZone / 2;
+      if (scaledH > drawableH * 0.9) {
+        lift = Math.min(chipZone * 0.65, 40);
+      }
+
+      if (scale < 1) {
+        stage.style.width = CAP_WF_DESIGN_W + 'px';
+        stage.style.height = CAP_WF_DESIGN_H + 'px';
+        stage.style.transform = 'translate(-50%, calc(-50% - ' + lift + 'px)) scale(' + scale + ')';
+      } else if (lift > 0 && availableH < 420) {
+        stage.style.width = '';
+        stage.style.height = '';
+        stage.style.transform = 'translate(-50%, calc(-50% - ' + lift + 'px))';
+      } else {
+        stage.style.width = '';
+        stage.style.height = '';
+        stage.style.transform = '';
+      }
+    }
 
     function portPos(boxId, side) {
       var box = document.getElementById(boxId);
@@ -296,6 +339,7 @@
     }
 
     function redrawLines() {
+      syncCapWfScale();
       var svg = document.getElementById('capWfSvg');
       if (!svg) return;
       svg.setAttribute('width', canvas.offsetWidth);
@@ -377,6 +421,23 @@
       }, t);
     }
 
+    syncCapWfScale();
+
+    if ('ResizeObserver' in window) {
+      var scaleObs = new ResizeObserver(function () {
+        syncCapWfScale();
+        if (played) redrawLines();
+      });
+      scaleObs.observe(canvas);
+      var providersEl = canvas.querySelector('.cap-wf-providers');
+      if (providersEl) scaleObs.observe(providersEl);
+    }
+
+    requestAnimationFrame(function () {
+      syncCapWfScale();
+      if (played) redrawLines();
+    });
+
     var featured = canvas.closest('.cap-featured');
     if ('IntersectionObserver' in window && featured) {
       var obs = new IntersectionObserver(function (entries) {
@@ -393,6 +454,7 @@
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function () {
+        syncCapWfScale();
         if (played) redrawLines();
       }, 100);
     });
@@ -402,6 +464,7 @@
       var themeObs = new MutationObserver(function () {
         clearTimeout(themeTimer);
         themeTimer = setTimeout(function () {
+          syncCapWfScale();
           if (played) redrawLines();
         }, 50);
       });

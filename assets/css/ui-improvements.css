@@ -2252,6 +2252,9 @@ html:not([data-theme="dark"]) .wf-canvas {
 }
 
 .cap-wf-canvas {
+  --cap-wf-chip-zone: 60px;
+  box-sizing: border-box;
+  padding-bottom: var(--cap-wf-chip-zone);
   --wf-bg: #0e0e0e;
   --wf-border: #1a1a1a;
   --wf-dot: #242424;
@@ -2309,9 +2312,10 @@ html:not([data-theme="dark"]) .wf-canvas {
   top: calc(50% - 22px);
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(380px, 88%);
+  width: 380px;
   height: 260px;
   z-index: 2;
+  transform-origin: center center;
 }
 
 .cap-wf-canvas .wf-box {
@@ -2335,17 +2339,21 @@ html:not([data-theme="dark"]) .wf-canvas {
 
 .cap-wf-providers {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   justify-content: center;
+  padding-top: 8px;
+  background: linear-gradient(to top, var(--wf-bg) 75%, transparent);
+  pointer-events: none;
 }
 
 .cap-wf-providers span {
+  pointer-events: auto;
   font-family: var(--font-mono);
   font-size: 9px;
   color: var(--wf-provider-text);
@@ -2353,6 +2361,8 @@ html:not([data-theme="dark"]) .wf-canvas {
   border: 1px solid var(--wf-provider-border);
   padding: 4px 10px;
   border-radius: 99px;
+  position: relative;
+  z-index: 1;
 }
 
 html:not([data-theme="dark"]) .cap-wf-canvas {
@@ -3230,6 +3240,24 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
     pointer-events: none !important;
     visibility: hidden !important;
   }
+
+  /* styles.css line ~3269 forces 2-col why-manifesto — restore intended stack ≤900px */
+  .why-manifesto {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  .why-anchor {
+    position: static !important;
+  }
+
+  .why-anchor-sub {
+    max-width: 100% !important;
+  }
+
+  .why-principle p {
+    padding-left: 0 !important;
+  }
 }
 
 /* Section 13 — Workflow canvas fallback (desktop) */
@@ -3306,21 +3334,39 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
     display: none !important;
   }
 
+  .nav-actions {
+    gap: 8px !important;
+  }
+
   .theme-toggle {
-    display: none !important;
+    display: flex !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .theme-toggle svg {
+    width: 16px !important;
+    height: 16px !important;
   }
 
   .mobile-drawer {
-    z-index: 999 !important;
+    z-index: 9999 !important;
   }
 
   .mobile-drawer-overlay {
-    background: rgba(0, 0, 0, 0.6) !important;
+    background: rgba(0, 0, 0, 0.85) !important;
   }
 
   .mobile-drawer-panel {
+    left: 0 !important;
+    right: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
+    height: 100% !important;
+    min-height: 100dvh !important;
     background: #0a0a0a !important;
     border-left: none !important;
     box-shadow: none !important;
@@ -3331,6 +3377,28 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
     padding: 0 24px 16px !important;
     margin-bottom: 0 !important;
     border-bottom: 1px solid #111 !important;
+  }
+
+  .mobile-drawer-title {
+    color: #666 !important;
+  }
+
+  .mobile-drawer-close {
+    background: transparent !important;
+    border-color: #333 !important;
+    color: #fff !important;
+  }
+
+  body.drawer-open .hero::before,
+  body.drawer-open .hero::after {
+    opacity: 0 !important;
+  }
+
+  body.drawer-open nav.site-nav {
+    background: #0a0a0a !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom-color: #111 !important;
   }
 
   .mobile-drawer-nav {
@@ -3401,6 +3469,26 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
   }
 
   /* Section 2 — Homepage */
+  /* Hero ambient glow — fade top edge so it does not read as a blue bar under nav */
+  .hero::before {
+    opacity: 0.45 !important;
+    animation: none !important;
+    background: radial-gradient(
+      circle at 50% 72%,
+      color-mix(in srgb, var(--accent) 14%, transparent),
+      transparent 52%
+    ) !important;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
+  }
+
+  .hero::after {
+    opacity: 0.35 !important;
+    animation: none !important;
+    bottom: -40px !important;
+    height: 120px !important;
+  }
+
   .hero h1,
   .hero-heading {
     font-size: clamp(32px, 8vw, 48px) !important;
@@ -3449,6 +3537,8 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
 
   .cap-featured {
     grid-template-columns: 1fr !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
   }
 
   .cap-item h3,
@@ -3456,15 +3546,38 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
     font-size: 18px !important;
   }
 
-  .cap-wf-stage {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 8px !important;
+  .cap-featured-visual {
+    min-height: 340px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    contain: layout paint !important;
+  }
+
+  .cap-wf-canvas {
+    min-height: 340px !important;
+    overflow: hidden !important;
+    contain: layout paint !important;
+    padding-bottom: var(--cap-wf-chip-zone, 64px) !important;
+  }
+
+  .cap-wf-canvas .wf-svg {
+    overflow: visible !important;
+    pointer-events: none !important;
   }
 
   .cap-wf-providers {
     flex-wrap: wrap !important;
-    gap: 6px !important;
+    gap: 5px !important;
+    padding: 10px 10px 8px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    bottom: 6px !important;
+    background: linear-gradient(to top, var(--wf-bg) 85%, transparent) !important;
+  }
+
+  .cap-wf-providers span {
+    font-size: 8px !important;
+    padding: 3px 8px !important;
   }
 
   .project-gallery {
@@ -3528,19 +3641,85 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
   }
 
   .process-step {
-    padding: 20px 0 !important;
-    border-bottom: 1px solid #111 !important;
+    padding: 20px 0 20px 32px !important;
+    border-bottom: 1px solid var(--border) !important;
     border-right: none !important;
   }
 
-  .why-proof {
+  .process-step:first-child {
+    border-top: 1px solid var(--border) !important;
+  }
+
+  .process-steps::before {
+    left: 8px !important;
+    top: 24px !important;
+    bottom: 24px !important;
+  }
+
+  .process-step::before {
+    left: 4px !important;
+    top: 40px !important;
+    width: 9px !important;
+    height: 9px !important;
+    transform: none !important;
+  }
+
+  .process-step:hover::before {
+    transform: none !important;
+  }
+
+  .why-manifesto {
     grid-template-columns: 1fr !important;
-    gap: 0 !important;
+    gap: 32px !important;
+  }
+
+  .why-anchor {
+    position: static !important;
+    top: auto !important;
+  }
+
+  .why-headline {
+    font-size: clamp(28px, 7vw, 40px) !important;
+    line-height: 1.15 !important;
+    margin: 16px 0 18px !important;
+  }
+
+  .why-anchor-sub {
+    max-width: 100% !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .why-proof {
+    width: 100% !important;
   }
 
   .why-principle {
     padding: 20px 0 !important;
-    border-bottom: 1px solid #111 !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+
+  .why-principle:first-child {
+    border-top: 1px solid var(--border) !important;
+  }
+
+  .why-principle-head {
+    gap: 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .why-principle h4 {
+    font-size: 15px !important;
+  }
+
+  .why-principle p {
+    padding-left: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  .why-proof:has(.why-principle:hover) .why-principle:not(:hover) {
+    opacity: 1 !important;
   }
 
   .cta-inner {
@@ -3660,9 +3839,9 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
   }
 
   .process-step-num {
-    width: 24px !important;
-    height: 24px !important;
-    font-size: 11px !important;
+    font-size: 10px !important;
+    width: auto !important;
+    height: auto !important;
   }
 
   .pipeline-flow__track {
