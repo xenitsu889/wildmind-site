@@ -4103,12 +4103,39 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
     font-size: clamp(18px, 5vw, 24px) !important;
   }
 
+  :root {
+    --site-nav-offset: 112px;
+  }
+
   section,
   .section {
     padding-left: 20px !important;
     padding-right: 20px !important;
-    padding-top: 48px !important;
     padding-bottom: 48px !important;
+  }
+
+  section:not(.hero):not(.subhero):not(.error-page):not(.section-pad-zero):not(.cta-section),
+  .section:not(.hero) {
+    padding-top: 48px !important;
+  }
+
+  .hero {
+    padding-top: max(
+      124px,
+      var(--site-nav-offset),
+      calc(80px + env(safe-area-inset-top, 0px))
+    ) !important;
+    padding-bottom: 48px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .subhero,
+  .error-page {
+    padding-top: max(
+      var(--site-nav-offset),
+      calc(80px + env(safe-area-inset-top, 0px))
+    ) !important;
   }
 
   .container,
