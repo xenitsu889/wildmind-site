@@ -9,6 +9,13 @@
     return currentPage === slug ? ' active' : '';
   }
 
+  function brandWordmark() {
+    return '<span class="brand-text">'
+      + '<span class="brand-text__line">WildMind</span>'
+      + '<span class="brand-text__line sub">Solutions</span>'
+      + '</span>';
+  }
+
   function navMarkup(currentPage) {
     return ''
       + '<div class="site-chrome">'
@@ -18,7 +25,7 @@
       + '      <span class="brand-mark">'
       + '        <img class="brand-logo" src="/assets/logos/wildmind_solutions.png" alt="" aria-hidden="true" />'
       + '      </span>'
-      + '      <span class="brand-text">Wildmind <span class="sub">Solutions</span></span>'
+      + '      ' + brandWordmark()
       + '    </a>'
       + '    <div class="nav-links">'
       + '      <div class="nav-dropdown nav-dropdown--services">'
@@ -216,14 +223,14 @@
       + '  <div class="container">'
       + '    <div class="footer-atmosphere">'
       + '      <div>'
-      + '        <span class="footer-kicker">Wildmind Solutions</span>'
+      + '        <span class="footer-kicker">' + brandWordmark() + '</span>'
       + '        <p>AI-first product engineering from Ahmedabad, built for teams moving from idea to production.</p>'
       + '      </div>'
       + '      <a href="/contact.html" class="footer-conversation">Start a conversation <span>-></span></a>'
       + '    </div>'
       + '    <div class="footer-grid">'
       + '      <div class="footer-brand">'
-      + '        <h4>Wildmind <span class="sub">Solutions</span></h4>'
+      + '        <h4>' + brandWordmark() + '</h4>'
       + '        <p>AI-first product engineering. We design, build, and ship intelligent software for businesses ready to move fast.</p>'
       + '      </div>'
       + '      <div class="footer-col">'
