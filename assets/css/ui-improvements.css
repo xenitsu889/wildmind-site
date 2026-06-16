@@ -175,30 +175,49 @@ nav.site-nav,
   font-weight: 300;
 }
 
-/* ----- SECTION LABELS (subpages) ----- */
-.section-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-mute);
+/* ----- PILLS (unified section labels) ----- */
+.pill,
+.section-label,
+.hero-category,
+.cap-badge {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  padding: 5px 12px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
   margin-bottom: 12px;
-  display: block;
+}
+
+.pill--accent,
+.hero-category {
+  margin-bottom: 16px;
 }
 
 .subhero .section-head .section-label,
 .section-head .section-label { margin-bottom: 12px; }
 
-/* ----- SERVICE HERO ----- */
-.hero-category {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-mute);
-  display: block;
-  margin-bottom: 16px;
+.subhero > .container > p:not(.hero-proof-line) {
+  max-width: 650px;
 }
 
+.subhero h1 .accent-italic {
+  font-size: 1.06em;
+}
+
+@media (min-width: 768px) {
+  .hero-proof-line {
+    white-space: nowrap;
+  }
+}
+
+/* ----- SERVICE HERO ----- */
 .hero-proof-line {
   font-size: 15px;
   color: var(--accent);
@@ -4064,25 +4083,6 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
   .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
-  }
-
-  .footer-col h5 {
-    font-size: 13px !important;
-    margin-bottom: 12px !important;
-  }
-
-  .footer-col ul li {
-    margin-bottom: 8px !important;
-  }
-
-  .footer-bottom {
-    flex-direction: column !important;
-    gap: 8px !important;
-    text-align: center !important;
-  }
-
-  .footer-brand {
-    text-align: center !important;
   }
 
   .breadcrumb {
