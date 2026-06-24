@@ -235,23 +235,15 @@ nav.site-nav,
 }
 
 .industry-stat-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: #0d0d0d;
-  border: 1px solid #1a1a1a;
-  border-radius: 10px;
-  padding: 24px 32px;
   margin: 28px 0 20px;
-  gap: 0;
+  background: #0d0d0d;
+  border-color: #1a1a1a;
 }
 
 .industry-stat {
   text-align: center;
-  padding: 0 16px;
-  border-right: 1px solid #1a1a1a;
+  border-right-color: #1a1a1a;
 }
-
-.industry-stat:last-child { border-right: none; }
 
 .industry-stat-num {
   font-size: 28px;
@@ -1351,18 +1343,6 @@ nav.site-nav,
 
 /* ----- RESPONSIVE ----- */
 @media (max-width: 900px) {
-  .industry-stat-bar {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .industry-stat {
-    border-right: none;
-    border-bottom: none;
-    padding: 8px 0;
-  }
-
   .pipeline-flow__track {
     flex-direction: column;
     gap: 12px;
@@ -3534,7 +3514,7 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
 
   .hero-stats {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
+    gap: 0 !important;
   }
 
   .marquee-track,
@@ -3615,7 +3595,7 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
 
   .featured-stats {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px !important;
+    gap: 0 !important;
   }
 
   .tech-pill {
@@ -3629,7 +3609,7 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
 
   .impact-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
+    gap: 0 !important;
   }
 
   .stack-layout {
@@ -3879,21 +3859,7 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
     text-align: center !important;
   }
 
-  /* Section 4 — Industry pages */
-  .industry-stat-bar {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0 !important;
-  }
-
-  .industry-stat {
-    padding: 14px 12px !important;
-    border-right: none !important;
-    border-bottom: 1px solid #1a1a1a !important;
-  }
-
-  .industry-stat-num {
-    font-size: 22px !important;
-  }
+  /* Section 4 — Industry pages (stat bar mobile handled in styles.css) */
 
   .solution-list,
   .challenge-list {
@@ -4049,7 +4015,7 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
   .about .impact-grid,
   section .impact-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
+    gap: 0 !important;
   }
 
   .subhero h1 {
@@ -4163,15 +4129,6 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
 }
 
 @media (max-width: 479px) {
-  .hero-stats,
-  .featured-stats,
-  .impact-grid,
-  .project-metrics,
-  .industry-stat-bar,
-  .kpi-row {
-    gap: 12px !important;
-  }
-
   .industry-stat-num {
     font-size: 20px !important;
   }
