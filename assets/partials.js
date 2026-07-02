@@ -10,9 +10,13 @@
   }
 
   function brandWordmark() {
+    const solutions = 'Solutions'.split('')
+      .map(function (ch) { return '<span class="brand-text__char">' + ch + '</span>'; })
+      .join('');
     return '<span class="brand-text">'
+      + '<span class="brand-text__anchor" aria-hidden="true">WildMind</span>'
       + '<span class="brand-text__line">WildMind</span>'
-      + '<span class="brand-text__line sub">Solutions</span>'
+      + '<span class="brand-text__line sub">' + solutions + '</span>'
       + '</span>';
   }
 
