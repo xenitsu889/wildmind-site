@@ -32,24 +32,28 @@ function loadEnv(filePath) {
   return env;
 }
 
-const env = loadEnv(envPath);
-const keys = ['EMAILJS_PUBLIC_KEY', 'EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID'];
-const missing = keys.filter(function (key) { return !env[key]; });
+function pick(env, key) {
+  return process.env[key] || env[key] || '';
+}
 
-if (!fs.existsSync(envPath)) {
-  console.warn('No .env file found. Copy .env.example to .env and add your EmailJS keys.');
+const fileEnv = loadEnv(envPath);
+const keys = ['EMAILJS_PUBLIC_KEY', 'EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID'];
+const missing = keys.filter(function (key) { return !pick(fileEnv, key); });
+
+if (!fs.existsSync(envPath) && !keys.some(function (key) { return process.env[key]; })) {
+  console.warn('No .env file or Vercel env vars found. Copy .env.example to .env and add your EmailJS keys.');
 } else if (missing.length) {
-  console.warn('Missing in .env:', missing.join(', '));
+  console.warn('Missing EmailJS config:', missing.join(', '));
 }
 
 const config = {
-  publicKey: env.EMAILJS_PUBLIC_KEY || '',
-  serviceId: env.EMAILJS_SERVICE_ID || '',
-  templateId: env.EMAILJS_TEMPLATE_ID || ''
+  publicKey: pick(fileEnv, 'EMAILJS_PUBLIC_KEY'),
+  serviceId: pick(fileEnv, 'EMAILJS_SERVICE_ID'),
+  templateId: pick(fileEnv, 'EMAILJS_TEMPLATE_ID')
 };
 
 const contents =
-  '/* Auto-generated from .env — do not edit. Run: npm run config */\n'
+  '/* Auto-generated — do not edit. Run: npm run config */\n'
   + 'window.WM_CONTACT_CONFIG = '
   + JSON.stringify(config, null, 2)
   + ';\n';

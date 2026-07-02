@@ -229,9 +229,15 @@
 <script src="/assets/main.js"></script>
 <script src="/assets/contact-config.js"></script>
 <script>
-emailjs.init("REPLACE_WITH_EMAILJS_PUBLIC_KEY");
+(function () {
+  var contactConfig = window.WM_CONTACT_CONFIG || { publicKey: '', serviceId: '', templateId: '' };
 
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+  function initContactForm() {
+    if (typeof emailjs !== 'undefined' && contactConfig.publicKey) {
+      emailjs.init(contactConfig.publicKey);
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
 
   var btn = document.getElementById('submit-btn');
@@ -289,7 +295,15 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     errorMsg.textContent = 'Something went wrong. Please email us directly at connect@wildmindai.com';
     console.error('EmailJS error:', error);
   });
-});
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactForm);
+  } else {
+    initContactForm();
+  }
+})();
 
 function showError(fieldName, message) {
   var field = document.querySelector('[name="' + fieldName + '"]');

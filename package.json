@@ -5,6 +5,7 @@
   "description": "Wildmind Solutions marketing site (static HTML)",
   "scripts": {
     "config": "node scripts/generate-contact-config.js",
+    "build": "npm run config",
     "prestart": "npm run config",
     "predev": "npm run config",
     "start": "serve . -l 3001",
