@@ -42,19 +42,16 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const content = tokenPayload;
   const script = `<script>
 (function () {
-  var content = ${JSON.stringify(content)};
-  function sendMsg(e) {
-    window.opener.postMessage(
-      'authorization:github:success:' + JSON.stringify(content),
-      e.origin
-    );
-    window.removeEventListener('message', sendMsg);
+  var authData = ${JSON.stringify({ token: tokenPayload.access_token, provider: 'github' })};
+  function sendToken(e) {
+    if (e.data !== 'authorizing:github') return;
+    window.opener.postMessage('authorization:github:success:' + JSON.stringify(authData), e.origin);
+    window.removeEventListener('message', sendToken);
+    window.close();
   }
-  window.addEventListener('message', sendMsg, false);
-  window.opener.postMessage('authorizing:github', '*');
+  window.addEventListener('message', sendToken, false);
 })();
 </script>`;
 
