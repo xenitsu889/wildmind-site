@@ -1,362 +1,206 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://solutions.wildmindai.com/index.html</loc>
+    <loc>https://solutions.wildmindai.com/</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/services/generative-ai.html</loc>
+    <loc>https://solutions.wildmindai.com/services/generative-ai</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/services/ai-agents.html</loc>
+    <loc>https://solutions.wildmindai.com/services/ai-agents</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/hire-developers.html</loc>
+    <loc>https://solutions.wildmindai.com/hire-developers</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/locations/dubai.html</loc>
+    <loc>https://solutions.wildmindai.com/locations/dubai</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/locations/uae.html</loc>
+    <loc>https://solutions.wildmindai.com/locations/uae</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/locations/gcc.html</loc>
+    <loc>https://solutions.wildmindai.com/locations/gcc</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/work.html</loc>
+    <loc>https://solutions.wildmindai.com/work</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/services.html</loc>
+    <loc>https://solutions.wildmindai.com/services</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries.html</loc>
+    <loc>https://solutions.wildmindai.com/industries</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/services/enterprise-platforms.html</loc>
+    <loc>https://solutions.wildmindai.com/services/enterprise-platforms</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/services/saas-development.html</loc>
+    <loc>https://solutions.wildmindai.com/services/saas-development</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/services/web-mobile.html</loc>
+    <loc>https://solutions.wildmindai.com/services/web-mobile</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries/real-estate.html</loc>
+    <loc>https://solutions.wildmindai.com/industries/real-estate</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries/manufacturing.html</loc>
+    <loc>https://solutions.wildmindai.com/industries/manufacturing</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries/cultural-heritage.html</loc>
+    <loc>https://solutions.wildmindai.com/industries/cultural-heritage</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries/hospitality.html</loc>
+    <loc>https://solutions.wildmindai.com/industries/hospitality</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries/healthcare.html</loc>
+    <loc>https://solutions.wildmindai.com/industries/healthcare</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries/ecommerce.html</loc>
+    <loc>https://solutions.wildmindai.com/industries/ecommerce</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries/logistics.html</loc>
+    <loc>https://solutions.wildmindai.com/industries/logistics</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries/fintech.html</loc>
+    <loc>https://solutions.wildmindai.com/industries/fintech</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/industries/education.html</loc>
+    <loc>https://solutions.wildmindai.com/industries/education</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/blog/ai-development-company-dubai.html</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/projects/wildmind-ai.html</loc>
+    <loc>https://solutions.wildmindai.com/projects/wildmind-ai</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/projects/aditya-chemicals.html</loc>
+    <loc>https://solutions.wildmindai.com/projects/aditya-chemicals</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/projects/vachanamrut-ai.html</loc>
+    <loc>https://solutions.wildmindai.com/projects/vachanamrut-ai</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/blog/index.html</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/blog/generative-ai-platform-guide.html</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/about.html</loc>
+    <loc>https://solutions.wildmindai.com/about</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/contact.html</loc>
+    <loc>https://solutions.wildmindai.com/contact</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/privacy-policy.html</loc>
+    <loc>https://solutions.wildmindai.com/privacy-policy</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/terms.html</loc>
+    <loc>https://solutions.wildmindai.com/terms</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/services/artificial-intelligence/ai-strategy-consulting.html</loc>
+    <loc>https://solutions.wildmindai.com/blog</loc>
     <lastmod>2026-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solutions.wildmindai.com/blog</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solutions.wildmindai.com/blog</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solutions.wildmindai.com/blog/ai-development-company-dubai</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/services/artificial-intelligence/rag-development.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/artificial-intelligence/data-engineering.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/artificial-intelligence/model-development-training.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/artificial-intelligence/custom-llm-development.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/artificial-intelligence/ai-saas-development.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/artificial-intelligence/ai-application-development.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/artificial-intelligence/computer-vision-engineering.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/cloud-infrastructure/devops-services.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/cloud-infrastructure/devops-automation.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/cloud-infrastructure/cloud-migration-modernization.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/cloud-infrastructure/cloud-maintenance-support.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/cloud-infrastructure/cloud-cost-optimization.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/cloud-infrastructure/mlops-deployment-monitoring.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/digital-transformation/business-analysis.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/digital-transformation/legacy-application-modernization.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/digital-transformation/application-development.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/digital-transformation/technical-architecture-design.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/digital-transformation/poc-prototyping.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/digital-transformation/mvp-development.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/digital-transformation/enterprise-architecture-roadmapping.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/application-development/experience-design.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/application-development/business-intelligence-solutions.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/application-development/compliance-management.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/application-development/quality-assurance.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/iot-edge/iot-strategy-architecture.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/iot-edge/iot-platform-development.html</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/services/iot-edge/device-connectivity-integration.html</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://solutions.wildmindai.com/blog/generative-ai-platform-guide</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

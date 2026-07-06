@@ -5,13 +5,18 @@
   "description": "Wildmind Solutions marketing site (static HTML)",
   "scripts": {
     "config": "node scripts/generate-contact-config.js",
-    "build": "npm run config",
-    "prestart": "npm run config",
-    "predev": "npm run config",
+    "build:blog": "node scripts/build-blog.js",
+    "build": "npm run config && npm run build:blog",
+    "clean-urls": "node scripts/clean-urls.js",
+    "prestart": "npm run config && npm run build:blog",
+    "predev": "npm run config && npm run build:blog",
     "start": "serve . -l 3001",
     "dev": "serve . -l 3001"
   },
   "devDependencies": {
-    "serve": "^14.2.4"
+    "gray-matter": "^4.0.3",
+    "marked": "^18.0.5",
+    "serve": "^14.2.4",
+    "turndown": "^7.2.4"
   }
 }
