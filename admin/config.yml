@@ -1,0 +1,81 @@
+# Wildmind Solutions — Decap CMS
+# Docs: docs/blog-publishing.md
+
+backend:
+  name: github
+  repo: xenitsu889/wildmind-site
+  branch: main
+  base_url: https://solutions.wildmindai.com
+  auth_endpoint: api/auth
+
+media_folder: assets/blog
+public_folder: /assets/blog
+
+publish_mode: editorial_workflow
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize: lower
+
+collections:
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    editor:
+      preview: false
+    fields:
+      - { label: Draft, name: draft, widget: boolean, default: true, hint: "Draft posts are hidden until published (draft: false)." }
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Lowercase letters, numbers, and hyphens only'] }
+      - { label: Description, name: description, widget: text }
+      - { label: Excerpt, name: excerpt, widget: text, required: false, hint: "Short summary for blog cards. Defaults to description if empty." }
+      - { label: Publish date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Last modified, name: dateModified, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+      - { label: Read time, name: readTime, widget: string, default: "5 min read" }
+      - label: Tags
+        name: tags
+        widget: list
+        field: { label: Tag, name: tag, widget: string }
+        default: []
+      - label: Categories
+        name: categories
+        widget: select
+        multiple: true
+        options:
+          - { label: AI Engineering, value: ai-engineering }
+          - { label: Enterprise, value: enterprise }
+          - { label: GCC Market, value: gcc-market }
+      - { label: Card tag line, name: cardTag, widget: string, required: false, hint: "e.g. GCC Market · AI Engineering" }
+      - { label: Cover image, name: coverImage, widget: image, media_folder: assets/blog, public_folder: /assets/blog }
+      - { label: Cover alt text, name: coverAlt, widget: string }
+      - { label: Breadcrumb label, name: breadcrumb, widget: string, required: false }
+      - { label: Hero accent (italic part), name: heroAccent, widget: string, required: false, hint: "e.g. (2026 Guide) — shown in italic in the headline" }
+      - { label: Article section, name: articleSection, widget: string, required: false }
+      - label: SEO keywords
+        name: keywords
+        widget: list
+        field: { label: Keyword, name: keyword, widget: string }
+        required: false
+      - label: Related links
+        name: related
+        widget: list
+        required: false
+        fields:
+          - { label: URL, name: url, widget: string }
+          - { label: Label, name: label, widget: string }
+      - label: Bottom callout
+        name: callout
+        widget: object
+        required: false
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Text, name: text, widget: text }
+          - { label: CTA URL, name: ctaUrl, widget: string }
+          - { label: CTA label, name: ctaLabel, widget: string }
+      - { label: Body, name: body, widget: markdown }
