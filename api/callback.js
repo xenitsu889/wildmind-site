@@ -42,19 +42,55 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const script = `<script>
-(function () {
-  var authData = ${JSON.stringify({ token: tokenPayload.access_token, provider: 'github' })};
-  function sendToken(e) {
-    if (e.data !== 'authorizing:github') return;
-    window.opener.postMessage('authorization:github:success:' + JSON.stringify(authData), e.origin);
-    window.removeEventListener('message', sendToken);
-    window.close();
+  if (!tokenPayload.access_token) {
+    res.status(502).send('GitHub did not return an access token.');
+    return;
   }
-  window.addEventListener('message', sendToken, false);
+
+  const authData = JSON.stringify({
+    token: tokenPayload.access_token,
+    provider: 'github',
+  });
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>Signing in…</title></head>
+<body>
+<p>Completing GitHub sign-in…</p>
+<script>
+(function () {
+  var authData = ${authData};
+  var sent = false;
+
+  function sendToken(origin) {
+    if (sent || !window.opener) return;
+    sent = true;
+    window.opener.postMessage(
+      'authorization:github:success:' + JSON.stringify(authData),
+      origin || '*'
+    );
+    window.removeEventListener('message', onMessage);
+    setTimeout(function () { window.close(); }, 150);
+  }
+
+  function onMessage(e) {
+    if (e.data === 'authorizing:github') {
+      sendToken(e.origin);
+    }
+  }
+
+  window.addEventListener('message', onMessage, false);
+
+  if (window.opener) {
+    window.opener.postMessage('authorizing:github', '*');
+  } else {
+    document.body.textContent = 'Sign-in popup lost its parent window. Close this tab and try again from /admin.';
+  }
 })();
-</script>`;
+</script>
+</body>
+</html>`;
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  res.status(200).send(script);
+  res.status(200).send(html);
 };
