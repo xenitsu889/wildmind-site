@@ -230,6 +230,22 @@
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    var closeBtns = document.querySelectorAll('.dropdown-close-btn');
+    closeBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var wrapper = btn.closest('.nav-dropdown');
+        if (!wrapper) return;
+        wrapper.classList.add('is-force-closed');
+        btn.blur();
+        var clearClosed = function () {
+          wrapper.classList.remove('is-force-closed');
+          wrapper.removeEventListener('mouseleave', clearClosed);
+        };
+        wrapper.addEventListener('mouseleave', clearClosed);
+      });
+    });
+
     initMobileDrawer();
     initMobileNavActive();
     initFilterTabs();

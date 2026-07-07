@@ -292,7 +292,9 @@ nav.site-nav,
     min-width: 640px;
     max-width: min(680px, 90vw);
     width: auto;
-    max-height: none;
+    max-height: calc(100vh - var(--site-nav-offset, 96px) - 8px);
+    display: flex;
+    flex-direction: column;
     background: #0f0f0f;
     border: 1px solid #222;
     border-radius: 12px;
@@ -301,11 +303,26 @@ nav.site-nav,
     overflow: hidden;
   }
 
+  .nav-dropdown--industries .industries-scroll {
+    overflow-y: auto;
+    flex: 1 1 auto;
+  }
+
   .nav-dropdown--industries .industries-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 4px;
     padding: 20px 24px;
+  }
+
+  @media (max-width: 899px) {
+    .nav-dropdown--industries .nav-dropdown-menu.industries-dropdown {
+      min-width: 460px;
+      max-width: 92vw;
+    }
+    .nav-dropdown--industries .industries-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .nav-dropdown--industries .industry-row {
@@ -369,6 +386,7 @@ nav.site-nav,
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .nav-dropdown--services .dropdown-footer {
@@ -410,6 +428,25 @@ nav.site-nav,
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+
+  /* Wide mega-menus are centered under the nav (viewport-fixed) instead of
+     anchored to the trigger, so they never overflow off the right edge
+     regardless of how far the trigger sits from center. */
+  .nav-dropdown--services .nav-dropdown-menu.services-megamenu,
+  .nav-dropdown--industries .nav-dropdown-menu.industries-dropdown {
+    position: fixed;
+    top: calc(var(--site-nav-offset, 96px) - 16px);
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -8px);
+  }
+
+  .nav-dropdown--services:hover .nav-dropdown-menu.services-megamenu,
+  .nav-dropdown--services:focus-within .nav-dropdown-menu.services-megamenu,
+  .nav-dropdown--industries:hover .nav-dropdown-menu.industries-dropdown,
+  .nav-dropdown--industries:focus-within .nav-dropdown-menu.industries-dropdown {
+    transform: translate(-50%, 0);
   }
 
   /* ----- SERVICES DROPDOWN ----- */
@@ -579,6 +616,182 @@ nav.site-nav,
     color: #fff;
     font-weight: 500;
   }
+
+  /* ----- SERVICES MEGA MENU (5 categories) ----- */
+  .nav-dropdown--services .nav-dropdown-menu.services-megamenu {
+    padding: 0;
+    width: 60vw;
+    min-width: 820px;
+    max-width: min(1140px, 94vw);
+    max-height: calc(100vh - var(--site-nav-offset, 96px) - 8px);
+    display: flex;
+    flex-direction: column;
+    background: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+  }
+
+  .services-megamenu .megamenu-scroll {
+    overflow-y: auto;
+    flex: 1 1 auto;
+    padding: 36px 40px 20px;
+  }
+
+  .services-megamenu .megamenu-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+  }
+
+  @media (max-width: 1299px) {
+    .services-megamenu .megamenu-grid {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 30px;
+    }
+    .nav-dropdown--services .nav-dropdown-menu.services-megamenu {
+      width: 74vw;
+      min-width: 620px;
+    }
+  }
+
+  @media (max-width: 899px) {
+    .services-megamenu .megamenu-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .nav-dropdown--services .nav-dropdown-menu.services-megamenu {
+      width: 86vw;
+      min-width: 460px;
+    }
+  }
+
+  .services-megamenu .megamenu-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .services-megamenu .megamenu-col-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2563eb;
+    line-height: 1.4;
+  }
+
+  .services-megamenu .megamenu-col a {
+    display: block;
+    padding: 8px 10px;
+    margin: 0 -10px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #ccc;
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    border-radius: 8px;
+    transition: background 150ms ease, border-color 150ms ease, padding-left 150ms ease, color 150ms ease;
+  }
+
+  .services-megamenu .megamenu-col a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.04);
+    border-left-color: #2563eb;
+    padding-left: 8px;
+  }
+
+  .services-megamenu .megamenu-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(37, 99, 235, 0.12);
+    border-radius: 6px;
+  }
+
+  .services-megamenu .megamenu-icon svg {
+    width: 13px;
+    height: 13px;
+    stroke: #2563eb;
+  }
+
+  .services-megamenu .dropdown-footer {
+    flex-shrink: 0;
+    margin-top: 0;
+    padding: 16px 40px;
+  }
+
+  /* ----- DROPDOWN CLOSE BUTTON (shared: services + industries) ----- */
+  .dropdown-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: none;
+    border-radius: 50%;
+    color: #999;
+    cursor: pointer;
+    transition: background 150ms ease, color 150ms ease;
+    z-index: 2;
+  }
+
+  .dropdown-close-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+  }
+
+  .dropdown-close-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  html:not([data-theme="dark"]) .dropdown-close-btn {
+    background: rgba(0, 0, 0, 0.05);
+    color: #666;
+  }
+
+  html:not([data-theme="dark"]) .dropdown-close-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #000;
+  }
+
+  .nav-dropdown.is-force-closed .nav-dropdown-menu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  html:not([data-theme="dark"]) .nav-dropdown--services .nav-dropdown-menu.services-megamenu {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.16);
+  }
+
+  html:not([data-theme="dark"]) .services-megamenu .megamenu-col a {
+    color: #444;
+  }
+
+  html:not([data-theme="dark"]) .services-megamenu .megamenu-col a:hover {
+    color: #000;
+    background: rgba(37, 99, 235, 0.06);
+  }
+
+  html:not([data-theme="dark"]) .services-megamenu .megamenu-icon {
+    background: rgba(37, 99, 235, 0.08);
+  }
 }
 
 /* Mobile services accordion */
@@ -618,6 +831,19 @@ nav.site-nav,
   flex-direction: column;
   gap: 2px;
   padding: 0 0 12px 12px;
+}
+
+.mobile-nav-group-title {
+  margin: 14px 0 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+.mobile-nav-group-title:first-child {
+  margin-top: 0;
 }
 
 .mobile-nav-sub {
