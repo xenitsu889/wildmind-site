@@ -292,7 +292,7 @@ nav.site-nav,
     min-width: 640px;
     max-width: min(680px, 90vw);
     width: auto;
-    max-height: calc(100vh - var(--site-nav-offset, 96px) - 24px);
+    max-height: calc(100vh - var(--site-nav-offset, 96px) - 8px);
     display: flex;
     flex-direction: column;
     background: #0f0f0f;
@@ -436,7 +436,7 @@ nav.site-nav,
   .nav-dropdown--services .nav-dropdown-menu.services-megamenu,
   .nav-dropdown--industries .nav-dropdown-menu.industries-dropdown {
     position: fixed;
-    top: var(--site-nav-offset, 96px);
+    top: calc(var(--site-nav-offset, 96px) - 16px);
     left: 50%;
     right: auto;
     transform: translate(-50%, -8px);
@@ -623,7 +623,7 @@ nav.site-nav,
     width: 60vw;
     min-width: 820px;
     max-width: min(1140px, 94vw);
-    max-height: calc(100vh - var(--site-nav-offset, 96px) - 24px);
+    max-height: calc(100vh - var(--site-nav-offset, 96px) - 8px);
     display: flex;
     flex-direction: column;
     background: #0f0f0f;
