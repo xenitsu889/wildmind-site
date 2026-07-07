@@ -205,18 +205,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://solutions.wildmindai.com/blog/ai-development-company-dubai</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://solutions.wildmindai.com/blog/generative-ai-platform-guide</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://solutions.wildmindai.com/services/artificial-intelligence/ai-strategy-consulting</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -381,6 +369,30 @@
   <url>
     <loc>https://solutions.wildmindai.com/services/iot-edge/device-connectivity-integration</loc>
     <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://solutions.wildmindai.com/blog</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solutions.wildmindai.com/blog</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solutions.wildmindai.com/blog/ai-development-company-dubai</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://solutions.wildmindai.com/blog/generative-ai-platform-guide</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
