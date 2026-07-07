@@ -1,8 +1,38 @@
-# Publishing blog posts
+# Content publishing (Decap CMS)
 
-Wildmind blog content lives in `content/blog/*.md`. The site build (`npm run build`) generates `blog/*.html`, `blog/index.html`, and updates blog URLs in `sitemap.xml`.
+## What you can edit in `/admin` today
 
-## Option A — Decap CMS (browser editor)
+| Section | Editable in Decap | Updates on site |
+|---------|-------------------|-----------------|
+| **Blog posts** | Yes | `/blog/*` after deploy |
+| **Site settings** | Yes | Footer contact info, tagline, hours (all pages) |
+| **Services, industries, homepage** | Not yet | Still hand-edited HTML |
+| **Case studies** | Not yet | Planned |
+| **Legal pages** | Not yet | Planned |
+
+Wildmind blog content lives in `content/blog/*.md`. Global footer/contact copy lives in `content/settings.yml`. The site build (`npm run build`) generates `assets/site-config.js`, `blog/*.html`, and updates the sitemap.
+
+## Site settings (footer & contact)
+
+1. Open **https://solutions.wildmindai.com/admin** → **Site Settings** → **Global settings**
+2. Edit tagline, email, phone, location, hours
+3. Save → Vercel redeploys → footer updates on every page
+
+Source file: `content/settings.yml`
+
+## Roadmap: whole-site CMS
+
+~30 HTML pages remain hand-authored. Each new section needs a content file + build script (blog pattern).
+
+| Phase | Pages | Effort |
+|-------|-------|--------|
+| **Done** | Blog, site settings | — |
+| **Next** | Privacy policy, terms | Low |
+| **Next** | Case studies (`/projects/*`, `/work`) | Medium |
+| **Later** | Service & industry pages | Medium–high |
+| **Last** | Homepage | High |
+
+## Blog posts
 
 1. Open **https://solutions.wildmindai.com/admin**
 2. Log in with GitHub (you must be a collaborator on `xenitsu889/wildmind-site`)
@@ -72,9 +102,23 @@ npm run dev
 
 Visit `http://localhost:3001/blog` after the build step runs.
 
-## Drafts
+## Drafts and publishing (important)
 
-Posts with `draft: true` are excluded from the build. To preview drafts locally:
+Posts with **`draft: true` are not built** and will not appear on the live site — even after Vercel deploys.
+
+### To publish a new post in Decap
+
+1. Open the post in **https://solutions.wildmindai.com/admin**
+2. Set **Draft** to **off** (`draft: false`)
+3. If using editorial workflow: move the post to **Ready** → click **Publish** (not only Save)
+4. Wait for Vercel to redeploy (~1–2 min)
+5. Your post URL is **`/blog/{slug}`** — e.g. slug `lsej` → `https://solutions.wildmindai.com/blog/lsej` (not the filename)
+
+### Why your “ai-ml” post is missing
+
+The merged file `content/blog/ai-ml.md` currently has `draft: true` in frontmatter, so `npm run build` intentionally skips it. The live blog still shows only the 2 published posts.
+
+To preview drafts locally:
 
 ```bash
 INCLUDE_DRAFTS=1 npm run build:blog

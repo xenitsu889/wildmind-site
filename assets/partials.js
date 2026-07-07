@@ -5,6 +5,18 @@
 // ============================================================
 
 (function () {
+  var SITE_DEFAULTS = {
+    footerTagline: 'AI-first product engineering from Ahmedabad, built for teams moving from idea to production.',
+    footerCtaText: 'Start a conversation',
+    contactEmail: 'connect@wildmindai.com',
+    contactPhone: '+919571355543',
+    contactPhoneDisplay: '+91 95713 55543',
+    location: 'Ahmedabad, Gujarat, India',
+    hours: 'Mon–Sat · 10:00–19:00 IST',
+    footerLocation: 'Ahmedabad, India — Available worldwide'
+  };
+  var SITE_CONFIG = Object.assign({}, SITE_DEFAULTS, (typeof window !== 'undefined' && window.WM_SITE_CONFIG) || {});
+
   function isActive(currentPage, slug) {
     return currentPage === slug ? ' active' : '';
   }
@@ -284,9 +296,9 @@
       + '    <div class="footer-atmosphere">'
       + '      <div>'
       + '        <span class="footer-kicker">' + brandWordmark() + '</span>'
-      + '        <p>AI-first product engineering from Ahmedabad, built for teams moving from idea to production.</p>'
+      + '        <p>' + SITE_CONFIG.footerTagline + '</p>'
       + '      </div>'
-      + '      <a href="/contact" class="footer-conversation">Start a conversation <span>-></span></a>'
+      + '      <a href="/contact" class="footer-conversation">' + SITE_CONFIG.footerCtaText + ' <span>-></span></a>'
       + '    </div>'
       + '    <div class="footer-grid">'
       + '      <div class="footer-col">'
@@ -336,10 +348,10 @@
       + '      <div class="footer-col">'
       + '        <h5>Contact</h5>'
       + '        <ul>'
-      + '          <li><a href="mailto:connect@wildmindai.com">connect@wildmindai.com</a></li>'
-      + '          <li><a href="tel:+919571355543">+91 95713 55543</a></li>'
-      + '          <li><span class="footer-text-item">Ahmedabad, Gujarat, India</span></li>'
-      + '          <li><span class="footer-text-item">Mon–Sat · 10:00–19:00 IST</span></li>'
+      + '          <li><a href="mailto:' + SITE_CONFIG.contactEmail + '">' + SITE_CONFIG.contactEmail + '</a></li>'
+      + '          <li><a href="tel:' + SITE_CONFIG.contactPhone + '">' + SITE_CONFIG.contactPhoneDisplay + '</a></li>'
+      + '          <li><span class="footer-text-item">' + SITE_CONFIG.location + '</span></li>'
+      + '          <li><span class="footer-text-item">' + SITE_CONFIG.hours + '</span></li>'
       + '        </ul>'
       + '      </div>'
       + '    </div>'
@@ -347,7 +359,7 @@
       + '      <div>© <span id="year">2026</span> Wildmind Solutions. All rights reserved. <a href="/privacy-policy">Privacy</a> · <a href="/terms">Terms</a></div>'
       + '      <div class="footer-location">'
       + '        <span class="ping"></span>'
-      + '        Ahmedabad, India · Available worldwide'
+      + '        ' + SITE_CONFIG.footerLocation
       + '      </div>'
       + '    </div>'
       + '  </div>'

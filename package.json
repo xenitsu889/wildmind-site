@@ -5,11 +5,12 @@
   "description": "Wildmind Solutions marketing site (static HTML)",
   "scripts": {
     "config": "node scripts/generate-contact-config.js",
+    "build:site": "node scripts/generate-site-config.js",
     "build:blog": "node scripts/build-blog.js",
-    "build": "npm run config && npm run build:blog",
+    "build": "npm run config && npm run build:blog && npm run build:site",
     "clean-urls": "node scripts/clean-urls.js",
-    "prestart": "npm run config && npm run build:blog",
-    "predev": "npm run config && npm run build:blog",
+    "prestart": "npm run config && npm run build:blog && npm run build:site",
+    "predev": "npm run config && npm run build:blog && npm run build:site",
     "start": "serve . -l 3001",
     "dev": "serve . -l 3001"
   },

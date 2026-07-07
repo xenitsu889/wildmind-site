@@ -19,6 +19,22 @@ slug:
   sanitize: lower
 
 collections:
+  - name: site
+    label: Site Settings
+    files:
+      - label: Global settings
+        name: settings
+        file: content/settings.yml
+        fields:
+          - { label: Footer tagline, name: footerTagline, widget: text }
+          - { label: Footer CTA text, name: footerCtaText, widget: string }
+          - { label: Contact email, name: contactEmail, widget: string }
+          - { label: Contact phone (tel link), name: contactPhone, widget: string, hint: "E.g. +919571355543" }
+          - { label: Contact phone (display), name: contactPhoneDisplay, widget: string, hint: "E.g. +91 95713 55543" }
+          - { label: Location, name: location, widget: string }
+          - { label: Business hours, name: hours, widget: string }
+          - { label: Footer location line, name: footerLocation, widget: string }
+
   - name: blog
     label: Blog Posts
     label_singular: Blog Post

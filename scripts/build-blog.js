@@ -58,7 +58,10 @@ function loadPosts() {
         console.warn('Skipping invalid post:', post.file);
         return false;
       }
-      if (post.data.draft && !INCLUDE_DRAFTS) return false;
+      if (post.data.draft && !INCLUDE_DRAFTS) {
+        console.warn('Skipping draft post (set draft: false to publish):', post.file);
+        return false;
+      }
       return true;
     })
     .sort(function (a, b) {
