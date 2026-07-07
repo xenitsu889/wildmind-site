@@ -102,9 +102,23 @@ npm run dev
 
 Visit `http://localhost:3001/blog` after the build step runs.
 
-## Drafts
+## Drafts and publishing (important)
 
-Posts with `draft: true` are excluded from the build. To preview drafts locally:
+Posts with **`draft: true` are not built** and will not appear on the live site — even after Vercel deploys.
+
+### To publish a new post in Decap
+
+1. Open the post in **https://solutions.wildmindai.com/admin**
+2. Set **Draft** to **off** (`draft: false`)
+3. If using editorial workflow: move the post to **Ready** → click **Publish** (not only Save)
+4. Wait for Vercel to redeploy (~1–2 min)
+5. Your post URL is **`/blog/{slug}`** — e.g. slug `lsej` → `https://solutions.wildmindai.com/blog/lsej` (not the filename)
+
+### Why your “ai-ml” post is missing
+
+The merged file `content/blog/ai-ml.md` currently has `draft: true` in frontmatter, so `npm run build` intentionally skips it. The live blog still shows only the 2 published posts.
+
+To preview drafts locally:
 
 ```bash
 INCLUDE_DRAFTS=1 npm run build:blog
