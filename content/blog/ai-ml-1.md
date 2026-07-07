@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: ai ml
 slug: lsej
 description: fdjka
