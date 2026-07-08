@@ -810,6 +810,31 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   filter: grayscale(0) brightness(1);
 }
 
+/* Blend the solid dark-gray background of the ARG logo */
+.trust-strip .client-logo-item img[src*="1630661315588"] {
+  mix-blend-mode: multiply;
+  filter: grayscale(1) brightness(1.05) invert(1);
+}
+.trust-strip .client-logo-item:hover img[src*="1630661315588"] {
+  filter: grayscale(0) brightness(1) invert(1);
+}
+[data-theme="dark"] .trust-strip .client-logo-item img[src*="1630661315588"] {
+  mix-blend-mode: screen;
+  filter: grayscale(1) brightness(1.05);
+}
+[data-theme="dark"] .trust-strip .client-logo-item:hover img[src*="1630661315588"] {
+  filter: grayscale(0) brightness(1);
+}
+
+/* Blend the white background of the Aditya Chemicals logo on dark theme */
+[data-theme="dark"] .trust-strip .client-logo-item img[src*="aditya-chemicals"] {
+  filter: grayscale(1) brightness(1.05) invert(1);
+  mix-blend-mode: screen;
+}
+[data-theme="dark"] .trust-strip .client-logo-item:hover img[src*="aditya-chemicals"] {
+  filter: grayscale(0) brightness(1) invert(1);
+}
+
 .client-name {
   font-size: 15px;
   font-weight: 600;
@@ -2033,10 +2058,11 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
 /* ----- INDUSTRY HUB GRID ----- */
 .industry-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
 .industry-card {
+  grid-column: span 2;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -2047,10 +2073,24 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   gap: 18px;
   min-height: 240px;
 }
+.industry-card:last-child:nth-child(7) {
+  grid-column: 3 / span 2;
+}
 .industry-card:hover {
   transform: translateY(-3px);
   border-color: var(--border-strong);
   box-shadow: var(--shadow);
+}
+@media (max-width: 900px) {
+  .industry-grid {
+    grid-template-columns: 1fr;
+  }
+  .industry-card {
+    grid-column: auto;
+  }
+  .industry-card:last-child:nth-child(7) {
+    grid-column: auto;
+  }
 }
 .industry-card .ind-icon {
   width: 44px;
@@ -4785,7 +4825,17 @@ body.drawer-open { overflow: hidden; }
 }
 .section-tight-top { padding-top: 20px; }
 .hero-cta-row--static { opacity: 1; animation: none; }
-.section-pad-top { padding-top: 40px; }
+section[id] {
+  scroll-margin-top: var(--site-nav-offset);
+}
+.section-pad-top {
+  padding-top: 80px;
+}
+@media (min-width: 901px) {
+  .section-pad-top {
+    padding-top: 120px;
+  }
+}
 .section-pad-zero { padding-top: 0; }
 .section-pad-story { padding-top: 30px; }
 .form-submit-btn { width: 100%; justify-content: center; margin-top: 8px; }
@@ -4826,11 +4876,13 @@ body.drawer-open { overflow: hidden; }
 .is-filtered-out { display: none !important; }
 
 .service-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   background: var(--bg-elev-1);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 28px;
+  min-height: 240px;
   transition: all 0.2s;
 }
 .service-card:hover {
@@ -4847,7 +4899,24 @@ body.drawer-open { overflow: hidden; }
   color: var(--text-dim);
   font-size: 14.5px;
   line-height: 1.6;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.service-card .service-link {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  text-decoration: none;
+}
+.service-card .service-link .arrow {
+  transition: transform 0.2s;
+}
+.service-card:hover .service-link .arrow {
+  transform: translateX(3px);
 }
 .service-grid {
   display: grid;
@@ -5183,6 +5252,13 @@ body.drawer-open { overflow: hidden; }
   color: #fff;
   border-color: var(--accent);
   box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+}
+
+@media (min-width: 901px) {
+  .contact-info {
+    position: sticky;
+    top: calc(var(--site-nav-offset) + 24px);
+  }
 }
 
 .contact-info h3 {
