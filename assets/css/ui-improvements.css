@@ -4372,3 +4372,59 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
     font-size: 20px !important;
   }
 }
+
+/* ----- DIFFERENTIATORS (checkmark grid) ----- */
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .diff-grid { grid-template-columns: 1fr; }
+}
+
+.diff-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.diff-item svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  padding: 6px;
+  box-sizing: content-box;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 50%;
+}
+
+/* ----- TECHNOLOGIES WE WORK WITH ----- */
+.tech-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 900px) {
+  .tech-category-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .tech-category-grid { grid-template-columns: 1fr; }
+}
+
+.tech-category h4 {
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
