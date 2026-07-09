@@ -17,23 +17,13 @@ categories:
   - ai-engineering
 cardTag: GCC Market · AI Engineering
 coverImage: /assets/BLOGS/BLOG-1.png
-coverAlt: How to Choose an AI Development Company in Dubai — illustrated guide
+coverAlt: How to Choose an AI Development Company in Dubai 2026 guide
 breadcrumb: Dubai AI Guide
 heroAccent: (2026 Guide)
 articleSection: GCC Market
 keywords:
-  - AI development Dubai
-  - AI company UAE
-  - generative AI Dubai
-  - India UAE timezone
-  - enterprise AI
-related:
-  - url: /locations/dubai
-    label: Working with an AI company in Dubai
-  - url: /services/generative-ai
-    label: Our Generative AI capabilities
-  - url: /industries/real-estate
-    label: AI for Real Estate in the GCC
+  - AI Development Company in Dubai
+related: []
 callout:
   title: Evaluating AI partners for a UAE project?
   text: We'll give you an honest assessment of scope, timeline, and fit — no pitch
