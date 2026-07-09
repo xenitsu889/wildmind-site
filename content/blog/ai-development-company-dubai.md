@@ -13,7 +13,6 @@ tags:
   - GCC Market
   - AI Engineering
 categories:
-  - gcc-market
   - ai-engineering
 cardTag: GCC Market · AI Engineering
 coverImage: /assets/BLOGS/BLOG-1.png
