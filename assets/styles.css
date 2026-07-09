@@ -193,16 +193,14 @@ h1, h2, h3, h4, h5 {
   position: relative;
   z-index: 1;
 }
-section { padding: 100px 0; position: relative; }
+section { padding: 60px 0; position: relative; }
+@media (min-width: 901px) {
+  section { padding: 80px 0; position: relative; }
+}
 
-/* Section-specific rhythm — varied density creates pacing */
-#services  { padding: 112px 0 96px; }
-#work      { padding: 96px 0 112px; }
-#tech      { padding: 96px 0; }
-#process   { padding: 80px 0 96px; }
-#why       { padding: 112px 0; }
-.impact-section { padding: 72px 0; }
-.cta-section    { padding: 120px 0; }
+/* Section-specific rhythm — uniform spacing */
+.impact-section { padding: 48px 0; }
+.cta-section    { padding: 80px 0; }
 
 /* ── Scroll-triggered reveal animations ── */
 .reveal {
@@ -2997,6 +2995,21 @@ footer.site-footer::before {
   gap: 56px;
   align-items: start;
 }
+.contact-info h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 12px 0 20px;
+}
+.contact-info p {
+  color: var(--text-dim);
+  font-size: 15.5px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.contact-info p:last-child {
+  margin-bottom: 0;
+}
 .contact-info h3 {
   font-size: 18px;
   font-weight: 600;
@@ -4829,11 +4842,11 @@ section[id] {
   scroll-margin-top: var(--site-nav-offset);
 }
 .section-pad-top {
-  padding-top: 80px;
+  padding-top: 40px;
 }
 @media (min-width: 901px) {
   .section-pad-top {
-    padding-top: 120px;
+    padding-top: 48px;
   }
 }
 .section-pad-zero { padding-top: 0; }

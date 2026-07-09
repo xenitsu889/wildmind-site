@@ -310,7 +310,7 @@ nav.site-nav,
 
   .industries-megagrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0 32px;
     padding: 28px 36px 24px;
   }
