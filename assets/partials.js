@@ -32,17 +32,21 @@
       + '</span>';
   }
 
+  function brandMarkup(additionalClass = '') {
+    return '<a href="/" class="brand ' + additionalClass + '" aria-label="Wildmind Solutions home">'
+      + '  <span class="brand-mark">'
+      + '    <img class="brand-logo" src="/assets/logos/wildmind_solutions.png" alt="WildMind Solutions" />'
+      + '  </span>'
+      + '  ' + brandWordmark()
+      + '</a>';
+  }
+
   function navMarkup(currentPage) {
     return ''
       + '<div class="site-chrome">'
       + '<nav class="site-nav" id="nav">'
       + '  <div class="nav-inner">'
-      + '    <a href="/" class="brand" aria-label="Wildmind Solutions home">'
-      + '      <span class="brand-mark">'
-      + '        <img class="brand-logo" src="/assets/logos/wildmind_solutions.png" alt="" aria-hidden="true" />'
-      + '      </span>'
-      + '      ' + brandWordmark()
-      + '    </a>'
+      + '    ' + brandMarkup('header-brand')
       + '    <div class="nav-links">'
       + '      <div class="nav-dropdown nav-dropdown--services">'
       + '        <button class="nav-dropdown-trigger" type="button">Services'
@@ -58,7 +62,7 @@
       + '          <div class="megamenu-grid">'
       + '            <div class="megamenu-col">'
       + '              <p class="megamenu-col-title"><span class="megamenu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></span><span class="megamenu-col-title-text">Artificial Intelligence</span></p>'
-      + '              <a href="/services/artificial-intelligence/ai-strategy-consulting">AI Strategy &amp; Consulting</a>'
+      + '              <a href="/services/artificial-intelligence/ai-consulting-services">AI Strategy &amp; Consulting</a>'
       + '              <a href="/services/artificial-intelligence/rag-development">RAG Development</a>'
       + '              <a href="/services/artificial-intelligence/data-engineering">Data Engineering</a>'
       + '              <a href="/services/artificial-intelligence/model-development-training">Model Development &amp; Training</a>'
@@ -202,7 +206,7 @@
       + '    <div class="mobile-drawer-overlay" tabindex="-1"></div>'
       + '    <div class="mobile-drawer-panel" role="dialog" aria-label="Site navigation">'
       + '      <div class="mobile-drawer-head">'
-      + '        <span class="mobile-drawer-title">Menu</span>'
+      + '        ' + brandMarkup('mobile-drawer-brand')
       + '        <button class="mobile-drawer-close" type="button" aria-label="Close menu">'
       + '          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">'
       + '            <line x1="18" y1="6" x2="6" y2="18"/>'
@@ -215,7 +219,7 @@
       + '          <summary class="mobile-nav-accordion-trigger">Services</summary>'
       + '          <div class="mobile-nav-accordion-panel">'
       + '            <p class="mobile-nav-group-title">Artificial Intelligence</p>'
-      + '            <a href="/services/artificial-intelligence/ai-strategy-consulting" class="mobile-nav-sub">AI Strategy &amp; Consulting</a>'
+      + '            <a href="/services/artificial-intelligence/ai-consulting-services" class="mobile-nav-sub">AI Strategy &amp; Consulting</a>'
       + '            <a href="/services/artificial-intelligence/rag-development" class="mobile-nav-sub">RAG Development</a>'
       + '            <a href="/services/artificial-intelligence/data-engineering" class="mobile-nav-sub">Data Engineering</a>'
       + '            <a href="/services/artificial-intelligence/model-development-training" class="mobile-nav-sub">Model Development &amp; Training</a>'
@@ -284,14 +288,11 @@
     return ''
       + '<footer class="site-footer">'
       + '  <div class="container">'
-      + '    <div class="footer-atmosphere">'
-      + '      <div>'
-      + '        <span class="footer-kicker">' + brandWordmark() + '</span>'
-      + '        <p>' + SITE_CONFIG.footerTagline + '</p>'
-      + '      </div>'
-      + '      <a href="/contact" class="footer-conversation">' + SITE_CONFIG.footerCtaText + ' <span>-></span></a>'
-      + '    </div>'
       + '    <div class="footer-grid">'
+      + '      <div class="footer-col footer-brand">'
+      + '        ' + brandMarkup('footer-brand-logo')
+      + '        <p>AI-first product engineering. Ahmedabad &amp; Dubai.</p>'
+      + '      </div>'
       + '      <div class="footer-col">'
       + '        <h5>Services</h5>'
       + '        <ul>'

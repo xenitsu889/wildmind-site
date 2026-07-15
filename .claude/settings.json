@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(node \"C:/Users/admin/AppData/Local/Temp/claude/e--Wildmind-Site-wildmind-site/715684c5-6e7f-4fe6-8e23-d38818c216f4/scratchpad/logo-audit.js\")",
+      "Bash(node \"C:/Users/admin/AppData/Local/Temp/claude/e--Wildmind-Site-wildmind-site/715684c5-6e7f-4fe6-8e23-d38818c216f4/scratchpad/logo-verify.js\")",
+      "Bash(sort -t: -k1,1)",
+      "Bash(awk -F/ '{print $1}')",
+      "Bash(awk -F: '{print $1}')",
+      "Bash(awk -F'px' '{ if \\($1+0 >= 60\\) print }')",
+      "Bash(awk 'NR<=4337 && /@media/ {line=NR; rule=$0} END {print line\": \"rule}' assets/css/ui-improvements.css)",
+      "Bash(grep -n \"^\\\\.hero {$\\\\|^\\\\.hero{$\\\\|\\\\.hero {\" assets/styles.css)",
+      "Bash(grep -n \"^\\\\.breadcrumb {$\\\\|^\\\\.breadcrumb{$\" assets/styles.css)",
+      "Bash(grep -n \"^\\\\.industry-card {$\\\\|^\\\\.industry-grid {$\\\\|^\\\\.cap-item {$\\\\|^\\\\.cap-grid {$\\\\|^\\\\.stack-layer {$\" assets/styles.css)",
+      "Bash(node \"C:/Users/admin/AppData/Local/Temp/claude/e--Wildmind-Site-wildmind-site/715684c5-6e7f-4fe6-8e23-d38818c216f4/scratchpad/spacing-verify.js\")",
+      "Bash(node \"C:/Users/admin/AppData/Local/Temp/claude/e--Wildmind-Site-wildmind-site/715684c5-6e7f-4fe6-8e23-d38818c216f4/scratchpad/interaction-check.js\")"
+    ]
+  }
+}

@@ -268,10 +268,6 @@
     --container-pad-x: 16px;
   }
 
-  .hero {
-    padding-top: max(108px, calc(100px + env(safe-area-inset-top, 0px)));
-  }
-
   .hero-sub,
   .cap-item p,
   .why-principle p,

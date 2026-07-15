@@ -89,8 +89,8 @@ function renderHeadBlock(options) {
 <!-- Google Search Console verification -->
 <meta name="google-site-verification" content="REPLACE_WITH_GSC_VERIFICATION_CODE" />
 <link rel="canonical" href="${escapeHtml(o.canonical)}" />
-<link rel="icon" type="image/png" href="/assets/logos/logo_dark.png" />
-<link rel="apple-touch-icon" href="/assets/logos/logo_dark.png" />
+<link rel="icon" type="image/png" href="/assets/logos/wildmind_solutions.png" />
+<link rel="apple-touch-icon" href="/assets/logos/wildmind_solutions.png" />
 <meta property="og:type" content="${escapeHtml(o.ogType || 'website')}" />
 <meta property="og:url" content="${escapeHtml(o.canonical)}" />
 <meta property="og:title" content="${escapeHtml(o.ogTitle || o.title)}" />
@@ -369,7 +369,7 @@ function updateSitemap(posts) {
 
   let xml = fs.readFileSync(sitemapPath, 'utf8');
 
-  xml = xml.replace(/\s*<url>\s*<loc>https:\/\/solutions\.wildmindai\.com\/blog\/[^<]+<\/loc>[\s\S]*?<\/url>/g, '');
+  xml = xml.replace(/\s*<url>\s*<loc>https:\/\/solutions\.wildmindai\.com\/blog(?:$|\/[^<]*)<\/loc>[\s\S]*?<\/url>/g, '');
 
   const blogEntries = [];
   const today = new Date().toISOString().slice(0, 10);
