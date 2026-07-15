@@ -361,6 +361,16 @@ ${cards}
 `;
 }
 
+function toSitemapDate(value) {
+  if (!value) return new Date().toISOString().slice(0, 10);
+  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}/.test(value)) {
+    return value.slice(0, 10);
+  }
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
+  return d.toISOString().slice(0, 10);
+}
+
 function updateSitemap(posts) {
   if (!fs.existsSync(sitemapPath)) {
     console.warn('sitemap.xml not found, skipping');
@@ -369,10 +379,19 @@ function updateSitemap(posts) {
 
   let xml = fs.readFileSync(sitemapPath, 'utf8');
 
-  xml = xml.replace(/\s*<url>\s*<loc>https:\/\/solutions\.wildmindai\.com\/blog\/[^<]+<\/loc>[\s\S]*?<\/url>/g, '');
+  // Strip leftover git conflict markers (invalid XML)
+  xml = xml.replace(/^<<<<<<<.*$/gm, '');
+  xml = xml.replace(/^=======.*$/gm, '');
+  xml = xml.replace(/^>>>>>>>.*$/gm, '');
+
+  // Remove every /blog and /blog/* entry before rewriting them once
+  xml = xml.replace(
+    /\s*<url>\s*<loc>https:\/\/solutions\.wildmindai\.com\/blog(?:\/[^<]*)?<\/loc>[\s\S]*?<\/url>/g,
+    ''
+  );
 
   const blogEntries = [];
-  const today = new Date().toISOString().slice(0, 10);
+  const today = toSitemapDate();
 
   blogEntries.push(`  <url>
     <loc>${absoluteUrl('/blog')}</loc>
@@ -382,7 +401,7 @@ function updateSitemap(posts) {
   </url>`);
 
   posts.forEach(function (post) {
-    const mod = post.data.dateModified || post.data.date || today;
+    const mod = toSitemapDate(post.data.dateModified || post.data.date || today);
     blogEntries.push(`  <url>
     <loc>${absoluteUrl(postUrl(post.data.slug))}</loc>
     <lastmod>${mod}</lastmod>
@@ -391,7 +410,7 @@ function updateSitemap(posts) {
   </url>`);
   });
 
-  xml = xml.replace('</urlset>', blogEntries.join('\n') + '\n</urlset>');
+  xml = xml.replace(/\s*<\/urlset>\s*$/, '\n' + blogEntries.join('\n') + '\n</urlset>\n');
   fs.writeFileSync(sitemapPath, xml, 'utf8');
   console.log('Updated sitemap.xml with', posts.length + 1, 'blog URLs');
 }
