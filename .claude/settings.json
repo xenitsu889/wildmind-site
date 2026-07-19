@@ -13,7 +13,29 @@
       "Bash(grep -n \"^\\\\.breadcrumb {$\\\\|^\\\\.breadcrumb{$\" assets/styles.css)",
       "Bash(grep -n \"^\\\\.industry-card {$\\\\|^\\\\.industry-grid {$\\\\|^\\\\.cap-item {$\\\\|^\\\\.cap-grid {$\\\\|^\\\\.stack-layer {$\" assets/styles.css)",
       "Bash(node \"C:/Users/admin/AppData/Local/Temp/claude/e--Wildmind-Site-wildmind-site/715684c5-6e7f-4fe6-8e23-d38818c216f4/scratchpad/spacing-verify.js\")",
-      "Bash(node \"C:/Users/admin/AppData/Local/Temp/claude/e--Wildmind-Site-wildmind-site/715684c5-6e7f-4fe6-8e23-d38818c216f4/scratchpad/interaction-check.js\")"
+      "Bash(node \"C:/Users/admin/AppData/Local/Temp/claude/e--Wildmind-Site-wildmind-site/715684c5-6e7f-4fe6-8e23-d38818c216f4/scratchpad/interaction-check.js\")",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(python -m http.server 8813)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:8813/services/artificial-intelligence/data-engineering.html)",
+      "Bash(chromium-cli --help)",
+      "Bash(npm ls *)",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Read(//d//**)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright install chromium)",
+      "Bash(node check_page.js)",
+      "Read(//c/Users/Fluxz/AppData/Local/npm-cache/_npx/**)",
+      "Bash(npm config *)",
+      "Bash(NODE_PATH=\"/c/Users/Fluxz/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules\" node check_page.js)",
+      "Bash(NODE_PATH=\"/c/Users/Fluxz/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules\" node inspect.js)",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"static_server.js\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:8813/services/artificial-intelligence/rag-development.html)",
+      "Bash(awk 'NR<=290 && /@media/{line=NR\": \"$0} END{}' assets/responsive.css)",
+      "Bash(awk -F: '$1<290')",
+      "Bash(NODE_PATH=\"/c/Users/Fluxz/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules\" node check_footer.js)",
+      "Bash(NODE_PATH=\"/c/Users/Fluxz/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules\" node check_footer_dark.js)"
     ]
   }
 }
