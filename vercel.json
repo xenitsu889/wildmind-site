@@ -5,6 +5,155 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services/artificial-intelligence/ai-application-development",
+      "destination": "/services/ai-application-development",
+      "permanent": true
+    },
+    {
+      "source": "/services/artificial-intelligence/ai-consulting-services",
+      "destination": "/services/ai-consulting-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/artificial-intelligence/ai-saas-development",
+      "destination": "/services/ai-saas-development",
+      "permanent": true
+    },
+    {
+      "source": "/services/artificial-intelligence/ai-strategy-consulting",
+      "destination": "/services/ai-strategy-consulting",
+      "permanent": true
+    },
+    {
+      "source": "/services/artificial-intelligence/computer-vision-engineering",
+      "destination": "/services/computer-vision-engineering",
+      "permanent": true
+    },
+    {
+      "source": "/services/artificial-intelligence/custom-llm-development",
+      "destination": "/services/custom-llm-development",
+      "permanent": true
+    },
+    {
+      "source": "/services/artificial-intelligence/data-engineering",
+      "destination": "/services/data-engineering",
+      "permanent": true
+    },
+    {
+      "source": "/services/artificial-intelligence/model-development-training",
+      "destination": "/services/model-development-training",
+      "permanent": true
+    },
+    {
+      "source": "/services/artificial-intelligence/rag-development",
+      "destination": "/services/rag-development",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-infrastructure/cloud-cost-optimization",
+      "destination": "/services/cloud-cost-optimization",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-infrastructure/cloud-maintenance-support",
+      "destination": "/services/cloud-maintenance-support",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-infrastructure/cloud-migration-modernization",
+      "destination": "/services/cloud-migration-modernization",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-infrastructure/devops-automation",
+      "destination": "/services/devops-automation",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-infrastructure/devops-services",
+      "destination": "/services/devops-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/cloud-infrastructure/mlops-deployment-monitoring",
+      "destination": "/services/mlops-deployment-monitoring",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-transformation/application-development",
+      "destination": "/services/application-development",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-transformation/business-analysis",
+      "destination": "/services/business-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-transformation/enterprise-architecture-roadmapping",
+      "destination": "/services/enterprise-architecture-roadmapping",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-transformation/legacy-application-modernization",
+      "destination": "/services/legacy-application-modernization",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-transformation/mvp-development",
+      "destination": "/services/mvp-development",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-transformation/poc-prototyping",
+      "destination": "/services/poc-prototyping",
+      "permanent": true
+    },
+    {
+      "source": "/services/digital-transformation/technical-architecture-design",
+      "destination": "/services/technical-architecture-design",
+      "permanent": true
+    },
+    {
+      "source": "/services/application-development/business-intelligence-solutions",
+      "destination": "/services/business-intelligence-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/services/application-development/compliance-management",
+      "destination": "/services/compliance-management",
+      "permanent": true
+    },
+    {
+      "source": "/services/application-development/experience-design",
+      "destination": "/services/experience-design",
+      "permanent": true
+    },
+    {
+      "source": "/services/application-development/quality-assurance",
+      "destination": "/services/quality-assurance",
+      "permanent": true
+    },
+    {
+      "source": "/services/iot-edge/device-connectivity-integration",
+      "destination": "/services/device-connectivity-integration",
+      "permanent": true
+    },
+    {
+      "source": "/services/iot-edge/iot-platform-development",
+      "destination": "/services/iot-platform-development",
+      "permanent": true
+    },
+    {
+      "source": "/services/iot-edge/iot-strategy-architecture",
+      "destination": "/services/iot-strategy-architecture",
+      "permanent": true
+    }
   ]
 }
