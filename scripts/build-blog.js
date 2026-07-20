@@ -89,8 +89,8 @@ function renderHeadBlock(options) {
 <!-- Google Search Console verification -->
 <meta name="google-site-verification" content="REPLACE_WITH_GSC_VERIFICATION_CODE" />
 <link rel="canonical" href="${escapeHtml(o.canonical)}" />
-<link rel="icon" type="image/png" href="/assets/logos/logo_dark.png" />
-<link rel="apple-touch-icon" href="/assets/logos/logo_dark.png" />
+<link rel="icon" type="image/png" href="/assets/logos/wildmind_solutions.png" />
+<link rel="apple-touch-icon" href="/assets/logos/wildmind_solutions.png" />
 <meta property="og:type" content="${escapeHtml(o.ogType || 'website')}" />
 <meta property="og:url" content="${escapeHtml(o.canonical)}" />
 <meta property="og:title" content="${escapeHtml(o.ogTitle || o.title)}" />
@@ -379,6 +379,7 @@ function updateSitemap(posts) {
 
   let xml = fs.readFileSync(sitemapPath, 'utf8');
 
+<<<<<<< HEAD
   // Strip leftover git conflict markers (invalid XML)
   xml = xml.replace(/^<<<<<<<.*$/gm, '');
   xml = xml.replace(/^=======.*$/gm, '');
@@ -389,6 +390,9 @@ function updateSitemap(posts) {
     /\s*<url>\s*<loc>https:\/\/solutions\.wildmindai\.com\/blog(?:\/[^<]*)?<\/loc>[\s\S]*?<\/url>/g,
     ''
   );
+=======
+  xml = xml.replace(/\s*<url>\s*<loc>https:\/\/solutions\.wildmindai\.com\/blog(?:$|\/[^<]*)<\/loc>[\s\S]*?<\/url>/g, '');
+>>>>>>> fd2834a073f2b0c7a8f7204c3a38e92c3fbed722
 
   const blogEntries = [];
   const today = toSitemapDate();
