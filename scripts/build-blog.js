@@ -146,15 +146,15 @@ function renderPostHtml(post) {
     return `<span class="tag">${escapeHtml(t)}</span>`;
   }).join('\n      ');
 
-function renderH1(d) {
-  const title = d.title || '';
-  const accent = (d.heroAccent || '').trim();
-  if (accent && title.includes(accent)) {
-    const plain = title.replace(accent, '').trim();
-    return `${escapeHtml(plain)} <span class="accent-italic">${escapeHtml(accent)}</span>`;
+  function renderH1(d) {
+    const title = d.title || '';
+    const accent = (d.heroAccent || '').trim();
+    if (accent && title.includes(accent)) {
+      const plain = title.replace(accent, '').trim();
+      return `${escapeHtml(plain)} <span class="accent-italic">${escapeHtml(accent)}</span>`;
+    }
+    return escapeHtml(title);
   }
-  return escapeHtml(title);
-}
 
   const keywordsJson = JSON.stringify(d.keywords || []);
   const breadcrumbName = d.breadcrumb || d.title;
@@ -163,14 +163,14 @@ function renderH1(d) {
 <html lang="en">
 <head>
 ${renderHeadBlock({
-  description: d.description,
-  canonical: canonical,
-  ogType: 'article',
-  ogTitle: d.title,
-  ogImage: absoluteUrl(d.coverImage),
-  pageTitle: d.title + ' — Wildmind Solutions',
-  title: d.title
-})}
+    description: d.description,
+    canonical: canonical,
+    ogType: 'article',
+    ogTitle: d.title,
+    ogImage: absoluteUrl(d.coverImage),
+    pageTitle: d.title + ' — Wildmind Solutions',
+    title: d.title
+  })}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -286,14 +286,14 @@ function renderBlogIndex(posts) {
 <html lang="en">
 <head>
 ${renderHeadBlock({
-  description: description,
-  canonical: canonical,
-  ogType: 'website',
-  ogTitle: 'Blog — Wildmind Solutions',
-  ogImage: absoluteUrl('/assets/logos/wildmind_solutions.png'),
-  pageTitle: 'Blog — Wildmind Solutions',
-  title: 'Blog — Wildmind Solutions'
-})}
+    description: description,
+    canonical: canonical,
+    ogType: 'website',
+    ogTitle: 'Blog — Wildmind Solutions',
+    ogImage: absoluteUrl('/assets/logos/wildmind_solutions.png'),
+    pageTitle: 'Blog — Wildmind Solutions',
+    title: 'Blog — Wildmind Solutions'
+  })}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -379,7 +379,6 @@ function updateSitemap(posts) {
 
   let xml = fs.readFileSync(sitemapPath, 'utf8');
 
-<<<<<<< HEAD
   // Strip leftover git conflict markers (invalid XML)
   xml = xml.replace(/^<<<<<<<.*$/gm, '');
   xml = xml.replace(/^=======.*$/gm, '');
@@ -390,9 +389,6 @@ function updateSitemap(posts) {
     /\s*<url>\s*<loc>https:\/\/solutions\.wildmindai\.com\/blog(?:\/[^<]*)?<\/loc>[\s\S]*?<\/url>/g,
     ''
   );
-=======
-  xml = xml.replace(/\s*<url>\s*<loc>https:\/\/solutions\.wildmindai\.com\/blog(?:$|\/[^<]*)<\/loc>[\s\S]*?<\/url>/g, '');
->>>>>>> fd2834a073f2b0c7a8f7204c3a38e92c3fbed722
 
   const blogEntries = [];
   const today = toSitemapDate();
