@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Custom model development, fine-tuning, and training pipelines built and evaluated against your specific task." />
+<meta name="description" content="Improve LLM accuracy with AI model training services from WildMind AI Solutions. Fine-tuning, evaluation, deployment, and optimization for production AI." />
 <meta name="theme-color" content="#ffffff" />
 <!-- SEO: Replace REPLACE_WITH_GSC_VERIFICATION_CODE before deploy. -->
 <!-- Google tag (gtag.js) -->
@@ -17,26 +17,27 @@
 </script>
 <!-- Google Search Console verification -->
 <meta name="google-site-verification" content="REPLACE_WITH_GSC_VERIFICATION_CODE" />
-<link rel="canonical" href="https://solutions.wildmindai.com/services/model-development-training.html" />
+<link rel="canonical" href="https://solutions.wildmindai.com/services/ai-model-training-services.html" />
 <link rel="icon" type="image/png" href="/assets/logos/wildmind_solutions.png" />
 <link rel="apple-touch-icon" href="/assets/logos/wildmind_solutions.png" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://solutions.wildmindai.com/services/model-development-training.html" />
-<meta property="og:title" content="Model Development & Training | Wildmind Solutions" />
-<meta property="og:description" content="Custom model development, fine-tuning, and training pipelines built and evaluated against your specific task." />
+<meta property="og:url" content="https://solutions.wildmindai.com/services/ai-model-training-services.html" />
+<meta property="og:title" content="Custom AI Model Training Services for Enterprise LLMs | WildMind AI Solutions" />
+<meta property="og:description" content="Improve LLM accuracy with AI model training services from WildMind AI Solutions. Fine-tuning, evaluation, deployment, and optimization for production AI." />
 <meta property="og:image" content="https://solutions.wildmindai.com/assets/logos/wildmind_solutions.png" />
 <meta property="og:site_name" content="Wildmind Solutions" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Model Development & Training | Wildmind Solutions" />
-<meta name="twitter:description" content="Custom model development, fine-tuning, and training pipelines built and evaluated against your specific task." />
+<meta name="twitter:title" content="Custom AI Model Training Services for Enterprise LLMs | WildMind AI Solutions" />
+<meta name="twitter:description" content="Improve LLM accuracy with AI model training services from WildMind AI Solutions. Fine-tuning, evaluation, deployment, and optimization for production AI." />
 <meta name="twitter:image" content="https://solutions.wildmindai.com/assets/logos/wildmind_solutions.png" />
-<title>Model Development & Training | Wildmind Solutions</title>
+<title>Custom AI Model Training Services for Enterprise LLMs | WildMind AI Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/styles.css" />
 <link rel="stylesheet" href="/assets/responsive.css" />
 <link rel="stylesheet" href="/assets/css/ui-improvements.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,7 +46,55 @@
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://solutions.wildmindai.com/index.html" },
     { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://solutions.wildmindai.com/services.html" },
     { "@type": "ListItem", "position": 3, "name": "Artificial Intelligence", "item": "https://solutions.wildmindai.com/services.html#artificial-intelligence" },
-    { "@type": "ListItem", "position": 4, "name": "Model Development & Training", "item": "https://solutions.wildmindai.com/services/model-development-training.html" }
+    { "@type": "ListItem", "position": 4, "name": "Model Development & Training", "item": "https://solutions.wildmindai.com/services/ai-model-training-services.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should we fine-tune or just use RAG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retrieval if the model lacks knowledge. Training if it lacks behaviour, format or vocabulary. Most production systems use both. We benchmark your specific task before recommending either."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who owns the trained model weights?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You do. Adapters, merged weights, training configs and the evaluation harness transfer at delivery under NDA, alongside the dataset and its lineage records."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the trained model does not beat the base model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We tell you and recommend against shipping. The baseline comparison is built into every engagement precisely so that outcome surfaces before deployment, not after."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much training data do we actually need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For format and vocabulary work, 500 to 2,000 curated examples. For meaningful behavioural change, 5,000 to 10,000. Quality beats volume consistently at every scale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you work with our existing MLOps stack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We train on TRL, Unsloth or Axolotl and deploy into whatever registry, serving layer and monitoring you already run rather than introducing a parallel stack."
+      }
+    }
   ]
 }
 </script>
@@ -54,153 +103,500 @@
 
 <div id="nav-slot"></div>
 
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════ -->
 <section class="subhero">
   <div class="container">
     <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-    <ol class="breadcrumb">
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="/services.html">Services</a></li>
-    <li><a href="/services.html#artificial-intelligence">Artificial Intelligence</a></li>
-    <li aria-current="page">Model Development &amp; Training</li>
-    </ol></nav>
-    <span class="pill pill--accent">Artificial Intelligence</span>
-    <h1>Models built and evaluated against your task, <span class="accent-italic">not a leaderboard.</span></h1>
-    <p class="hero-proof-line">Trained, evaluated, and benchmarked before anything ships.</p>
-    <p>A model that wins on a public benchmark can still fail on your actual data. We build and fine-tune models against your specific task, with evaluation criteria that reflect what success actually looks like for your users.</p>
+      <ol class="breadcrumb">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/services.html#artificial-intelligence">Artificial Intelligence</a></li>
+        <li aria-current="page">Model Development &amp; Training</li>
+      </ol>
+    </nav>
+    <span class="pill pill--accent">AI Model Training</span>
+    <h1>AI model training services for custom LLM fine-tuning, <span class="accent-italic">benchmarked before they ship.</span></h1>
+    <p class="hero-proof-line">Every fine-tuned model is measured against its own baseline before deployment.</p>
+    <p>WildMind AI Solutions provides AI model training services that improve the accuracy, reasoning, and task-specific performance of large language models. Using LoRA, QLoRA, DPO, and GRPO, we fine-tune enterprise AI models to automate workflows, improve response quality, and deliver measurable business outcomes.</p>
     <div class="hero-cta-row hero-cta-row--static">
       <a href="/contact.html" class="btn btn-primary">
-        Discuss your model
+        Schedule a consultation
         <span class="arrow">→</span>
       </a>
-      <a href="#capabilities" class="btn btn-secondary">
-        See what's included
+      <a href="/work.html" class="btn btn-secondary">
+        View case studies
       </a>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════════════════
+     WHAT AI MODEL TRAINING ACTUALLY DELIVERS
+     ═══════════════════════════════════════════════════════ -->
+<section class="section-pad-top">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="pill pill--accent">Why it matters</span>
+      <h2>What AI model training actually <span class="serif-italic">delivers.</span></h2>
+      <p>Base models are built for general-purpose tasks, not for your business. AI model training adapts large language models to your domain, terminology, workflows, and quality standards, turning a generic tool into a system that actually understands how you operate.</p>
+    </div>
+    <div class="outcome-list reveal">
+      <div class="outcome-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Deliver more accurate, reliable responses</span>
+      </div>
+      <div class="outcome-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Minimize hallucinations and factual errors</span>
+      </div>
+      <div class="outcome-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Enforce company-specific rules and instructions</span>
+      </div>
+      <div class="outcome-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Automate complex, multi-step workflows</span>
+      </div>
+      <div class="outcome-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Strengthen reasoning and decision quality</span>
+      </div>
+      <div class="outcome-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Cut down on manual review and rework</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TRUSTED BY — CLIENT LOGO MARQUEE
+     ═══════════════════════════════════════════════════════ -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-header">
+      <div class="trust-copy">
+        <div class="trust-label">Trusted by Enterprise Teams for AI Model Training</div>
+      </div>
+    </div>
+  </div>
+  <div class="marquee-track marquee-track--bleed" aria-label="Trusted company logos">
+    <div class="marquee-logos">
+      <div class="marquee-group">
+        <div class="client-logo-item"><img src="/assets/logos/wildmind_ai%2Blogo.png" alt="Wildmind AI logo" width="1336" height="1336" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/logos/aditya-chemicals-in.jpg" alt="Aditya Chemicals logo" width="184" height="50" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/logos/swaminarayal_logo.png" alt="Swaminarayan logo" width="500" height="500" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/Acticon Logo.png" alt="Acticon logo" width="1087" height="313" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/ADK.png" alt="ADK logo" width="2895" height="1294" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/Flocare Logo.png" alt="Flocare logo" width="1037" height="340" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/FLYBIT dynamics logo_01.png" alt="FLYBIT Dynamics logo" width="4629" height="1932" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/11.png" alt="Client logo" width="400" height="300" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/14.png" alt="Client logo" width="400" height="300" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/1630661315588.jfif.jpeg" alt="Client logo" width="200" height="200" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/4.png" alt="Client logo" width="400" height="300" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/9.png" alt="Client logo" width="400" height="300" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/logo.png" alt="Client logo" width="3000" height="2348" loading="lazy" decoding="async" /></div>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <div class="client-logo-item"><img src="/assets/logos/wildmind_ai%2Blogo.png" alt="" role="presentation" width="1336" height="1336" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/logos/aditya-chemicals-in.jpg" alt="" role="presentation" width="184" height="50" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/logos/swaminarayal_logo.png" alt="" role="presentation" width="500" height="500" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/Acticon Logo.png" alt="" role="presentation" width="1087" height="313" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/ADK.png" alt="" role="presentation" width="2895" height="1294" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/Flocare Logo.png" alt="" role="presentation" width="1037" height="340" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/FLYBIT dynamics logo_01.png" alt="" role="presentation" width="4629" height="1932" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/11.png" alt="" role="presentation" width="400" height="300" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/14.png" alt="" role="presentation" width="400" height="300" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/1630661315588.jfif.jpeg" alt="" role="presentation" width="200" height="200" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/4.png" alt="" role="presentation" width="400" height="300" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/9.png" alt="" role="presentation" width="400" height="300" loading="lazy" decoding="async" /></div>
+        <div class="client-logo-item"><img src="/assets/comp/logo.png" alt="" role="presentation" width="3000" height="2348" loading="lazy" decoding="async" /></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CORE CAPABILITIES — 6 CARDS
+     ═══════════════════════════════════════════════════════ -->
 <section id="capabilities" class="section-pad-top">
   <div class="container">
     <div class="section-head reveal">
-      <span class="pill pill--accent">What's included</span>
-      <h2>Models evaluated against <span class="serif-italic">your reality.</span></h2>
+      <span class="pill pill--accent">Core Capabilities</span>
+      <h2>What you get from our <span class="serif-italic">AI model training services.</span></h2>
+      <p>Every AI model training engagement includes the production-ready assets, documentation, and evaluation reports your team needs to confidently deploy and maintain your AI models.</p>
     </div>
     <div class="deliverables-grid reveal">
       <div class="deliverable-item">
-        <h4>Custom Model Training</h4>
-        <p>Training and fine-tuning classification, generation, and prediction models on your own labeled data.</p>
+        <h4>Production-Ready Training Dataset</h4>
+        <p>A curated, cleaned, and validated training dataset built from your business data, including annotation, deduplication, preprocessing, and documentation to ensure consistent model performance.</p>
       </div>
       <div class="deliverable-item">
-        <h4>Transfer Learning &amp; Fine-Tuning</h4>
-        <p>Adapting pretrained foundation models to your domain without training from scratch.</p>
+        <h4>Fine-Tuned AI Model</h4>
+        <p>A production-ready AI model or adapter optimized for your use case using parameter-efficient fine-tuning techniques such as LoRA or QLoRA, with full ownership of the trained assets.</p>
       </div>
       <div class="deliverable-item">
-        <h4>Evaluation &amp; Benchmarking</h4>
-        <p>Task-specific evaluation datasets and metrics, not generic accuracy scores that don't reflect real use.</p>
+        <h4>Benchmark &amp; Evaluation Report</h4>
+        <p>A comprehensive performance report comparing the base model and the trained model across task-specific metrics, including accuracy, reasoning quality, instruction following, and regression testing.</p>
       </div>
       <div class="deliverable-item">
-        <h4>Model Deployment Pipelines</h4>
-        <p>Packaging, versioning, and serving infrastructure that gets a trained model into production reliably.</p>
+        <h4>Reproducible Training Pipeline</h4>
+        <p>A documented training pipeline with version-controlled datasets, hyperparameters, experiment tracking, and configuration files, enabling your team to reproduce or extend future training runs.</p>
+      </div>
+      <div class="deliverable-item">
+        <h4>Deployment &amp; Inference Package</h4>
+        <p>Deployment-ready model adapters, inference configurations, optimization settings, and integration guidance to simplify production deployment across your existing infrastructure.</p>
+      </div>
+      <div class="deliverable-item">
+        <h4>Monitoring &amp; Optimization Plan</h4>
+        <p>A post-deployment monitoring strategy covering model performance, drift detection, retraining recommendations, and ongoing optimization to maintain long-term accuracy.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ═══════════════════════════════════════════════════════
+     MID-PAGE CTA
+     ═══════════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card reveal">
+      <span class="pill pill--accent">Free model assessment</span>
+      <h2>Unsure if your AI model actually needs <span class="accent-italic">fine-tuning?</span></h2>
+      <p>Our AI engineers evaluate your current model, data quality, and performance gaps to recommend the most effective path, whether that's AI model training, parameter-efficient fine-tuning, or another optimization strategy.</p>
+      <a href="/contact.html" class="btn btn-primary">
+        Start your AI model assessment
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     HOW AN AI MODEL TRAINING ENGAGEMENT RUNS — 6-PHASE PROCESS
+     ═══════════════════════════════════════════════════════ -->
+<section id="process">
   <div class="container">
     <div class="section-head reveal">
       <span class="pill pill--accent">How it works</span>
-      <h2>From raw data to a <span class="serif-italic">deployed model.</span></h2>
+      <h2>How an AI model training engagement <span class="serif-italic">actually runs.</span></h2>
+      <p>Every engagement begins with measurable goals and follows a structured process to deliver production-ready AI models with validated performance and long-term scalability.</p>
     </div>
     <div class="process-steps reveal reveal-stagger">
       <div class="process-step">
         <div class="process-step-meta">
           <span class="process-step-num">01</span>
-          <span class="process-step-phase">Discovery</span>
+          <span class="process-step-phase">Baseline</span>
         </div>
-        <h4>Define the task</h4>
-        <p>Define the prediction or generation task, available data, and the metrics that matter for your use case.</p>
+        <h4>Task definition and baseline scoring</h4>
+        <p>We define success metrics and benchmark the base model to establish a measurable baseline before any AI model training begins.</p>
       </div>
       <div class="process-step">
         <div class="process-step-meta">
           <span class="process-step-num">02</span>
-          <span class="process-step-phase">Design</span>
+          <span class="process-step-phase">Data</span>
         </div>
-        <h4>Plan data and architecture</h4>
-        <p>Data preparation plan and model architecture selection matched to your data volume and constraints.</p>
+        <h4>Data audit and preparation</h4>
+        <p>We evaluate your datasets for quality, coverage, and consistency, then prepare clean, structured data for custom AI model training.</p>
       </div>
       <div class="process-step">
         <div class="process-step-meta">
           <span class="process-step-num">03</span>
-          <span class="process-step-phase">Build</span>
+          <span class="process-step-phase">Selection</span>
         </div>
-        <h4>Train and evaluate</h4>
-        <p>Iterative training and evaluation cycles, with results reviewed against your defined success criteria.</p>
+        <h4>Base model selection</h4>
+        <p>We compare leading open-weight models to identify the best fit for your use case, performance goals, and infrastructure.</p>
       </div>
       <div class="process-step">
         <div class="process-step-meta">
           <span class="process-step-num">04</span>
-          <span class="process-step-phase">Launch</span>
+          <span class="process-step-phase">Training</span>
         </div>
-        <h4>Deploy and monitor</h4>
-        <p>Production deployment with ongoing performance monitoring and a retraining plan.</p>
+        <h4>Model training and fine-tuning</h4>
+        <p>Using LoRA, QLoRA, or other efficient techniques, we train and optimize models to improve accuracy while reducing infrastructure costs.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-meta">
+          <span class="process-step-num">05</span>
+          <span class="process-step-phase">Evaluation</span>
+        </div>
+        <h4>Evaluation and validation</h4>
+        <p>Every trained model is tested against held-out datasets and benchmarked to ensure measurable improvements before deployment.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-meta">
+          <span class="process-step-num">06</span>
+          <span class="process-step-phase">Deployment</span>
+        </div>
+        <h4>Deployment and continuous optimization</h4>
+        <p>We deploy your production-ready AI model, monitor performance, and establish a retraining strategy to maintain long-term accuracy and reliability.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ═══════════════════════════════════════════════════════
+     WHY ENTERPRISES CHOOSE WILDMIND — 6 NUMBERED ITEMS
+     ═══════════════════════════════════════════════════════ -->
+<section id="why-us">
   <div class="container">
     <div class="section-head reveal">
-      <span class="pill pill--accent">Deliverables</span>
-      <h2>What you walk away <span class="serif-italic">with.</span></h2>
+      <span class="pill pill--accent">Why WildMind AI Solutions</span>
+      <h2>Why enterprises choose WildMind AI Solutions <span class="serif-italic">for model training.</span></h2>
+      <p>We bring together deep technical expertise, scalable engineering, and battle-tested delivery practices to build AI models that perform in production and deliver measurable business impact.</p>
     </div>
-    <div class="deliverables-grid reveal">
-      <div class="deliverable-item">
-        <h4>Trained &amp; Evaluated Model</h4>
-        <p>A model benchmarked against your defined success criteria, not a generic leaderboard.</p>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h4>Evaluation-first training methodology</h4>
+        <p>Every engagement starts with measurable baselines. We define success metrics before training begins, so improvements are provable, not assumed.</p>
       </div>
-      <div class="deliverable-item">
-        <h4>Training Pipeline</h4>
-        <p>Reproducible training pipeline your team can retrain and iterate on without starting over.</p>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <h4>Parameter-efficient fine-tuning to reduce GPU cost</h4>
+        <p>LoRA, QLoRA, and adapter-based methods let us train on a fraction of the compute, cutting GPU spend without sacrificing model quality.</p>
       </div>
-      <div class="deliverable-item">
-        <h4>Evaluation Report</h4>
-        <p>Documented performance across your test cases, including where the model is weak.</p>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h4>Production-ready MLOps integration</h4>
+        <p>Models ship into your existing registry, serving layer, and monitoring stack — no parallel infrastructure required.</p>
       </div>
-      <div class="deliverable-item">
-        <h4>Deployment Package</h4>
-        <p>Model packaged for production serving, with versioning and rollback built in.</p>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h4>Benchmark-driven model validation</h4>
+        <p>Every trained model is scored against held-out datasets and compared to its baseline. If it doesn't beat the base model, we tell you.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h4>Complete ownership of datasets and weights</h4>
+        <p>Adapters, merged weights, training configs, and evaluation harnesses transfer at delivery. Your IP stays your IP.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h4>Transparent experiment tracking</h4>
+        <p>Full visibility into every training run — hyperparameters, loss curves, evaluation scores, and dataset lineage documented end to end.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ═══════════════════════════════════════════════════════
+     TECHNOLOGIES AND PLATFORMS WE USE
+     ═══════════════════════════════════════════════════════ -->
+<section id="tech">
+  <div class="container">
+    <div class="section-head tech-section-head reveal">
+      <div class="tech-head-left">
+        <span class="eyebrow"><span class="dot"></span> Technology Expertise</span>
+        <h2>Technologies and platforms <span class="serif-italic">we use.</span></h2>
+      </div>
+      <p>The fine-tuning methods, training frameworks, and evaluation tooling behind every AI model training engagement.</p>
+    </div>
+    <div class="tech-grid reveal">
+      <div class="tech-card"><div class="tech-icon"><span class="tech-fallback"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i></span></div><span class="tech-name">LoRA</span></div>
+      <div class="tech-card"><div class="tech-icon"><span class="tech-fallback"><i class="ti ti-cpu" aria-hidden="true"></i></span></div><span class="tech-name">QLoRA</span></div>
+      <div class="tech-card"><div class="tech-icon"><span class="tech-fallback"><i class="ti ti-scale" aria-hidden="true"></i></span></div><span class="tech-name">DPO</span></div>
+      <div class="tech-card"><div class="tech-icon"><span class="tech-fallback"><i class="ti ti-chart-dots" aria-hidden="true"></i></span></div><span class="tech-name">GRPO</span></div>
+      <div class="tech-card"><div class="tech-icon"><span class="tech-fallback"><i class="ti ti-flask" aria-hidden="true"></i></span></div><span class="tech-name">TRL</span></div>
+      <div class="tech-card"><div class="tech-icon"><span class="tech-fallback"><i class="ti ti-bolt" aria-hidden="true"></i></span></div><span class="tech-name">Unsloth</span></div>
+      <div class="tech-card"><div class="tech-icon"><span class="tech-fallback"><i class="ti ti-terminal-2" aria-hidden="true"></i></span></div><span class="tech-name">Axolotl</span></div>
+      <div class="tech-card"><div class="tech-icon"><img src="https://cdn.simpleicons.org/huggingface" alt="" loading="lazy" onerror="techIconFallback(this,'huggingface','HF')" /></div><span class="tech-name">Hugging Face</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CASE STUDIES & BLOG CALLOUTS
+     ═══════════════════════════════════════════════════════ -->
+<!-- CASE STUDIES -->
+<section id="work">
   <div class="container">
     <div class="section-head reveal">
-      <span class="pill pill--accent">Industries we serve</span>
-      <h2>Where custom models <span class="serif-italic">create value.</span></h2>
+      <span class="eyebrow"><span class="dot"></span> Case studies</span>
+      <h2>Things we've built, <span class="serif-italic">live in production.</span></h2>
+      <p>From a full-stack AI platform serving 500+ concurrent users, to an enterprise digital transformation, to a museum-grade AI experience: each project shipped end-to-end by our team.</p>
     </div>
-    <div class="tag-cloud reveal">
-      <a href="/industries/manufacturing.html">Manufacturing</a>
-      <a href="/industries/healthcare.html">Healthcare</a>
-      <a href="/industries/fintech.html">FinTech</a>
-      <a href="/industries/ecommerce.html">E-Commerce</a>
-      <a href="/industries/logistics.html">Logistics</a>
-      <a href="/industries/real-estate.html">Real Estate</a>
+    <div class="project-gallery reveal">
+      <a href="/projects/wildmind-ai.html" class="project-tile project-tile--featured">
+        <div class="project-tile-visual" aria-hidden="true">
+<img src="/assets/projects/wildmindai.png" alt="Wildmind AI generative AI platform dashboard screenshot" class="project-tile-shot" width="1200" height="750" loading="lazy" decoding="async" />
+        </div>
+        <div class="project-tile-copy">
+          <div class="project-tile-meta">
+            <span>Generative AI Platform</span>
+            <span>Live product</span>
+          </div>
+          <h3>Wildmind AI</h3>
+          <p>Multi-model orchestration infrastructure for creative generation.</p>
+          <span class="case-cta">Explore Project <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="/projects/aditya-chemicals.html" class="project-tile project-tile--ops">
+        <div class="project-tile-visual" aria-hidden="true">
+<img src="/assets/projects/aditya_chemicals.png" alt="Aditya Chemicals AC-QMS screenshot" class="project-tile-shot" width="1200" height="750" loading="lazy" decoding="async" />
+        </div>
+        <div class="project-tile-copy">
+          <div class="project-tile-meta">
+            <span>Quality Management</span>
+            <span>Manufacturing</span>
+          </div>
+          <h3>Aditya Chemicals</h3>
+          <p>ICH Q7-compliant AC-QMS for an API manufacturer: enforced SPEC → COA workflow, automatic calculations, and full audit traceability.</p>
+          <span class="case-cta">Explore Project <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <a href="/projects/vachanamrut-ai.html" class="project-tile project-tile--heritage">
+        <div class="project-tile-visual" aria-hidden="true">
+<img src="/assets/projects/vachanamrut.png" alt="Vachanamrut AI museum installation screenshot" class="project-tile-shot" width="1200" height="750" loading="lazy" decoding="async" />
+        </div>
+        <div class="project-tile-copy">
+          <div class="project-tile-meta">
+            <span>Cultural Heritage AI</span>
+            <span>Museum installation</span>
+          </div>
+          <h3>Vachanamrut AI</h3>
+          <p>Conversational sacred-text experience for a live heritage museum.</p>
+          <span class="case-cta">Explore Project <span class="arrow">→</span></span>
+        </div>
+      </a>
+    </div>
+    <p class="services-hire-cta reveal">Want the full story behind each build? <a href="/work.html">View all case studies →</a></p>
+  </div>
+</section>
+
+<!-- BLOGS -->
+<section id="blog">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> From the blog</span>
+      <h2>Notes from <span class="serif-italic">the engineering team.</span></h2>
+    </div>
+    <div class="blog-grid reveal">
+      <a href="/blog/ai-development-company-dubai.html" class="blog-card">
+        <div class="blog-card-visual">
+<img src="/assets/BLOGS/BLOG-1.png" alt="How to choose an AI development company in Dubai" class="blog-card-img" width="2752" height="1536" loading="lazy" decoding="async" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">GCC Market · AI Engineering</span>
+          <h3>How to Choose an AI Development Company in Dubai (2026 Guide)</h3>
+          <p>A practical 2026 guide for Dubai and UAE businesses choosing an AI development partner: what to evaluate, cost comparisons, red flags, and why India-based teams often win.</p>
+          <div class="blog-card-meta">
+            <span>1 Jun 2026</span>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/blog/generative-ai-platform-guide.html" class="blog-card">
+        <div class="blog-card-visual">
+<img src="/assets/BLOGS/BLOG-2.png" alt="What it takes to build a generative AI platform" class="blog-card-img" width="2752" height="1536" loading="lazy" decoding="async" />
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-tag">AI Engineering · Enterprise</span>
+          <h3>What Does It Actually Take to Build a Generative AI Platform?</h3>
+          <p>A technical breakdown of what it takes to build a production generative AI platform: orchestration, billing, async pipelines, infrastructure, and lessons from shipping Wildmind AI.</p>
+          <div class="blog-card-meta">
+            <span>1 Jun 2026</span>
+            <span>9 min read</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <p class="services-hire-cta reveal">Read more from the team <a href="/blog/index.html">Visit the blog →</a></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FAQ SECTION — 5 QUESTIONS
+     ═══════════════════════════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="pill pill--accent">FAQ</span>
+      <h2>Common questions about <span class="serif-italic">AI model training.</span></h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button type="button" class="faq-trigger" aria-expanded="false">
+          Should we fine-tune or just use RAG?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">Retrieval if the model lacks knowledge. Training if it lacks behaviour, format or vocabulary. Most production systems use both. We benchmark your specific task before recommending either.</div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-trigger" aria-expanded="false">
+          Who owns the trained model weights?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">You do. Adapters, merged weights, training configs and the evaluation harness transfer at delivery under NDA, alongside the dataset and its lineage records.</div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-trigger" aria-expanded="false">
+          What if the trained model does not beat the base model?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">We tell you and recommend against shipping. The baseline comparison is built into every engagement precisely so that outcome surfaces before deployment, not after.</div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-trigger" aria-expanded="false">
+          How much training data do we actually need?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">For format and vocabulary work, 500 to 2,000 curated examples. For meaningful behavioural change, 5,000 to 10,000. Quality beats volume consistently at every scale.</div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-trigger" aria-expanded="false">
+          Can you work with our existing MLOps stack?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">Yes. We train on TRL, Unsloth or Axolotl and deploy into whatever registry, serving layer and monitoring you already run rather than introducing a parallel stack.</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════════════════
+     FINAL CTA BANNER
+     ═══════════════════════════════════════════════════════ -->
 <section class="cta-section">
   <div class="container">
     <div class="cta-card reveal">
       <span class="pill pill--accent">Next step</span>
-      <h2>Need a model built for <span class="accent-italic">your actual data?</span></h2>
-      <p>First conversation is free. Describe the task: we'll tell you what's feasible and what a realistic build looks like.</p>
+      <h2>Find out what your AI model <span class="accent-italic">actually needs.</span></h2>
+      <p>Share your model, use case, or performance challenges with WildMind AI Solutions. We'll recommend the right path, fine-tuning, RAG, or another optimization strategy, backed by measurable evaluation.</p>
+      <div class="contact-methods">
+        <a href="mailto:connect@wildmindai.com" class="contact-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          connect@wildmindai.com
+        </a>
+        <a href="tel:+919571355543" class="contact-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 95713 55543
+        </a>
+      </div>
       <a href="/contact.html" class="btn btn-primary">
-        Start a conversation
+        Talk to an AI expert
         <span class="arrow">→</span>
       </a>
     </div>

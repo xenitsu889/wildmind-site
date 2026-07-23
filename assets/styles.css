@@ -325,22 +325,88 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   font-size: 16px;
   letter-spacing: -0.02em;
 }
+.brand:hover .brand-mark {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12),
+              0 4px 16px rgba(37, 99, 235, 0.18);
+  border-color: var(--accent);
+  transform: scale(1.06);
+}
+.brand:hover .brand-logo {
+  opacity: 1;
+  filter: none;
+}
+[data-theme="dark"] .brand:hover .brand-logo {
+  filter: brightness(0) invert(1);
+}
+.brand:hover .brand-text__line:not(.sub) {
+  color: var(--accent);
+}
 .brand-mark {
   height: var(--logo-size);
+  width: var(--logo-size);
   flex-shrink: 0;
-  background: transparent;
-  color: var(--text-inverse);
+  background: var(--bg);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06),
+              0 0 0 1px rgba(37, 99, 235, 0.04);
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1),
+              box-shadow 0.35s cubic-bezier(.4,0,.2,1),
+              border-color 0.3s ease;
+}
+/* Subtle gradient sheen on the mark container */
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, transparent 60%);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Animated shimmer highlight */
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 60%
+  );
+  transform: rotate(0deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.brand:hover .brand-mark::after {
+  opacity: 1;
+  animation: brand-shimmer 1.2s ease forwards;
+}
+@keyframes brand-shimmer {
+  0%   { transform: translateX(-100%) rotate(115deg); }
+  100% { transform: translateX(100%) rotate(115deg); }
 }
 .brand-logo {
   display: block;
-  height: calc(var(--logo-size) * 0.93);
+  height: calc(var(--logo-size) * 0.62);
   width: auto;
   object-fit: contain;
-  filter: none;
   opacity: 0.92;
+  filter: none;
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
 }
 [data-theme="dark"] .brand-logo { filter: brightness(0) invert(1); }
 
@@ -368,6 +434,7 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.25;
+  transition: color 0.25s ease;
 }
 .brand-text__line:not(.sub) {
   grid-row: 1;
@@ -1394,6 +1461,11 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   font-weight: 500;
   min-width: 30px;
   padding-top: 2px;
+}
+.challenge-item .ch-num.ch-bullet {
+  font-size: 20px;
+  color: var(--accent);
+  padding-top: 0;
 }
 .challenge-item h4 {
   font-size: var(--text-card-title);
@@ -3701,6 +3773,30 @@ section[id] {
 }
 .deliverable-item h4 { font-size: var(--text-card-title); font-weight: 600; margin-bottom: 6px; }
 .deliverable-item p { color: var(--text-dim); font-size: 13px; line-height: 1.55; }
+
+.outcome-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3) var(--space-5);
+}
+@media (max-width: 640px) { .outcome-list { grid-template-columns: 1fr; } }
+.outcome-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 14px var(--space-5);
+  background: var(--bg-elev-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform var(--motion-fast) var(--ease-out), border-color var(--motion-fast) var(--ease-out), box-shadow var(--motion-fast) var(--ease-out);
+}
+.outcome-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-lg);
+}
+.outcome-item svg { flex-shrink: 0; color: var(--accent); }
+.outcome-item span { font-size: 14.5px; color: var(--text-dim); font-weight: 500; }
 
 @media (max-width: 1100px) {
   .footer-grid { grid-template-columns: repeat(3, 1fr); }

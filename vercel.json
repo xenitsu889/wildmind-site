@@ -47,7 +47,12 @@
     },
     {
       "source": "/services/artificial-intelligence/model-development-training",
-      "destination": "/services/model-development-training",
+      "destination": "/services/ai-model-training-services",
+      "permanent": true
+    },
+    {
+      "source": "/services/model-development-training",
+      "destination": "/services/ai-model-training-services",
       "permanent": true
     },
     {
