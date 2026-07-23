@@ -2118,6 +2118,7 @@ footer.site-footer::before {
   grid-template-columns: 1.4fr repeat(4, 1fr);
   gap: 40px;
   margin-bottom: 56px;
+  align-items: start;
 }
 .footer-brand h4 {
   font-size: 20px;
@@ -3376,6 +3377,12 @@ section[id] {
 }
 .section-pad-zero { padding-top: 0; }
 .section-pad-story { padding-top: 30px; }
+.section-pad-top-tight { padding-top: 40px; }
+.section-pad-bottom-tight { padding-bottom: 40px; }
+@media (min-width: 901px) {
+  .section-pad-top-tight { padding-top: 48px; }
+  .section-pad-bottom-tight { padding-bottom: 48px; }
+}
 .form-submit-btn { width: 100%; justify-content: center; margin-top: 8px; }
 .form-disclaimer {
   font-size: 12px;

@@ -4601,6 +4601,9 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
   }
 }
 
+.why-grid--3col { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .why-grid--3col { grid-template-columns: 1fr; } }
+
 .why-card {
   background: var(--bg-elev-1);
   border: 1px solid var(--border);
