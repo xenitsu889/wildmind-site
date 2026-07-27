@@ -3566,6 +3566,18 @@ section[id] {
   line-height: 1.7;
 }
 .article-body li { margin-bottom: 8px; font-size: 16px; }
+.article-body a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--accent-border);
+  transition: color var(--motion-fast) var(--ease-out), text-decoration-color var(--motion-fast) var(--ease-out);
+}
+.article-body a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: currentColor;
+}
 
 .tag-cloud {
   display: flex;
