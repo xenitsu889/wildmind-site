@@ -68,7 +68,7 @@
   }
 
   section {
-    padding: var(--section-pad-y) 0;
+    padding: var(--section-pad-y) 0 0;
   }
 
   .container {
