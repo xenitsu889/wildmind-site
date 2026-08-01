@@ -72,50 +72,51 @@ nav.site-nav,
   }
 }
 
-/* ----- HERO AMBIENT GLOW (faster blue drift) ----- */
+/* ----- HERO AMBIENT GLOW (subtle blue drift) ----- */
 .hero::before {
-  opacity: 0.76;
-  animation: heroDriftFast 5s ease-in-out infinite;
+  opacity: 0.42;
+  animation: heroDriftFast 8s ease-in-out infinite;
   background:
-    radial-gradient(circle at var(--hero-x) var(--hero-y), color-mix(in srgb, var(--accent) 16%, transparent), transparent 30%),
-    linear-gradient(115deg, transparent 0%, color-mix(in srgb, var(--accent-soft) 55%, transparent) 48%, transparent 68%);
+    radial-gradient(circle at var(--hero-x) var(--hero-y), color-mix(in srgb, var(--accent) 10%, transparent), transparent 34%),
+    linear-gradient(115deg, transparent 0%, color-mix(in srgb, var(--accent-soft) 28%, transparent) 48%, transparent 68%);
 }
 
 .hero::after {
-  animation: heroGlowFast 4s ease-in-out infinite;
+  animation: heroGlowFast 6s ease-in-out infinite;
+  opacity: 0.3;
 }
 
 @keyframes heroDriftFast {
   0% {
-    opacity: 0.55;
-    transform: translate3d(-20px, 6px, 0);
+    opacity: 0.32;
+    transform: translate3d(-12px, 4px, 0);
   }
 
   33% {
-    opacity: 0.8;
-    transform: translate3d(16px, -20px, 0);
+    opacity: 0.48;
+    transform: translate3d(10px, -12px, 0);
   }
 
   66% {
-    opacity: 0.65;
-    transform: translate3d(20px, -10px, 0);
+    opacity: 0.38;
+    transform: translate3d(12px, -6px, 0);
   }
 
   100% {
-    opacity: 0.55;
-    transform: translate3d(-20px, 6px, 0);
+    opacity: 0.32;
+    transform: translate3d(-12px, 4px, 0);
   }
 }
 
 @keyframes heroGlowFast {
   0%, 100% {
-    opacity: 0.6;
+    opacity: 0.28;
     transform: translateX(-50%) scale(1);
   }
 
   50% {
-    opacity: 0.85;
-    transform: translateX(-50%) scale(1.08);
+    opacity: 0.4;
+    transform: translateX(-50%) scale(1.04);
   }
 }
 
@@ -4427,6 +4428,7 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
     padding-bottom: 48px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    overflow: visible !important;
   }
 
   .subhero,

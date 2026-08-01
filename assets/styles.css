@@ -332,15 +332,16 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   height: var(--logo-size);
   width: var(--logo-size);
   flex-shrink: 0;
-  background: var(--bg-elev-1, var(--bg));
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: none;
+  filter: none;
 }
 .brand-mark::before,
 .brand-mark::after {
@@ -349,18 +350,24 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
 }
 .brand-logo {
   display: block;
-  height: calc(var(--logo-size) * 0.62);
+  height: var(--logo-size);
   width: auto;
   object-fit: contain;
   opacity: 1;
   filter: none;
+  box-shadow: none;
   position: relative;
   z-index: 2;
 }
-/* Keep brand blue in light and dark — no invert / glow / shimmer */
+/* Keep brand blue in light and dark — no invert / glow / tile */
 [data-theme="dark"] .brand-logo,
-.brand:hover .brand-logo {
+.brand:hover .brand-logo,
+[data-theme="dark"] .brand-mark,
+.brand:hover .brand-mark {
   filter: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
 }
 
 
@@ -600,8 +607,9 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
 
 /* ----- HERO ----- */
 .hero {
-  padding: 156px 0 0;
+  padding: 156px 0 56px;
   position: relative;
+  overflow: visible;
 }
 .hero-inner { max-width: 920px; }
 .hero h1 {
@@ -679,9 +687,9 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
 
 /* ----- CLIENT STRIP — Premium redesign ----- */
 .trust-strip {
-  padding: 40px 0 0;
+  padding: 8px 0 0;
   border-bottom: none;
-  background: linear-gradient(to bottom, transparent 0%, var(--bg) 42%, transparent 100%);
+  background: transparent;
   position: relative;
   overflow: hidden;
 }
@@ -2412,13 +2420,14 @@ body::before {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -86px;
+  bottom: 0;
   width: min(760px, 72vw);
-  height: 170px;
+  height: 120px;
   transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, var(--accent-soft), transparent 68%);
-  opacity: 0.65;
+  background: radial-gradient(ellipse at center, var(--accent-soft), transparent 70%);
+  opacity: 0.35;
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero-inner {
@@ -2430,11 +2439,11 @@ body::before {
 }
 
 .hero-proof {
-  margin-top: 76px;
-  display: grid;
-  grid-template-columns: minmax(170px, 0.34fr) 1fr;
-  gap: 42px;
-  align-items: end;
+  margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
   opacity: 0;
   animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
 }
@@ -2442,7 +2451,7 @@ body::before {
 .hero-proof-note {
   border-left: 1px solid var(--border);
   padding-left: 18px;
-  max-width: 220px;
+  max-width: 320px;
 }
 
 .hero-proof-kicker {
@@ -2459,10 +2468,12 @@ body::before {
   font-size: 13px;
   color: var(--text-mute);
   line-height: 1.55;
+  margin: 0;
 }
 
 .hero-stats {
   margin-top: 0;
+  width: 100%;
   opacity: 1;
   animation: none;
 }
@@ -2477,7 +2488,8 @@ body::before {
   align-items: center;
   text-align: center;
   border-top: 1px solid var(--border);
-  padding: 32px 0 4px;
+  padding: 56px 0 12px;
+  margin-top: 8px;
 }
 
 .trust-copy {
@@ -2540,9 +2552,9 @@ body::before {
   }
 
   .hero-proof {
-    grid-template-columns: 1fr;
-    gap: 26px;
-    margin-top: 54px;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 48px;
   }
 
   .hero-proof-note {
@@ -2554,11 +2566,11 @@ body::before {
   }
 
   .trust-strip {
-    padding: 24px 0 0;
+    padding: 32px 0 0;
   }
 
   .trust-header {
-    padding: 24px 0 0;
+    padding: 40px 0 8px;
   }
 
   .trust-copy {
@@ -2602,8 +2614,9 @@ body::before {
 
 .hero {
   --hero-x: 50%;
-  --hero-y: 42%;
+  --hero-y: 28%;
   isolation: isolate;
+  overflow: visible;
 }
 
 .hero::before {
@@ -2613,9 +2626,9 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at var(--hero-x) var(--hero-y), var(--accent-soft), transparent 26%),
-    linear-gradient(115deg, transparent 0%, color-mix(in srgb, var(--accent-soft) 45%, transparent) 48%, transparent 68%);
-  opacity: 0.72;
+    radial-gradient(circle at var(--hero-x) var(--hero-y), var(--accent-soft), transparent 32%),
+    linear-gradient(115deg, transparent 0%, color-mix(in srgb, var(--accent-soft) 28%, transparent) 48%, transparent 68%);
+  opacity: 0.45;
   transform: translate3d(0, 0, 0);
   transition: background-position var(--motion-slow) var(--ease-system), opacity var(--motion-med) ease;
   animation: heroDrift 12s var(--ease-system) infinite alternate;
