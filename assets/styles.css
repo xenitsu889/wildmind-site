@@ -230,10 +230,10 @@ section { padding: 60px 0 0; position: relative; }
 /* Section-specific rhythm — uniform spacing (single source of truth;
    do not redeclare padding on .impact-section/.cta-section elsewhere) */
 .impact-section { padding: 48px 0 0; }
-.cta-section    { padding: 48px 0 0; }
+.cta-section    { padding: 48px 0 64px; }
 @media (min-width: 901px) {
   .impact-section { padding: 72px 0 0; }
-  .cta-section    { padding: 80px 0 0; }
+  .cta-section    { padding: 80px 0 88px; }
 }
 
 /* ── Scroll-triggered reveal animations ── */
@@ -325,19 +325,6 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   font-size: 16px;
   letter-spacing: -0.02em;
 }
-.brand:hover .brand-mark {
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12),
-              0 4px 16px rgba(37, 99, 235, 0.18);
-  border-color: var(--accent);
-  transform: scale(1.06);
-}
-.brand:hover .brand-logo {
-  opacity: 1;
-  filter: none;
-}
-[data-theme="dark"] .brand:hover .brand-logo {
-  filter: brightness(0) invert(1);
-}
 .brand:hover .brand-text__line:not(.sub) {
   color: var(--accent);
 }
@@ -345,70 +332,36 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   height: var(--logo-size);
   width: var(--logo-size);
   flex-shrink: 0;
-  background: var(--bg);
-  border: 1.5px solid var(--border-strong);
+  background: var(--bg-elev-1, var(--bg));
+  border: 1.5px solid var(--border);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06),
-              0 0 0 1px rgba(37, 99, 235, 0.04);
-  transition: transform 0.3s cubic-bezier(.4,0,.2,1),
-              box-shadow 0.35s cubic-bezier(.4,0,.2,1),
-              border-color 0.3s ease;
+  box-shadow: none;
 }
-/* Subtle gradient sheen on the mark container */
-.brand-mark::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, transparent 60%);
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 0;
-}
-/* Animated shimmer highlight */
+.brand-mark::before,
 .brand-mark::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    115deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.15) 50%,
-    transparent 60%
-  );
-  transform: rotate(0deg);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-.brand:hover .brand-mark::after {
-  opacity: 1;
-  animation: brand-shimmer 1.2s ease forwards;
-}
-@keyframes brand-shimmer {
-  0%   { transform: translateX(-100%) rotate(115deg); }
-  100% { transform: translateX(100%) rotate(115deg); }
+  content: none;
+  display: none;
 }
 .brand-logo {
   display: block;
   height: calc(var(--logo-size) * 0.62);
   width: auto;
   object-fit: contain;
-  opacity: 0.92;
+  opacity: 1;
   filter: none;
   position: relative;
   z-index: 2;
-  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease;
 }
-[data-theme="dark"] .brand-logo { filter: brightness(0) invert(1); }
+/* Keep brand blue in light and dark — no invert / glow / shimmer */
+[data-theme="dark"] .brand-logo,
+.brand:hover .brand-logo {
+  filter: none;
+}
 
 
 .brand-text {
@@ -834,7 +787,7 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
   border-radius: 4px;
 }
 
-/* Wildmind AI asset is white-on-black; invert on light theme (same as nav .brand-logo) */
+/* Wildmind AI asset is white-on-black; invert on light theme */
 .trust-strip .client-logo-item img[src*="wildmind_ai"] {
   filter: grayscale(1) brightness(1.05) invert(1);
 }
@@ -2093,9 +2046,14 @@ nav.site-nav.scrolled { border-bottom-color: var(--border); }
 /* ----- FOOTER — Atmospheric ending ----- */
 footer.site-footer {
   border-top: none;
-  padding: 60px 0 40px;
+  padding: 72px 0 40px;
   background: var(--bg);
   position: relative;
+}
+@media (min-width: 901px) {
+  footer.site-footer {
+    padding: 88px 0 48px;
+  }
 }
 /* Subtle gradient fade at top */
 footer.site-footer::before {
@@ -3397,6 +3355,22 @@ section[id] {
 @media (min-width: 901px) {
   .section-pad-top-tight { padding-top: 48px; }
   .section-pad-bottom-tight { padding-bottom: 48px; }
+}
+
+/* Work page: breathe between project cards and CTA divider */
+body[data-page="work"] > .section-pad-zero {
+  padding-bottom: 64px;
+}
+body[data-page="work"] .cta-section {
+  padding-top: 64px;
+}
+@media (min-width: 901px) {
+  body[data-page="work"] > .section-pad-zero {
+    padding-bottom: 88px;
+  }
+  body[data-page="work"] .cta-section {
+    padding-top: 88px;
+  }
 }
 .form-submit-btn { width: 100%; justify-content: center; margin-top: 8px; }
 .form-disclaimer {
