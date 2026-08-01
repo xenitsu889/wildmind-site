@@ -89,8 +89,8 @@ function renderHeadBlock(options) {
 <!-- Google Search Console verification -->
 <meta name="google-site-verification" content="REPLACE_WITH_GSC_VERIFICATION_CODE" />
 <link rel="canonical" href="${escapeHtml(o.canonical)}" />
-<link rel="icon" type="image/png" href="/assets/logos/logo_dark.png" />
-<link rel="apple-touch-icon" href="/assets/logos/logo_dark.png" />
+<link rel="icon" type="image/png" href="/assets/logos/wildmind_solutions.png" />
+<link rel="apple-touch-icon" href="/assets/logos/wildmind_solutions.png" />
 <meta property="og:type" content="${escapeHtml(o.ogType || 'website')}" />
 <meta property="og:url" content="${escapeHtml(o.canonical)}" />
 <meta property="og:title" content="${escapeHtml(o.ogTitle || o.title)}" />
@@ -146,15 +146,15 @@ function renderPostHtml(post) {
     return `<span class="tag">${escapeHtml(t)}</span>`;
   }).join('\n      ');
 
-function renderH1(d) {
-  const title = d.title || '';
-  const accent = (d.heroAccent || '').trim();
-  if (accent && title.includes(accent)) {
-    const plain = title.replace(accent, '').trim();
-    return `${escapeHtml(plain)} <span class="accent-italic">${escapeHtml(accent)}</span>`;
+  function renderH1(d) {
+    const title = d.title || '';
+    const accent = (d.heroAccent || '').trim();
+    if (accent && title.includes(accent)) {
+      const plain = title.replace(accent, '').trim();
+      return `${escapeHtml(plain)} <span class="accent-italic">${escapeHtml(accent)}</span>`;
+    }
+    return escapeHtml(title);
   }
-  return escapeHtml(title);
-}
 
   const keywordsJson = JSON.stringify(d.keywords || []);
   const breadcrumbName = d.breadcrumb || d.title;
@@ -163,14 +163,14 @@ function renderH1(d) {
 <html lang="en">
 <head>
 ${renderHeadBlock({
-  description: d.description,
-  canonical: canonical,
-  ogType: 'article',
-  ogTitle: d.title,
-  ogImage: absoluteUrl(d.coverImage),
-  pageTitle: d.title + ' — Wildmind Solutions',
-  title: d.title
-})}
+    description: d.description,
+    canonical: canonical,
+    ogType: 'article',
+    ogTitle: d.title,
+    ogImage: absoluteUrl(d.coverImage),
+    pageTitle: d.title + ' — Wildmind Solutions',
+    title: d.title
+  })}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -286,14 +286,14 @@ function renderBlogIndex(posts) {
 <html lang="en">
 <head>
 ${renderHeadBlock({
-  description: description,
-  canonical: canonical,
-  ogType: 'website',
-  ogTitle: 'Blog — Wildmind Solutions',
-  ogImage: absoluteUrl('/assets/logos/wildmind_solutions.png'),
-  pageTitle: 'Blog — Wildmind Solutions',
-  title: 'Blog — Wildmind Solutions'
-})}
+    description: description,
+    canonical: canonical,
+    ogType: 'website',
+    ogTitle: 'Blog — Wildmind Solutions',
+    ogImage: absoluteUrl('/assets/logos/wildmind_solutions.png'),
+    pageTitle: 'Blog — Wildmind Solutions',
+    title: 'Blog — Wildmind Solutions'
+  })}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

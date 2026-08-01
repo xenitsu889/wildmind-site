@@ -68,7 +68,7 @@
   }
 
   section {
-    padding: var(--section-pad-y) 0;
+    padding: var(--section-pad-y) 0 0;
   }
 
   .container {
@@ -266,10 +266,6 @@
   :root {
     --section-pad-y: 56px;
     --container-pad-x: 16px;
-  }
-
-  .hero {
-    padding-top: max(108px, calc(100px + env(safe-area-inset-top, 0px)));
   }
 
   .hero-sub,

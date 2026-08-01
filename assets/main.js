@@ -116,6 +116,41 @@
     });
   }
 
+  window.techIconFallback = function (img, slug, letters) {
+    if (!img.dataset.triedJsdelivr) {
+      img.dataset.triedJsdelivr = '1';
+      img.src = 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/' + slug + '.svg';
+      return;
+    }
+    var span = document.createElement('span');
+    span.className = 'tech-fallback';
+    span.textContent = letters;
+    img.replaceWith(span);
+  };
+
+  function initTechExplorer() {
+    document.querySelectorAll('[data-tech-explorer]').forEach(function (explorer) {
+      var tabs = explorer.querySelectorAll('.tech-tab');
+      var panels = explorer.querySelectorAll('.tech-panel');
+      if (!tabs.length || !panels.length) return;
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var target = tab.getAttribute('data-tech-tab');
+          tabs.forEach(function (t) {
+            t.classList.remove('is-active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('is-active');
+          tab.setAttribute('aria-selected', 'true');
+          panels.forEach(function (panel) {
+            panel.classList.toggle('is-active', panel.getAttribute('data-tech-panel') === target);
+          });
+        });
+      });
+    });
+  }
+
   function initFaq() {
     document.querySelectorAll('.faq-item').forEach(function (item) {
       var trigger = item.querySelector('.faq-trigger');
@@ -249,6 +284,7 @@
     initMobileDrawer();
     initMobileNavActive();
     initFilterTabs();
+    initTechExplorer();
     initFaq();
     initCapWorkflow();
   });
