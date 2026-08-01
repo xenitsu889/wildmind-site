@@ -4673,3 +4673,109 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
   line-height: 1.6;
   margin: 0;
 }
+
+/* ----- Unified Accounting: platform logo grid ----- */
+.platform-logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 18px 22px;
+  padding: 18px 20px;
+  margin: 8px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.02);
+}
+
+.platform-logo-strip img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.platform-logo-strip img:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.platform-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 28px;
+  margin-top: 28px;
+}
+
+.platform-logo-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg, #fff);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.platform-logo-card:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.platform-logo-mark {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+}
+
+.platform-logo-mark img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.platform-logo-copy h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.platform-logo-copy p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+[data-theme="dark"] .platform-logo-strip {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .platform-logo-card {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .platform-logo-mark {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .platform-logo-mark img {
+  filter: none;
+}
+
+@media (max-width: 720px) {
+  .platform-logo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
