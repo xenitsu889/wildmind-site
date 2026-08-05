@@ -3834,14 +3834,15 @@ html:not([data-theme="dark"]) .device-card .fake-code-block .comment { color: #9
 
   .marquee-track,
   .marquee-track--bleed {
-    min-height: 48px !important;
-    height: 48px !important;
-    padding: 10px 0 !important;
+    min-height: 72px !important;
+    height: auto !important;
+    padding: 16px 0 !important;
   }
 
   .client-logo-item img {
-    height: 28px !important;
-    max-width: 80px !important;
+    height: auto !important;
+    max-height: 48px !important;
+    max-width: 120px !important;
   }
 
   .cap-grid {

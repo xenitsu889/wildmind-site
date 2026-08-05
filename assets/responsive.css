@@ -241,18 +241,18 @@
   }
 
   .marquee-track--bleed {
-    padding: 18px 0 22px;
-    min-height: 88px;
+    padding: 22px 0 26px;
+    min-height: 100px;
   }
 
   .client-logo-item {
-    width: 148px;
-    height: 60px;
+    width: 168px;
+    height: 72px;
   }
 
   .client-logo-item img {
     max-width: 148px;
-    max-height: 48px;
+    max-height: 56px;
   }
 
   .project-tile,
@@ -349,13 +349,13 @@
   }
 
   .client-logo-item {
-    width: 132px;
-    height: 54px;
+    width: 148px;
+    height: 64px;
   }
 
   .client-logo-item img {
-    max-width: 132px;
-    max-height: 44px;
+    max-width: 140px;
+    max-height: 52px;
   }
 }
 
