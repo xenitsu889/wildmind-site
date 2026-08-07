@@ -139,6 +139,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://solutions.wildmindai.com/projects/unified-accounting</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://solutions.wildmindai.com/projects/partsflow</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://solutions.wildmindai.com/projects/aditya-chemicals</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
